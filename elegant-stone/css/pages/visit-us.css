@@ -32,19 +32,87 @@
   background: var(--color-bg-secondary);
 }
 
-.es-visit-location__map {
-  width: 100%;
-  height: 400px;
+/* ── Location Cards Grid ──────────────────── */
+
+.es-locations-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+}
+
+@media (min-width: 640px) {
+  .es-locations-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .es-locations-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.es-location-card {
+  position: relative;
+  padding: var(--space-6);
   background: var(--color-bg-tertiary);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--color-text-tertiary);
+  text-align: center;
+  transition:
+    border-color var(--duration-short) var(--ease-standard),
+    box-shadow var(--duration-short) var(--ease-standard),
+    transform var(--duration-short) var(--ease-standard);
+}
+
+.es-location-card:hover {
+  border-color: var(--color-border-hover);
+  box-shadow: var(--shadow-glow);
+  transform: translateY(-2px);
+}
+
+.es-location-card__pin {
+  width: 28px;
+  height: 28px;
+  margin: 0 auto var(--space-3);
+  color: var(--color-gold);
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.es-location-card__pin svg {
+  width: 28px;
+  height: 28px;
+  max-width: 28px;
+  max-height: 28px;
+  display: block;
+}
+
+.es-location-card__store {
+  font-family: var(--font-display);
+  font-size: var(--text-title-md);
+  font-weight: 500;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-1);
+}
+
+.es-location-card__mall {
   font-family: var(--font-body);
   font-size: var(--text-body-md);
+  font-weight: 500;
+  color: var(--color-gold);
+  margin-bottom: var(--space-1);
 }
+
+.es-location-card__city {
+  font-family: var(--font-body);
+  font-size: var(--text-body-sm);
+  color: var(--color-text-tertiary);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+}
+
+/* ── Info Blocks ──────────────────────────── */
 
 .es-visit-info {
   display: grid;
@@ -55,7 +123,7 @@
 
 @media (min-width: 768px) {
   .es-visit-info {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
