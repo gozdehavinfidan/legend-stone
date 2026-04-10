@@ -1,0 +1,107 @@
+/* ============================================
+   Elegant Stone — Lightbox
+   ============================================ */
+
+.es-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(10, 10, 8, 0.95);
+  backdrop-filter: blur(12px);
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity var(--duration-medium) var(--ease-standard),
+    visibility var(--duration-medium) var(--ease-standard);
+}
+
+.es-lightbox.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.es-lightbox__image {
+  max-width: 90vw;
+  max-height: 85vh;
+  object-fit: contain;
+  border-radius: var(--radius-sm);
+  transform: scale(0.9);
+  opacity: 0;
+  transition:
+    transform var(--duration-medium) var(--ease-decelerate),
+    opacity var(--duration-medium) var(--ease-decelerate);
+}
+
+.es-lightbox.is-open .es-lightbox__image {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.es-lightbox__close {
+  position: absolute;
+  top: var(--space-6);
+  right: var(--space-6);
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-secondary);
+  border-radius: var(--radius-full);
+  transition:
+    color var(--duration-micro) var(--ease-standard),
+    background-color var(--duration-micro) var(--ease-standard);
+}
+
+.es-lightbox__close:hover {
+  color: var(--color-text-primary);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.es-lightbox__close svg {
+  width: 24px;
+  height: 24px;
+}
+
+.es-lightbox__nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-secondary);
+  border-radius: var(--radius-full);
+  transition:
+    color var(--duration-micro) var(--ease-standard),
+    background-color var(--duration-micro) var(--ease-standard);
+}
+
+.es-lightbox__nav:hover {
+  color: var(--color-text-primary);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.es-lightbox__nav svg {
+  width: 24px;
+  height: 24px;
+}
+
+.es-lightbox__prev { left: var(--space-6); }
+.es-lightbox__next { right: var(--space-6); }
+
+.es-lightbox__counter {
+  position: absolute;
+  bottom: var(--space-6);
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-body);
+  font-size: var(--text-label-lg);
+  color: var(--color-text-tertiary);
+  letter-spacing: var(--tracking-wide);
+}

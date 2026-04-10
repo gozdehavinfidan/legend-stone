@@ -1,0 +1,228 @@
+/* ============================================
+   Elegant Stone — Card Components
+   ============================================ */
+
+/* ── Category Card ────────────────────────── */
+
+.es-category-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  aspect-ratio: 3 / 4;
+  cursor: pointer;
+  group: card;
+}
+
+.es-category-card__image {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.es-category-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--duration-long) var(--ease-standard);
+}
+
+.es-category-card:hover .es-category-card__image img {
+  transform: scale(1.08);
+}
+
+.es-category-card__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    180deg,
+    transparent 30%,
+    rgba(10, 10, 8, 0.3) 50%,
+    rgba(10, 10, 8, 0.85) 100%
+  );
+  transition: background var(--duration-short) var(--ease-standard);
+}
+
+.es-category-card:hover .es-category-card__overlay {
+  background: linear-gradient(
+    180deg,
+    transparent 20%,
+    rgba(10, 10, 8, 0.4) 45%,
+    rgba(10, 10, 8, 0.9) 100%
+  );
+}
+
+.es-category-card__content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  padding: var(--space-6);
+}
+
+.es-category-card__label {
+  font-family: var(--font-body);
+  font-size: var(--text-label-md);
+  font-weight: 500;
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: var(--space-2);
+}
+
+.es-category-card__title {
+  font-family: var(--font-display);
+  font-size: var(--text-headline-sm);
+  font-weight: 400;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-2);
+}
+
+.es-category-card__desc {
+  font-size: var(--text-body-sm);
+  color: var(--color-text-secondary);
+  line-height: var(--leading-normal);
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition:
+    max-height var(--duration-medium) var(--ease-standard),
+    opacity var(--duration-short) var(--ease-standard);
+}
+
+.es-category-card:hover .es-category-card__desc {
+  max-height: 80px;
+  opacity: 1;
+}
+
+.es-category-card__arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+  font-family: var(--font-body);
+  font-size: var(--text-label-lg);
+  font-weight: 500;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-gold);
+  opacity: 0;
+  transform: translateY(8px);
+  transition:
+    opacity var(--duration-short) var(--ease-standard),
+    transform var(--duration-short) var(--ease-standard);
+}
+
+.es-category-card:hover .es-category-card__arrow {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.es-category-card__arrow span {
+  transition: transform var(--duration-micro) var(--ease-standard);
+}
+
+.es-category-card:hover .es-category-card__arrow span {
+  transform: translateX(4px);
+}
+
+/* ── Experience Card (Visit Us page) ──────── */
+
+.es-experience-card {
+  display: flex;
+  gap: var(--space-6);
+  padding: var(--space-8);
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  transition:
+    border-color var(--duration-short) var(--ease-standard),
+    box-shadow var(--duration-short) var(--ease-standard),
+    background-color var(--duration-short) var(--ease-standard);
+}
+
+.es-experience-card:hover {
+  border-color: var(--color-border-hover);
+  box-shadow: var(--shadow-glow);
+  background: var(--color-bg-tertiary);
+}
+
+.es-experience-card__icon {
+  flex-shrink: 0;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-lg);
+  background: var(--color-glow);
+  border: 1px solid var(--color-border);
+  color: var(--color-gold);
+}
+
+.es-experience-card__icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.es-experience-card__title {
+  font-family: var(--font-display);
+  font-size: var(--text-title-lg);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-2);
+}
+
+.es-experience-card__text {
+  font-size: var(--text-body-md);
+  color: var(--color-text-secondary);
+  line-height: var(--leading-relaxed);
+}
+
+/* ── Trust Badge ──────────────────────────── */
+
+.es-trust-badge {
+  text-align: center;
+  padding: var(--space-6);
+}
+
+.es-trust-badge__value {
+  font-family: var(--font-display);
+  font-size: var(--text-display-sm);
+  font-weight: 500;
+  color: var(--color-gold);
+  line-height: 1;
+  margin-bottom: var(--space-2);
+}
+
+.es-trust-badge__label {
+  font-family: var(--font-body);
+  font-size: var(--text-body-sm);
+  color: var(--color-text-secondary);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+}
+
+/* ── Responsive ───────────────────────────── */
+
+@media (max-width: 767px) {
+  .es-category-card {
+    aspect-ratio: 4 / 5;
+  }
+
+  .es-category-card__desc {
+    max-height: none;
+    opacity: 1;
+  }
+
+  .es-category-card__arrow {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .es-experience-card {
+    flex-direction: column;
+    gap: var(--space-4);
+    padding: var(--space-6);
+  }
+}

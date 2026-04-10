@@ -1,0 +1,54 @@
+/* ============================================
+   Elegant Stone — Contact Page Styles
+   ============================================ */
+
+.es-contact-section {
+  background: var(--color-bg-primary);
+}
+
+.es-contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.es-contact-info__block h3 {
+  font-family: var(--font-display);
+  font-size: var(--text-title-lg);
+  color: var(--color-gold);
+  margin-bottom: var(--space-3);
+}
+
+.es-contact-info__block p {
+  font-size: var(--text-body-md);
+  color: var(--color-text-secondary);
+  line-height: var(--leading-relaxed);
+}
+
+.es-contact-info__block a {
+  color: var(--color-text-secondary);
+  transition: color var(--duration-micro) var(--ease-standard);
+}
+
+.es-contact-info__block a:hover {
+  color: var(--color-gold);
+}
+
+/* ── Map Section ──────────────────────────── */
+
+.es-contact-map {
+  background: var(--color-bg-secondary);
+}
+
+.es-contact-map__placeholder {
+  width: 100%;
+  height: 400px;
+  background: var(--color-bg-tertiary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-tertiary);
+  font-family: var(--font-body);
+}

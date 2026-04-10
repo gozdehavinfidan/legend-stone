@@ -1,0 +1,195 @@
+/* ============================================
+   Elegant Stone — Footer
+   ============================================ */
+
+.es-footer {
+  position: relative;
+  background: var(--color-bg-secondary);
+  border-top: 1px solid var(--color-border);
+  overflow: hidden;
+}
+
+/* Subtle warm glow at top of footer */
+.es-footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-gold-dim), transparent);
+}
+
+.es-footer__main {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-10);
+  padding: var(--space-16) var(--container-padding) var(--space-10);
+  max-width: var(--container-max);
+  margin-inline: auto;
+}
+
+/* ── Brand Column ─────────────────────────── */
+
+.es-footer__brand {
+  max-width: 320px;
+}
+
+.es-footer__logo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+.es-footer__logo-text {
+  font-family: var(--font-display);
+  font-size: var(--text-title-lg);
+  font-weight: 500;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-text-primary);
+}
+
+.es-footer__logo-text span {
+  color: var(--color-gold);
+}
+
+.es-footer__tagline {
+  font-family: var(--font-accent);
+  font-size: var(--text-body-lg);
+  font-style: italic;
+  color: var(--color-text-secondary);
+  line-height: var(--leading-relaxed);
+}
+
+/* ── Link Columns ─────────────────────────── */
+
+.es-footer__column-title {
+  font-family: var(--font-body);
+  font-size: var(--text-label-lg);
+  font-weight: 500;
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: var(--space-4);
+}
+
+.es-footer__links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.es-footer__link {
+  font-size: var(--text-body-md);
+  color: var(--color-text-secondary);
+  transition: color var(--duration-micro) var(--ease-standard);
+}
+
+.es-footer__link:hover {
+  color: var(--color-gold);
+}
+
+/* ── Contact Info ─────────────────────────── */
+
+.es-footer__contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  margin-bottom: var(--space-3);
+  font-size: var(--text-body-md);
+  color: var(--color-text-secondary);
+}
+
+.es-footer__contact-icon {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  margin-top: 3px;
+  color: var(--color-gold-dim);
+}
+
+/* ── Social Links ─────────────────────────── */
+
+.es-footer__social {
+  display: flex;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+}
+
+.es-footer__social-link {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-secondary);
+  transition:
+    color var(--duration-micro) var(--ease-standard),
+    border-color var(--duration-micro) var(--ease-standard),
+    background-color var(--duration-micro) var(--ease-standard);
+}
+
+.es-footer__social-link:hover {
+  color: var(--color-gold);
+  border-color: var(--color-gold-dim);
+  background: var(--color-glow);
+}
+
+.es-footer__social-link svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* ── Bottom Bar ───────────────────────────── */
+
+.es-footer__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  padding: var(--space-6) var(--container-padding);
+  max-width: var(--container-max);
+  margin-inline: auto;
+  border-top: 1px solid var(--color-border);
+}
+
+.es-footer__copyright {
+  font-size: var(--text-body-sm);
+  color: var(--color-text-tertiary);
+}
+
+.es-footer__legal {
+  display: flex;
+  gap: var(--space-4);
+}
+
+.es-footer__legal a {
+  font-size: var(--text-body-sm);
+  color: var(--color-text-tertiary);
+  transition: color var(--duration-micro) var(--ease-standard);
+}
+
+.es-footer__legal a:hover {
+  color: var(--color-gold);
+}
+
+/* ── Responsive ───────────────────────────── */
+
+@media (min-width: 768px) {
+  .es-footer__main {
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+  }
+}
+
+@media (max-width: 767px) {
+  .es-footer__bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

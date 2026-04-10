@@ -1,0 +1,271 @@
+/* ============================================
+   Elegant Stone — Navigation Bar
+   ============================================ */
+
+.es-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  height: var(--nav-height);
+  display: flex;
+  align-items: center;
+  padding-inline: var(--container-padding);
+  background: transparent;
+  transition:
+    background-color var(--duration-short) var(--ease-standard),
+    box-shadow var(--duration-short) var(--ease-standard),
+    backdrop-filter var(--duration-short) var(--ease-standard);
+}
+
+.es-nav.is-scrolled {
+  background: var(--color-overlay-heavy);
+  backdrop-filter: blur(20px) saturate(1.2);
+  -webkit-backdrop-filter: blur(20px) saturate(1.2);
+  box-shadow: var(--shadow-1), 0 1px 0 var(--color-border);
+}
+
+.es-nav__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+}
+
+/* ── Logo ─────────────────────────────────── */
+
+.es-nav__logo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  text-decoration: none;
+  z-index: 1001;
+}
+
+.es-nav__logo-icon {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.es-nav__logo-icon svg {
+  width: 100%;
+  height: 100%;
+  fill: var(--color-gold);
+  transition: fill var(--duration-micro) var(--ease-standard);
+}
+
+.es-nav__logo-text {
+  font-family: var(--font-display);
+  font-size: var(--text-title-lg);
+  font-weight: 500;
+  color: var(--color-text-primary);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+}
+
+.es-nav__logo-text span {
+  color: var(--color-gold);
+}
+
+.es-nav__logo:hover .es-nav__logo-icon svg {
+  fill: var(--color-gold-light);
+}
+
+/* ── Desktop Links ────────────────────────── */
+
+.es-nav__links {
+  display: none;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.es-nav__link {
+  position: relative;
+  padding: var(--space-2) var(--space-4);
+  font-family: var(--font-body);
+  font-size: var(--text-label-lg);
+  font-weight: 400;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  transition: color var(--duration-micro) var(--ease-standard);
+  white-space: nowrap;
+}
+
+.es-nav__link::after {
+  content: '';
+  position: absolute;
+  bottom: 4px;
+  left: var(--space-4);
+  right: var(--space-4);
+  height: 1px;
+  background: var(--color-gold);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform var(--duration-short) var(--ease-standard);
+}
+
+.es-nav__link:hover,
+.es-nav__link.is-active {
+  color: var(--color-gold);
+}
+
+.es-nav__link:hover::after,
+.es-nav__link.is-active::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* ── Actions (Theme Toggle) ───────────────── */
+
+.es-nav__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  z-index: 1001;
+}
+
+.es-theme-toggle {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-full);
+  color: var(--color-text-secondary);
+  transition:
+    color var(--duration-micro) var(--ease-standard),
+    background-color var(--duration-micro) var(--ease-standard);
+}
+
+.es-theme-toggle:hover {
+  color: var(--color-gold);
+  background-color: var(--color-glow);
+}
+
+.es-theme-toggle svg {
+  width: 20px;
+  height: 20px;
+}
+
+.es-theme-toggle__sun,
+.es-theme-toggle__moon {
+  display: none;
+}
+
+[data-theme="dark"] .es-theme-toggle__sun { display: block; }
+[data-theme="dark"] .es-theme-toggle__moon { display: none; }
+[data-theme="light"] .es-theme-toggle__sun { display: none; }
+[data-theme="light"] .es-theme-toggle__moon { display: block; }
+
+/* ── Hamburger ────────────────────────────── */
+
+.es-nav__hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 48px;
+  height: 48px;
+  gap: 5px;
+  z-index: 1001;
+}
+
+.es-nav__hamburger-line {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: var(--color-text-primary);
+  transition:
+    transform var(--duration-short) var(--ease-standard),
+    opacity var(--duration-micro) var(--ease-standard);
+}
+
+.es-nav__hamburger.is-active .es-nav__hamburger-line:nth-child(1) {
+  transform: translateY(6.5px) rotate(45deg);
+}
+
+.es-nav__hamburger.is-active .es-nav__hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.es-nav__hamburger.is-active .es-nav__hamburger-line:nth-child(3) {
+  transform: translateY(-6.5px) rotate(-45deg);
+}
+
+/* ── Mobile Menu Overlay ──────────────────── */
+
+.es-nav__mobile {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  background: var(--color-bg-primary);
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity var(--duration-medium) var(--ease-standard),
+    visibility var(--duration-medium) var(--ease-standard);
+}
+
+.es-nav__mobile.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.es-nav__mobile-link {
+  font-family: var(--font-display);
+  font-size: var(--text-headline-md);
+  font-weight: 400;
+  letter-spacing: var(--tracking-wide);
+  color: var(--color-text-secondary);
+  padding: var(--space-3) var(--space-6);
+  transition:
+    color var(--duration-micro) var(--ease-standard),
+    transform var(--duration-short) var(--ease-decelerate);
+  transform: translateY(20px);
+  opacity: 0;
+}
+
+.es-nav__mobile.is-open .es-nav__mobile-link {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.es-nav__mobile.is-open .es-nav__mobile-link:nth-child(1) { transition-delay: 50ms; }
+.es-nav__mobile.is-open .es-nav__mobile-link:nth-child(2) { transition-delay: 100ms; }
+.es-nav__mobile.is-open .es-nav__mobile-link:nth-child(3) { transition-delay: 150ms; }
+.es-nav__mobile.is-open .es-nav__mobile-link:nth-child(4) { transition-delay: 200ms; }
+.es-nav__mobile.is-open .es-nav__mobile-link:nth-child(5) { transition-delay: 250ms; }
+.es-nav__mobile.is-open .es-nav__mobile-link:nth-child(6) { transition-delay: 300ms; }
+
+.es-nav__mobile-link:hover,
+.es-nav__mobile-link.is-active {
+  color: var(--color-gold);
+}
+
+/* ── Desktop Breakpoint ───────────────────── */
+
+@media (min-width: 1024px) {
+  .es-nav__links {
+    display: flex;
+  }
+
+  .es-nav__hamburger {
+    display: none;
+  }
+
+  .es-nav__mobile {
+    display: none;
+  }
+}

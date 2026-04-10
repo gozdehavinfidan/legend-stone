@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Elegant Stone — Curators of energy, light, and culture. Discover handpicked gemstones, authentic Turkish mosaic lamps, artisan jewelry, and culturally rich decorative treasures.">
+
+  <title>Elegant Stone — Where Nature Meets Artistry</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Cormorant:ital,wght@0,300;0,400;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components/navbar.css">
+  <link rel="stylesheet" href="css/components/hero.css">
+  <link rel="stylesheet" href="css/components/buttons.css">
+  <link rel="stylesheet" href="css/components/cards.css">
+  <link rel="stylesheet" href="css/components/section-header.css">
+  <link rel="stylesheet" href="css/components/gallery-grid.css">
+  <link rel="stylesheet" href="css/components/lightbox.css">
+  <link rel="stylesheet" href="css/components/footer.css">
+  <link rel="stylesheet" href="css/components/atmosphere.css">
+  <link rel="stylesheet" href="css/pages/home.css">
+</head>
+<body>
+
+  <!-- Skip Link -->
+  <a href="#main" class="es-skip-link">Skip to content</a>
+
+  <!-- ════════════════════════════════════════
+       NAVIGATION
+       ════════════════════════════════════════ -->
+  <nav class="es-nav" role="navigation" aria-label="Main navigation">
+    <div class="es-nav__inner">
+
+      <!-- Logo -->
+      <a href="index.html" class="es-nav__logo" aria-label="Elegant Stone — Home">
+        <span class="es-nav__logo-icon">
+          <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M20 2L35 12V28L20 38L5 28V12L20 2Z" fill="none" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M20 8L30 14V26L20 32L10 26V14L20 8Z" fill="currentColor" opacity="0.3"/>
+            <circle cx="20" cy="20" r="4" fill="currentColor"/>
+          </svg>
+        </span>
+        <span class="es-nav__logo-text">Elegant <span>Stone</span></span>
+      </a>
+
+      <!-- Desktop Links -->
+      <div class="es-nav__links">
+        <a href="index.html" class="es-nav__link is-active">Home</a>
+        <a href="pages/about.html" class="es-nav__link">About</a>
+        <a href="pages/categories.html" class="es-nav__link">Categories</a>
+        <a href="pages/gallery.html" class="es-nav__link">Gallery</a>
+        <a href="pages/visit-us.html" class="es-nav__link">Visit Us</a>
+        <a href="pages/contact.html" class="es-nav__link">Contact</a>
+      </div>
+
+      <!-- Actions -->
+      <div class="es-nav__actions">
+        <button class="es-theme-toggle" data-theme-toggle aria-label="Toggle theme">
+          <svg class="es-theme-toggle__sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <circle cx="12" cy="12" r="5"/>
+            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+          </svg>
+          <svg class="es-theme-toggle__moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </button>
+
+        <!-- Hamburger (mobile) -->
+        <button class="es-nav__hamburger" data-nav-toggle aria-label="Open menu" aria-expanded="false">
+          <span class="es-nav__hamburger-line"></span>
+          <span class="es-nav__hamburger-line"></span>
+          <span class="es-nav__hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="es-nav__mobile" role="dialog" aria-label="Navigation menu">
+      <a href="index.html" class="es-nav__mobile-link is-active">Home</a>
+      <a href="pages/about.html" class="es-nav__mobile-link">About</a>
+      <a href="pages/categories.html" class="es-nav__mobile-link">Categories</a>
+      <a href="pages/gallery.html" class="es-nav__mobile-link">Gallery</a>
+      <a href="pages/visit-us.html" class="es-nav__mobile-link">Visit Us</a>
+      <a href="pages/contact.html" class="es-nav__mobile-link">Contact</a>
+    </div>
+  </nav>
+
+  <!-- ════════════════════════════════════════
+       MAIN CONTENT
+       ════════════════════════════════════════ -->
+  <main id="main">
+
+    <!-- ── Hero Section ───────────────────── -->
+    <section class="es-hero es-section--hero es-mosaic-shimmer es-vignette">
+      <div class="es-particles" aria-hidden="true">
+        <span class="es-particle"></span>
+        <span class="es-particle"></span>
+        <span class="es-particle"></span>
+        <span class="es-particle"></span>
+        <span class="es-particle"></span>
+        <span class="es-particle"></span>
+      </div>
+      <div class="es-hero__media">
+        <video
+          class="es-hero__video"
+          autoplay
+          muted
+          loop
+          playsinline
+          poster="assets/images/hero/home-decor-hero-01.jpg"
+        >
+          <source src="assets/video/store-background.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="es-hero__overlay"></div>
+
+      <div class="es-hero__content">
+        <p class="es-hero__eyebrow">Curators of Energy, Light &amp; Culture</p>
+        <h1 class="es-hero__title">
+          Where Nature Meets<br><em class="es-text-shimmer">Artistry</em>
+        </h1>
+        <p class="es-hero__subtitle">
+          Discover handpicked treasures from around the world — gemstones, artisan lamps,
+          jewelry, and culturally rich decorative arts, all under one roof.
+        </p>
+        <div class="es-hero__cta">
+          <a href="pages/categories.html" class="es-btn es-btn--primary es-btn--lg es-btn--arrow">
+            Explore Collections
+          </a>
+        </div>
+      </div>
+
+      <div class="es-hero__scroll" aria-hidden="true">
+        <span class="es-hero__scroll-text">Scroll</span>
+        <span class="es-hero__scroll-line"></span>
+      </div>
+    </section>
+
+    <!-- ── Brand Intro Strip ──────────────── -->
+    <section class="es-intro es-section--compact es-section--glow-gold">
+      <div class="es-container es-container--narrow">
+        <div class="es-reveal">
+          <div class="es-divider-grain"></div>
+          <p class="es-intro__text">
+            Every object tells a story — one that spans <em>continents</em> and <em>centuries</em>.
+            We travel the globe to bring the world's most exquisite treasures
+            to the heart of the American mall experience.
+          </p>
+          <div class="es-divider-grain"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Category Showcase ──────────────── -->
+    <section class="es-section es-home-categories">
+      <div class="es-container">
+
+        <div class="es-section-header es-reveal">
+          <p class="es-section-header__eyebrow">Discover</p>
+          <h2 class="es-section-header__title">Our Collections</h2>
+          <span class="es-section-header__line"></span>
+          <p class="es-section-header__desc">
+            From the depths of the earth to the hands of master artisans —
+            each collection carries a world of beauty and meaning.
+          </p>
+        </div>
+
+        <div class="es-grid es-grid--2">
+
+          <!-- Category: Gemstones -->
+          <a href="pages/gallery.html#gemstones" class="es-category-card es-reveal es-reveal--delay-1">
+            <div class="es-category-card__image">
+              <img src="assets/images/categories/gemstones-01.jpg" alt="Natural and polished gemstones collection" loading="lazy">
+            </div>
+            <div class="es-category-card__overlay"></div>
+            <div class="es-category-card__content">
+              <span class="es-category-card__label">Collection</span>
+              <h3 class="es-category-card__title">Natural Gemstones</h3>
+              <p class="es-category-card__desc">
+                Sourced from 15+ countries — raw, polished, and curated for collectors and seekers alike.
+              </p>
+              <span class="es-category-card__arrow">Explore <span>&rarr;</span></span>
+            </div>
+          </a>
+
+          <!-- Category: Decorative Figurines -->
+          <a href="pages/gallery.html#decor" class="es-category-card es-reveal es-reveal--delay-2">
+            <div class="es-category-card__image">
+              <img src="assets/images/categories/figurines-01.jpg" alt="Handcrafted decorative figurines and small statues" loading="lazy">
+            </div>
+            <div class="es-category-card__overlay"></div>
+            <div class="es-category-card__content">
+              <span class="es-category-card__label">Collection</span>
+              <h3 class="es-category-card__title">Decorative Figurines</h3>
+              <p class="es-category-card__desc">
+                Intricately crafted small statues and figurines — cultural symbols, artistic miniatures, and collectible art pieces.
+              </p>
+              <span class="es-category-card__arrow">Explore <span>&rarr;</span></span>
+            </div>
+          </a>
+
+          <!-- Category: Jewelry -->
+          <a href="pages/gallery.html#jewelry" class="es-category-card es-reveal es-reveal--delay-3">
+            <div class="es-category-card__image">
+              <img src="assets/images/categories/necklace-display.jpg" alt="Gemstone necklaces and jewelry collection" loading="lazy">
+            </div>
+            <div class="es-category-card__overlay"></div>
+            <div class="es-category-card__content">
+              <span class="es-category-card__label">Collection</span>
+              <h3 class="es-category-card__title">Artisan Jewelry</h3>
+              <p class="es-category-card__desc">
+                Necklaces, bracelets, rings, and earrings — each piece crafted from nature's finest stones.
+              </p>
+              <span class="es-category-card__arrow">Explore <span>&rarr;</span></span>
+            </div>
+          </a>
+
+          <!-- Category: Turkish Mosaic Lamps -->
+          <a href="pages/gallery.html#lamps" class="es-category-card es-reveal es-reveal--delay-1">
+            <div class="es-category-card__image">
+              <img src="assets/images/categories/turkish-lamps.jpg" alt="Authentic Turkish mosaic glass lamps" loading="lazy">
+            </div>
+            <div class="es-category-card__overlay"></div>
+            <div class="es-category-card__content">
+              <span class="es-category-card__label">Collection</span>
+              <h3 class="es-category-card__title">Turkish Mosaic Lamps</h3>
+              <p class="es-category-card__desc">
+                Handcrafted mosaic glass art with centuries of heritage — table lamps, wall sconces, and chandeliers in vibrant colors.
+              </p>
+              <span class="es-category-card__arrow">Explore <span>&rarr;</span></span>
+            </div>
+          </a>
+
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Gallery Preview ────────────────── -->
+    <section class="es-section es-home-gallery">
+      <div class="es-container">
+
+        <div class="es-section-header es-reveal">
+          <p class="es-section-header__eyebrow">Our Store</p>
+          <h2 class="es-section-header__title">Step Inside Elegant Stone</h2>
+          <span class="es-section-header__line"></span>
+          <p class="es-section-header__desc">
+            A space where color, light, and culture come together — explore our store through these moments.
+          </p>
+        </div>
+
+        <div class="es-home-gallery__grid es-reveal">
+          <div class="es-home-gallery__item">
+            <img src="assets/images/store/store-view-01.jpg" alt="Elegant Stone — Turkish mosaic lamp wall display" loading="lazy" data-lightbox="assets/images/store/store-view-01.jpg">
+          </div>
+          <div class="es-home-gallery__item">
+            <img src="assets/images/store/store-view-02.jpg" alt="Elegant Stone — gemstone and jewelry counter" loading="lazy" data-lightbox="assets/images/store/store-view-02.jpg">
+          </div>
+          <div class="es-home-gallery__item">
+            <img src="assets/images/store/store-view-03.jpg" alt="Elegant Stone — full store interior panorama" loading="lazy" data-lightbox="assets/images/store/store-view-03.jpg">
+          </div>
+          <div class="es-home-gallery__item">
+            <img src="assets/images/store/store-view-04.jpg" alt="Elegant Stone — decorative arts display" loading="lazy" data-lightbox="assets/images/store/store-view-04.jpg">
+          </div>
+          <div class="es-home-gallery__item">
+            <img src="assets/images/store/store-view-05.jpg" alt="Elegant Stone — store atmosphere and products" loading="lazy" data-lightbox="assets/images/store/store-view-05.jpg">
+          </div>
+        </div>
+
+        <div class="es-home-gallery__cta es-reveal">
+          <a href="pages/visit-us.html" class="es-btn es-btn--secondary es-btn--arrow">
+            Visit Our Store
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Store CTA ──────────────────────── -->
+    <section class="es-home-cta es-mosaic-shimmer">
+      <div class="es-home-cta__bg">
+        <img src="assets/images/store/store-interior-02.jpg" alt="" aria-hidden="true" loading="lazy">
+      </div>
+      <div class="es-home-cta__overlay"></div>
+      <div class="es-home-cta__content es-reveal">
+        <h2 class="es-home-cta__title">Experience Elegant Stone<br>In Person</h2>
+        <span class="es-gold-line"></span>
+        <p class="es-home-cta__desc">
+          Step into a world of color, light, and wonder. Our in-store experience features exclusive masterpieces,
+          a dedicated lamp gallery, and personal gemstone consultations.
+        </p>
+        <a href="pages/visit-us.html" class="es-btn es-btn--primary es-btn--arrow">
+          Visit Our Store
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ════════════════════════════════════════
+       FOOTER
+       ════════════════════════════════════════ -->
+  <footer class="es-footer" role="contentinfo">
+    <div class="es-footer__main">
+
+      <!-- Brand Column -->
+      <div class="es-footer__brand">
+        <div class="es-footer__logo">
+          <span class="es-footer__logo-text">Elegant <span>Stone</span></span>
+        </div>
+        <p class="es-footer__tagline">
+          Curators of energy, light, and culture — bringing the world's most elegant wonders to you.
+        </p>
+        <div class="es-footer__social">
+          <a href="#" class="es-footer__social-link" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <rect x="2" y="2" width="20" height="20" rx="5"/>
+              <circle cx="12" cy="12" r="5"/>
+              <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/>
+            </svg>
+          </a>
+          <a href="#" class="es-footer__social-link" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+            </svg>
+          </a>
+          <a href="#" class="es-footer__social-link" aria-label="TikTok">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div>
+        <h4 class="es-footer__column-title">Explore</h4>
+        <div class="es-footer__links">
+          <a href="pages/about.html" class="es-footer__link">About Us</a>
+          <a href="pages/categories.html" class="es-footer__link">Collections</a>
+          <a href="pages/gallery.html" class="es-footer__link">Gallery</a>
+          <a href="pages/visit-us.html" class="es-footer__link">The Experience</a>
+        </div>
+      </div>
+
+      <!-- Collections -->
+      <div>
+        <h4 class="es-footer__column-title">Collections</h4>
+        <div class="es-footer__links">
+          <a href="pages/categories.html" class="es-footer__link">Natural Gemstones</a>
+          <a href="pages/categories.html" class="es-footer__link">Mosaic Lamps</a>
+          <a href="pages/categories.html" class="es-footer__link">Artisan Jewelry</a>
+          <a href="pages/categories.html" class="es-footer__link">Home Decor</a>
+          <a href="pages/categories.html" class="es-footer__link">Spiritual &amp; Wellness</a>
+        </div>
+      </div>
+
+      <!-- Contact Info -->
+      <div>
+        <h4 class="es-footer__column-title">Contact</h4>
+        <div class="es-footer__contact-item">
+          <svg class="es-footer__contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+            <circle cx="12" cy="10" r="3"/>
+          </svg>
+          <span>Premier Shopping Malls<br>Across the USA</span>
+        </div>
+        <div class="es-footer__contact-item">
+          <svg class="es-footer__contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+          <span>info@elegantstone.com</span>
+        </div>
+        <a href="pages/contact.html" class="es-footer__link" style="margin-top: var(--space-2); display: inline-block; color: var(--color-gold);">
+          Get in Touch &rarr;
+        </a>
+      </div>
+
+    </div>
+
+    <div class="es-footer__bottom">
+      <p class="es-footer__copyright">&copy; 2026 Elegant Stone. All rights reserved.</p>
+      <div class="es-footer__legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ════════════════════════════════════════
+       LIGHTBOX
+       ════════════════════════════════════════ -->
+  <div class="es-lightbox" role="dialog" aria-label="Image viewer" aria-hidden="true">
+    <button class="es-lightbox__close" aria-label="Close">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+        <line x1="18" y1="6" x2="6" y2="18"/>
+        <line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
+    <button class="es-lightbox__nav es-lightbox__prev" aria-label="Previous image">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+        <polyline points="15 18 9 12 15 6"/>
+      </svg>
+    </button>
+    <img class="es-lightbox__image" src="" alt="">
+    <button class="es-lightbox__nav es-lightbox__next" aria-label="Next image">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+        <polyline points="9 18 15 12 9 6"/>
+      </svg>
+    </button>
+    <span class="es-lightbox__counter"></span>
+  </div>
+
+  <!-- Scripts -->
+  <script type="module" src="js/main.js"></script>
+
+</body>
+</html>

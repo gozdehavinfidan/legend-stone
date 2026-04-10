@@ -1,0 +1,140 @@
+{
+  "assets": [
+    {
+      "path": "assets/images/categories/gemstones-01.jpg",
+      "alt": "Natural gemstone collection — raw and polished specimens",
+      "orientation": "landscape",
+      "usage": ["category-card", "gallery", "hero-fallback"],
+      "themeRole": "primary",
+      "focusPoint": "center"
+    },
+    {
+      "path": "assets/images/categories/gemstones-02.jpg",
+      "alt": "Polished natural stones in warm tones",
+      "orientation": "landscape",
+      "usage": ["gallery"],
+      "themeRole": "primary",
+      "focusPoint": "center"
+    },
+    {
+      "path": "assets/images/categories/gemstones-03.jpg",
+      "alt": "Curated gemstone display with varied colors",
+      "orientation": "landscape",
+      "usage": ["gallery", "category-card"],
+      "themeRole": "primary",
+      "focusPoint": "center"
+    },
+    {
+      "path": "assets/images/categories/home-decor.jpg",
+      "alt": "Authentic Turkish mosaic glass lamp display",
+      "orientation": "portrait",
+      "usage": ["category-card", "gallery"],
+      "themeRole": "secondary",
+      "focusPoint": "center"
+    },
+    {
+      "path": "assets/images/categories/jewelry.jpg",
+      "alt": "Artisan gemstone jewelry — necklaces and bracelets",
+      "orientation": "portrait",
+      "usage": ["category-card", "gallery"],
+      "themeRole": "primary",
+      "focusPoint": "center"
+    },
+    {
+      "path": "assets/images/categories/necklaces.jpg",
+      "alt": "Gemstone necklace close-up detail",
+      "orientation": "portrait",
+      "usage": ["gallery", "home-preview"],
+      "themeRole": "primary",
+      "focusPoint": "center"
+    },
+    {
+      "path": "assets/images/gallery/product-01.jpg",
+      "alt": "Decorative spiritual object",
+      "orientation": "portrait",
+      "usage": ["gallery", "category-card"],
+      "themeRole": "tertiary",
+      "focusPoint": "center"
+    },
+    {
+      "path": "assets/images/gallery/product-02.jpg",
+      "alt": "Home decor statement piece",
+      "orientation": "portrait",
+      "usage": ["gallery", "category-card"],
+      "themeRole": "tertiary",
+      "focusPoint": "center"
+    },
+    {
+      "path": "assets/images/gallery/product-03.jpg",
+      "alt": "Artisan decorative craft",
+      "orientation": "portrait",
+      "usage": ["gallery"],
+      "themeRole": "secondary",
+      "focusPoint": "center"
+    },
+    {
+      "path": "assets/images/gallery/product-04.jpg",
+      "alt": "Decorative art piece with cultural motifs",
+      "orientation": "portrait",
+      "usage": ["gallery", "category-card"],
+      "themeRole": "secondary",
+      "focusPoint": "center"
+    },
+    {
+      "path": "assets/images/hero/home-decor-hero-01.jpg",
+      "alt": "Elegant Stone curated collection display",
+      "orientation": "landscape",
+      "usage": ["hero", "about-image"],
+      "themeRole": "primary",
+      "focusPoint": "center"
+    },
+    {
+      "path": "assets/images/hero/home-decor-hero-02.jpg",
+      "alt": "Decorative arts and accessories showcase",
+      "orientation": "landscape",
+      "usage": ["page-hero-bg"],
+      "themeRole": "primary",
+      "focusPoint": "center"
+    },
+    {
+      "path": "assets/images/store/store-exterior-01.jpg",
+      "alt": "Elegant Stone storefront in shopping mall",
+      "orientation": "landscape",
+      "usage": ["visit-us-hero", "gallery", "home-preview"],
+      "themeRole": "neutral",
+      "focusPoint": "center"
+    },
+    {
+      "path": "assets/images/store/store-exterior-02.jpg",
+      "alt": "Elegant Stone mall entrance",
+      "orientation": "landscape",
+      "usage": ["contact-hero", "gallery"],
+      "themeRole": "neutral",
+      "focusPoint": "center"
+    },
+    {
+      "path": "assets/images/store/store-interior-01.jpg",
+      "alt": "Inside Elegant Stone — product displays",
+      "orientation": "landscape",
+      "usage": ["gallery", "home-preview", "category-card"],
+      "themeRole": "neutral",
+      "focusPoint": "center"
+    },
+    {
+      "path": "assets/images/store/store-interior-02.jpg",
+      "alt": "Elegant Stone interior — ambient lighting",
+      "orientation": "landscape",
+      "usage": ["home-cta-bg", "gallery"],
+      "themeRole": "neutral",
+      "focusPoint": "center"
+    },
+    {
+      "path": "assets/video/store-background.mp4",
+      "alt": "Elegant Stone store ambient video",
+      "orientation": "landscape",
+      "usage": ["hero-video"],
+      "themeRole": "neutral",
+      "focusPoint": "center"
+    }
+  ]
+}

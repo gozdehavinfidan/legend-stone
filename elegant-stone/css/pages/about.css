@@ -1,0 +1,103 @@
+/* ============================================
+   Elegant Stone — About Page Styles
+   ============================================ */
+
+/* ── Brand Story Section ──────────────────── */
+
+.es-about-story {
+  background: var(--color-bg-primary);
+}
+
+.es-about-story__text {
+  font-family: var(--font-body);
+  font-size: var(--text-body-lg);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-secondary);
+}
+
+.es-about-story__text p {
+  margin-bottom: var(--space-6);
+}
+
+.es-about-story__text p:last-child {
+  margin-bottom: 0;
+}
+
+.es-about-story__image {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  position: relative;
+}
+
+.es-about-story__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  min-height: 400px;
+}
+
+/* Subtle gold glow on the image border */
+.es-about-story__image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  pointer-events: none;
+}
+
+/* ── Trust Badges Section ─────────────────── */
+
+.es-about-trust {
+  background: var(--color-bg-secondary);
+}
+
+.es-about-trust .es-grid {
+  text-align: center;
+}
+
+/* ── Mission Section ──────────────────────── */
+
+.es-about-mission {
+  background: var(--color-bg-primary);
+}
+
+.es-about-mission__block {
+  text-align: center;
+  padding: var(--space-8);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  transition:
+    border-color var(--duration-short) var(--ease-standard),
+    box-shadow var(--duration-short) var(--ease-standard);
+}
+
+.es-about-mission__block:hover {
+  border-color: var(--color-border-hover);
+  box-shadow: var(--shadow-glow);
+}
+
+.es-about-mission__icon {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto var(--space-4);
+  color: var(--color-gold);
+}
+
+.es-about-mission__icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.es-about-mission__block h3 {
+  font-family: var(--font-display);
+  font-size: var(--text-title-lg);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-3);
+}
+
+.es-about-mission__block p {
+  font-size: var(--text-body-md);
+  color: var(--color-text-secondary);
+  line-height: var(--leading-relaxed);
+}

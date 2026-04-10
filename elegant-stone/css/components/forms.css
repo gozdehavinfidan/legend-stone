@@ -1,0 +1,76 @@
+/* ============================================
+   Elegant Stone — Form Components
+   Material Design styled inputs
+   ============================================ */
+
+.es-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+/* ── Input Group ──────────────────────────── */
+
+.es-input-group {
+  position: relative;
+}
+
+.es-input-group__label {
+  display: block;
+  font-family: var(--font-body);
+  font-size: var(--text-label-lg);
+  font-weight: 500;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-2);
+}
+
+.es-input-group__field {
+  width: 100%;
+  min-height: 48px;
+  padding: var(--space-3) var(--space-4);
+  font-family: var(--font-body);
+  font-size: var(--text-body-md);
+  color: var(--color-text-primary);
+  background: var(--color-bg-tertiary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  outline: none;
+  transition:
+    border-color var(--duration-micro) var(--ease-standard),
+    box-shadow var(--duration-micro) var(--ease-standard),
+    background-color var(--duration-micro) var(--ease-standard);
+}
+
+.es-input-group__field::placeholder {
+  color: var(--color-text-tertiary);
+}
+
+.es-input-group__field:hover {
+  border-color: var(--color-border-hover);
+}
+
+.es-input-group__field:focus {
+  border-color: var(--color-gold);
+  box-shadow: 0 0 0 3px var(--color-glow);
+  background: var(--color-bg-elevated);
+}
+
+/* ── Textarea ─────────────────────────────── */
+
+textarea.es-input-group__field {
+  min-height: 160px;
+  resize: vertical;
+  line-height: var(--leading-normal);
+}
+
+/* ── Select ───────────────────────────────── */
+
+select.es-input-group__field {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L6 6L11 1' stroke='%23B8AFA2' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right var(--space-4) center;
+  padding-right: var(--space-10);
+}

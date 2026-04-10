@@ -1,0 +1,112 @@
+{
+  "categories": [
+    {
+      "id": "gemstones",
+      "slug": "natural-gemstones",
+      "navLabel": "Gemstones",
+      "title": "Natural & Polished Gemstones",
+      "description": "A rich collection sourced from Latin America, Asia, Europe, and Africa — raw crystals, polished specimens, strands, and curated sets for collectors and seekers.",
+      "media": "assets/images/categories/gemstones-01.jpg",
+      "alt": "Natural and polished gemstones from around the world",
+      "themeRole": "primary",
+      "localeKey": "cat.gemstones",
+      "featured": true
+    },
+    {
+      "id": "lamps",
+      "slug": "mosaic-lamps",
+      "navLabel": "Lamps",
+      "title": "Mosaic Lamps",
+      "description": "Handcrafted mosaic glass art — table lamps, wall sconces, and chandeliers in a spectrum of colors, shapes, and centuries-old patterns.",
+      "media": "assets/images/categories/home-decor.jpg",
+      "alt": "Authentic Turkish mosaic glass lamps",
+      "themeRole": "secondary",
+      "localeKey": "cat.lamps",
+      "featured": true
+    },
+    {
+      "id": "jewelry",
+      "slug": "artisan-jewelry",
+      "navLabel": "Jewelry",
+      "title": "Artisan Jewelry",
+      "description": "Necklaces, bracelets, rings, earrings, and keychains — each piece crafted from nature's finest gemstones with care and intention.",
+      "media": "assets/images/categories/jewelry.jpg",
+      "alt": "Artisan gemstone jewelry",
+      "themeRole": "primary",
+      "localeKey": "cat.jewelry",
+      "featured": true
+    },
+    {
+      "id": "decor",
+      "slug": "home-decor",
+      "navLabel": "Decor",
+      "title": "Home Decor",
+      "description": "Statement decorative pieces, wall art, and artisan objects that bring warmth, culture, and elegance to any living space.",
+      "media": "assets/images/gallery/product-02.jpg",
+      "alt": "Decorative art and home decor",
+      "themeRole": "tertiary",
+      "localeKey": "cat.decor",
+      "featured": true
+    },
+    {
+      "id": "spiritual",
+      "slug": "spiritual-wellness",
+      "navLabel": "Spiritual",
+      "title": "Spiritual & Wellness",
+      "description": "Energy stones, meditation accessories, and spiritual centerpieces — curated for those who seek balance, clarity, and intention in daily life.",
+      "media": "assets/images/gallery/product-01.jpg",
+      "alt": "Spiritual and wellness products",
+      "themeRole": "tertiary",
+      "localeKey": "cat.spiritual",
+      "featured": true
+    },
+    {
+      "id": "incense",
+      "slug": "incense-natural-oils",
+      "navLabel": "Incense",
+      "title": "Incense & Natural Oils",
+      "description": "Fragrances, essential oils, and scent collections that complement your home, rituals, and lifestyle with natural warmth.",
+      "media": "assets/images/gallery/product-03.jpg",
+      "alt": "Incense and natural oil collection",
+      "themeRole": "secondary",
+      "localeKey": "cat.incense",
+      "featured": true
+    },
+    {
+      "id": "swords",
+      "slug": "swords-knives",
+      "navLabel": "Swords",
+      "title": "Swords & Knives",
+      "description": "Heritage blades and decorative weapons — each carrying the symbolism and craftsmanship of its cultural origins.",
+      "media": "assets/images/gallery/product-04.jpg",
+      "alt": "Decorative swords and knives",
+      "themeRole": "secondary",
+      "localeKey": "cat.swords",
+      "featured": false
+    },
+    {
+      "id": "clothing",
+      "slug": "ethnic-clothing",
+      "navLabel": "Clothing",
+      "title": "Ethnic Clothing",
+      "description": "Culturally inspired garments and woven accessories that carry the textures, colors, and spirit of their heritage.",
+      "media": "assets/images/store/store-interior-01.jpg",
+      "alt": "Ethnic clothing and accessories",
+      "themeRole": "tertiary",
+      "localeKey": "cat.clothing",
+      "featured": false
+    },
+    {
+      "id": "gifts",
+      "slug": "gifts-keepsakes",
+      "navLabel": "Gifts",
+      "title": "Gifts & Keepsakes",
+      "description": "Unique handcrafted gifts, massage stones, and artisan keepsakes — meaningful presents for every occasion.",
+      "media": "assets/images/categories/gemstones-03.jpg",
+      "alt": "Curated gifts and decorative keepsakes",
+      "themeRole": "primary",
+      "localeKey": "cat.gifts",
+      "featured": false
+    }
+  ]
+}

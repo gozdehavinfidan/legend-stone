@@ -1,0 +1,176 @@
+/* ============================================
+   Elegant Stone — Gallery Grid & Filter
+   ============================================ */
+
+/* ── Filter Bar ───────────────────────────── */
+
+.es-filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-10);
+}
+
+.es-filter-btn {
+  padding: var(--space-2) var(--space-5);
+  font-family: var(--font-body);
+  font-size: var(--text-label-lg);
+  font-weight: 400;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  background: transparent;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition:
+    color var(--duration-micro) var(--ease-standard),
+    background-color var(--duration-micro) var(--ease-standard),
+    border-color var(--duration-micro) var(--ease-standard);
+  min-height: 40px;
+}
+
+.es-filter-btn:hover {
+  color: var(--color-gold);
+  border-color: var(--color-border-hover);
+}
+
+.es-filter-btn.is-active {
+  color: var(--color-text-inverse);
+  background: var(--color-gold);
+  border-color: var(--color-gold);
+}
+
+/* ── Gallery Grid ─────────────────────────── */
+
+.es-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--space-4);
+}
+
+/* Masonry-like effect with varying heights */
+.es-gallery-item:nth-child(3n + 1) {
+  grid-row: span 1;
+}
+
+.es-gallery-item:nth-child(5n + 2) {
+  grid-row: span 1;
+}
+
+/* ── Gallery Item ─────────────────────────── */
+
+.es-gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  background: var(--color-bg-secondary);
+}
+
+.es-gallery-item__image {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  transition: transform var(--duration-long) var(--ease-standard);
+}
+
+.es-gallery-item:hover .es-gallery-item__image {
+  transform: scale(1.05);
+}
+
+.es-gallery-item__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 60%, rgba(10, 10, 8, 0.7) 100%);
+  opacity: 0;
+  transition: opacity var(--duration-short) var(--ease-standard);
+}
+
+.es-gallery-item:hover .es-gallery-item__overlay {
+  opacity: 1;
+}
+
+.es-gallery-item__info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: var(--space-4);
+  transform: translateY(8px);
+  opacity: 0;
+  transition:
+    transform var(--duration-short) var(--ease-standard),
+    opacity var(--duration-short) var(--ease-standard);
+}
+
+.es-gallery-item:hover .es-gallery-item__info {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.es-gallery-item__tag {
+  display: inline-block;
+  padding: var(--space-1) var(--space-3);
+  font-size: var(--text-label-md);
+  font-weight: 500;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-gold);
+  background: rgba(10, 10, 8, 0.6);
+  border-radius: var(--radius-full);
+  backdrop-filter: blur(8px);
+}
+
+/* ── Gallery animation for filtering ──────── */
+
+.es-gallery-item {
+  transition:
+    opacity var(--duration-medium) var(--ease-standard),
+    transform var(--duration-medium) var(--ease-standard);
+}
+
+.es-gallery-item.is-hidden {
+  opacity: 0;
+  transform: scale(0.95);
+  pointer-events: none;
+  position: absolute;
+  visibility: hidden;
+}
+
+/* ── Responsive ───────────────────────────── */
+
+@media (max-width: 767px) {
+  .es-gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-3);
+  }
+
+  .es-gallery-item__info {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .es-gallery-item__overlay {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 480px) {
+  .es-gallery-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 1024px) {
+  .es-gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1440px) {
+  .es-gallery-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

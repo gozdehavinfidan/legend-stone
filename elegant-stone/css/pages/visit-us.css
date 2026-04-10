@@ -1,0 +1,78 @@
+/* ============================================
+   Elegant Stone — Visit Us Page Styles
+   ============================================ */
+
+/* ── Experiences Section ──────────────────── */
+
+.es-visit-experiences {
+  background: var(--color-bg-primary);
+}
+
+.es-visit-experiences .es-experience-card {
+  position: relative;
+}
+
+/* Numbered labels */
+.es-visit-experiences .es-experience-card::before {
+  content: attr(data-number);
+  position: absolute;
+  top: var(--space-6);
+  right: var(--space-6);
+  font-family: var(--font-display);
+  font-size: var(--text-display-sm);
+  font-weight: 300;
+  color: var(--color-glow-strong);
+  line-height: 1;
+  pointer-events: none;
+}
+
+/* ── Location Section ─────────────────────── */
+
+.es-visit-location {
+  background: var(--color-bg-secondary);
+}
+
+.es-visit-location__map {
+  width: 100%;
+  height: 400px;
+  background: var(--color-bg-tertiary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-tertiary);
+  font-family: var(--font-body);
+  font-size: var(--text-body-md);
+}
+
+.es-visit-info {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+  margin-top: var(--space-8);
+}
+
+@media (min-width: 768px) {
+  .es-visit-info {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.es-visit-info__block {
+  text-align: center;
+  padding: var(--space-6);
+}
+
+.es-visit-info__block h4 {
+  font-family: var(--font-display);
+  font-size: var(--text-title-lg);
+  color: var(--color-gold);
+  margin-bottom: var(--space-3);
+}
+
+.es-visit-info__block p {
+  font-size: var(--text-body-md);
+  color: var(--color-text-secondary);
+  line-height: var(--leading-relaxed);
+}

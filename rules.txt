@@ -1,0 +1,264 @@
+# Elegant Stone - Project Rules
+
+## 1. Project Purpose
+This project is a promotional and brand presentation website for **Elegant Stone**, a mall store with a premium and culturally rich product range.
+
+This website is **NOT an e-commerce website at this stage**.
+Its main purpose is to:
+- introduce the Elegant Stone brand
+- showcase product categories
+- reflect the store’s atmosphere and aesthetic identity
+- encourage users to visit the physical store or contact the brand
+
+The website should be structured in a way that allows future expansion into:
+- online catalog
+- multilingual support
+- e-commerce
+- admin-managed content updates
+
+---
+
+## 2. Brand Identity
+**Brand name:** Elegant Stone
+
+The website must reflect the following brand qualities:
+- premium
+- elegant
+- warm
+- ethnic
+- spiritual
+- artistic
+- culturally rich
+- modern but authentic
+
+The Elegant Stone brand should feel like a curated boutique that brings together decorative beauty, natural materials, artisan aesthetics, and cultural atmosphere.
+
+The website must NOT feel:
+- cheap
+- generic
+- overly corporate
+- visually noisy
+- cluttered
+- marketplace-like
+
+---
+
+## 3. Product Scope
+Elegant Stone includes product categories such as:
+- natural and polished gemstones
+- jewelry
+- bracelets
+- rings
+- necklaces
+- ethnic clothing
+- home decor
+- Turkish mosaic lamps
+- spiritual products
+- incense
+- natural oils and fragrances
+- swords and knives
+- gifts and decorative objects
+- wall decor
+
+Products are presented for showcase and brand storytelling purposes only.
+No direct shopping flow should be implemented at this stage.
+
+---
+
+## 4. Required Pages
+The website should include at minimum:
+- Home
+- About
+- Categories
+- Gallery
+- Visit Us / Store Info / The Experience
+- Contact
+
+Optional future pages:
+- Blog
+- Collection pages
+- Product details
+- Online catalog
+
+---
+
+## 5. Design Rules
+- The design should feel luxurious, immersive, elegant, and warm.
+- Dark mode is the primary visual identity.
+- Light mode should also be supported.
+- Use a refined visual hierarchy.
+- Use generous spacing and clean layouts.
+- Avoid visual clutter.
+- Use subtle and smooth animations only.
+- Avoid excessive motion effects.
+- Avoid overly bright or childish colors.
+
+Suggested palette direction:
+- charcoal black
+- dark brown
+- deep olive / emerald
+- warm gold
+- copper
+- amber
+- optional burgundy accents
+
+---
+
+## 6. Typography Rules
+- Headings should feel elegant and premium.
+- Body text must be highly readable.
+- Serif or display-style headings may be combined with clean sans-serif body text.
+- Typography should support the premium and cultural tone of Elegant Stone.
+
+---
+
+## 7. Content Rules
+- Tone of voice should be warm, elegant, refined, and brand-oriented.
+- Content must not sound too aggressive, salesy, or generic.
+- Category descriptions should be atmospheric and inviting.
+- Text should highlight craftsmanship, authenticity, cultural richness, and aesthetics.
+- No pricing, stock, checkout, or cart-related language should appear in the current version.
+- The Elegant Stone brand voice should feel premium, artistic, and welcoming.
+- Avoid direct medical, therapeutic, or guaranteed spiritual outcome claims.
+- Spiritual language may be used in a lifestyle and atmospheric sense, but should remain soft and inspirational.
+
+---
+
+## 8. Brand Messaging Assets
+
+### 8.1 About Us Heading
+**The World’s Hidden Treasures, Handpicked for You.**
+
+### 8.2 About Us Text (English)
+"At Elegant Stone, we believe that every object tells a story—one that spans continents and centuries. What started as a passion for the Earth’s natural wonders has grown into a premier destination for those seeking authenticity and elegance.
+
+From the mystical energy of crystals sourced from Latin America and Africa to the centuries-old craftsmanship of authentic Turkish mosaic lamps, we travel the globe to bring the world’s most exquisite treasures to the heart of the American mall experience. Our collection is a bridge between nature’s raw beauty and artisanal mastery.
+
+We aren't just a store; we are curators of energy, light, and culture. Whether you are seeking a rare gemstone for your collection, a spiritual centerpiece for your home, or a handcrafted gift that carries a soul, Elegant Stone is your gateway to the world’s most elegant wonders."
+
+### 8.3 Hakkımızda Metni (Türkçe)
+"Elegant Stone’da her objenin, kıtaları ve yüzyılları aşan bir hikâye taşıdığına inanıyoruz. Doğanın sunduğu eşsiz güzelliklere duyduğumuz hayranlıkla başlayan yolculuğumuz, bugün özgünlük ve zarafet arayanlar için seçkin bir yaşam tarzı markasına dönüştü.
+
+Latin Amerika ve Afrika’dan özenle seçilen kristallerin mistik atmosferinden, otantik Türk mozaik lambalarının yüzyıllara dayanan zanaatkârlığına kadar uzanan koleksiyonumuz; doğanın ham güzelliği ile el işçiliğinin ustalığını bir araya getirir. Dünyanın farklı coğrafyalarından seçtiğimiz özel parçaları, Amerikan alışveriş merkezi deneyiminin merkezine taşıyoruz.
+
+Biz sadece bir mağaza değiliz; enerji, ışık ve kültür küratörüyüz. İster koleksiyonunuza özel bir doğal taş, ister yaşam alanınıza ruh katacak spiritüel bir parça, ister anlam taşıyan el yapımı bir hediye arıyor olun, Elegant Stone sizi dünyanın en zarif hazineleriyle buluşturur."
+
+---
+
+## 9. In-Store Experience Content
+
+This section can be used under:
+- Visit Us
+- The Experience
+- In-Store Experience
+
+### 9.1 Custom Gemstone Matching
+Let our specialists help you discover the gemstone that best aligns with your energy, intention, or lifestyle—whether you seek peace, focus, clarity, or abundance.
+
+### 9.2 The Light Gallery
+Step into our dedicated “Dark Room” corner and experience the enchanting reflections and colorful glow of our authentic mosaic lamps in their most magical setting.
+
+### 9.3 Artisan Storytelling
+Learn about the heritage, symbolism, and craftsmanship behind our swords, knives, mosaic glass pieces, and selected decorative objects through our in-store team.
+
+### 9.4 Spiritual Cleansing Corner
+Explore our incense and natural oil collection in person and discover the scent atmosphere that best complements your home, rituals, or daily lifestyle.
+
+### 9.5 Exclusive In-Store Masterpieces
+Experience rare oversized crystals, decorative art pieces, and unique statement items displayed exclusively in our physical stores and not featured on the website.
+
+---
+
+## 10. Corporate Quick Info
+
+This information may appear in the footer, About page, or a trust section.
+
+| Feature | Corporate Commitment |
+|--------|----------------------|
+| Sourcing | Globally sourced from 15+ countries (Latin America, Asia, Europe, Africa). |
+| Craftsmanship | 100% handcrafted mosaic lamps and decorative arts. |
+| Authenticity | Certified natural gemstones and authentic cultural artifacts. |
+| Locations | Premier shopping malls across the USA. |
+
+---
+
+## 11. UX Rules
+- Navigation must be simple and intuitive.
+- Users should easily explore categories.
+- Important actions should include:
+  - explore categories
+  - view gallery
+  - visit store
+  - contact Elegant Stone
+- The homepage should not be overcrowded.
+- The site should prioritize clarity, atmosphere, and discoverability.
+
+---
+
+## 12. Technical Rules
+- Use HTML, CSS, and JavaScript.
+- Code must be clean, readable, modular, and reusable.
+- Use consistent naming conventions.
+- Use CSS variables for colors, spacing, and theme management.
+- Structure components clearly (navbar, hero, category cards, gallery, contact, footer).
+- Avoid unnecessary heavy libraries unless there is a clear reason.
+
+---
+
+## 13. Responsive Rules
+- The site must be fully responsive.
+- Mobile-first thinking is encouraged.
+- Layouts must work well on desktop, tablet, and mobile.
+- Navigation must remain usable on smaller screens.
+- Buttons and interactive elements must be touch-friendly.
+
+---
+
+## 14. Accessibility Rules
+- Use semantic HTML where possible.
+- Maintain good contrast ratios.
+- Ensure text readability.
+- Add alt text support for images.
+- Keep interactive elements keyboard-friendly when possible.
+
+---
+
+## 15. Performance Rules
+- Optimize image usage.
+- Avoid excessive animation or large scripts.
+- Keep load times reasonable.
+- Prefer lightweight solutions.
+
+---
+
+## 16. Future Scalability Rules
+- The structure should allow future addition of:
+  - product detail pages
+  - e-commerce features
+  - multilingual support
+  - CMS or admin panel integration
+- New categories and content sections should be easy to add.
+
+---
+
+## 17. Prohibited Features for Current Phase
+Do NOT add:
+- cart
+- checkout
+- payment system
+- account system
+- stock tracking
+- product pricing logic
+- marketplace-style dense product grids
+
+This phase is strictly for brand presentation and category showcase.
+
+---
+
+## 18. Visual Experience Goal
+The final Elegant Stone website should feel like a premium digital showroom for a unique boutique brand that combines:
+- ethnic culture
+- spirituality
+- decorative beauty
+- artisan aesthetics
+- modern luxury

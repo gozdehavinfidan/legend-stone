@@ -1,0 +1,25 @@
+/* ============================================
+   Elegant Stone — Categories Page Styles
+   ============================================ */
+
+.es-categories-grid {
+  background: var(--color-bg-primary);
+}
+
+/* Override category cards for the full categories page — taller cards */
+.es-categories-grid .es-category-card {
+  aspect-ratio: 3 / 4;
+}
+
+@media (min-width: 1024px) {
+  .es-categories-grid .es-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+  }
+
+  /* Make first and last cards span 2 columns for visual interest */
+  .es-categories-grid .es-category-card:first-child {
+    grid-column: span 2;
+    aspect-ratio: 16 / 9;
+  }
+}

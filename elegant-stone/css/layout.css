@@ -1,0 +1,158 @@
+/* ============================================
+   Elegant Stone — Layout System
+   ============================================ */
+
+/* ── Container ────────────────────────────── */
+
+.es-container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--container-padding);
+}
+
+.es-container--narrow {
+  max-width: var(--container-narrow);
+}
+
+.es-container--full {
+  max-width: none;
+  padding-inline: 0;
+}
+
+/* ── Section ──────────────────────────────── */
+
+.es-section {
+  padding-block: var(--space-20);
+}
+
+.es-section--compact {
+  padding-block: var(--space-12);
+}
+
+.es-section--hero {
+  padding-block: 0;
+}
+
+.es-section--alt {
+  background-color: var(--color-bg-secondary);
+}
+
+.es-section--dark {
+  background-color: var(--color-bg-primary);
+}
+
+/* ── Grid System ──────────────────────────── */
+
+.es-grid {
+  display: grid;
+  gap: var(--space-6);
+}
+
+.es-grid--2 {
+  grid-template-columns: 1fr;
+}
+
+.es-grid--3 {
+  grid-template-columns: 1fr;
+}
+
+.es-grid--4 {
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .es-grid--2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .es-grid--3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .es-grid--4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .es-grid--3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .es-grid--4 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1440px) {
+  .es-grid--4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* ── Flex Utilities ───────────────────────── */
+
+.es-flex {
+  display: flex;
+}
+
+.es-flex--center {
+  align-items: center;
+  justify-content: center;
+}
+
+.es-flex--between {
+  align-items: center;
+  justify-content: space-between;
+}
+
+.es-flex--column {
+  flex-direction: column;
+}
+
+.es-flex--gap-sm { gap: var(--space-3); }
+.es-flex--gap-md { gap: var(--space-6); }
+.es-flex--gap-lg { gap: var(--space-10); }
+
+/* ── Two-Column Content Layout ────────────── */
+
+.es-split {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-12);
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .es-split {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .es-split--reverse {
+    direction: rtl;
+  }
+
+  .es-split--reverse > * {
+    direction: ltr;
+  }
+}
+
+/* ── Responsive padding adjustments ───────── */
+
+@media (max-width: 767px) {
+  :root {
+    --container-padding: var(--space-4);
+    --nav-height: var(--nav-height-mobile);
+  }
+
+  .es-section {
+    padding-block: var(--space-12);
+  }
+}
+
+@media (min-width: 1440px) {
+  :root {
+    --container-padding: var(--space-8);
+  }
+}

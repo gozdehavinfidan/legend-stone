@@ -1,0 +1,17 @@
+elegant stone Ana Faaliyet Alanı: Perakende veya Toptan Satış 
+
+Temel Ürün Kategorileri: Dünyanın dört bir yanından temin edilen Ev Dekoru, Hediyelik Eşya, Takı, Giyim, Tütsü, Doğal ve Cilalı Değerli Taşlar, Doğal Yağlar ve Kokular, Kılıç ve Bıçaklar, Spiritüel Ürünleri, Dekoratif Sanat Ürünleri ve Mozaik Cam Otantik Türk Lambaları 
+
+En yüksek kâr marjını sağlayan ürün çeşitlerine dair özet bilgi:
+
+Doğal ve Cilalı Degerli Taşlar:  Latin Amerika, Asya, Avrupa ve Afrika olmak üzere birçok ülkeden temin edilen değerli taşlardan oluşan zengin bir koleksiyon tekil, dizi, set ve kitle şeklinde ilgilileri için satışa sunulmaktadir.
+
+Takı Ürunleri: Degerli taşlardan hazırlanmış olan kolye, bileklik, yüzük, küpe, anahtarlık, masaj taşları gibi birçok dekoratif eşya ilgililerine hitap eden çeşitliliği ile satişa sunulmaktadir.
+
+Mozaik Cam Otantik Türk Lambaları: Mozaik cam sanatının tarihsel bir mirası olarak, çesitli renk, boyut, şekil ve desenlerde el yapımı imal ve dizayn edilen masa, duvar ve avize lambaları ilgililerine satışa sunulmaktadir.
+ 
+website dili ingilizce, marka USA'da olacak.
+
+websitesi resmi material design color ve measurement presiplerine uymak zorunda. buton yerlesimi boyutlari font buyuklukleri font turleri renkler tema renkleri hepsi material design presiplerine uymak zorunda!!!!
+
+bazi ana theme renkleri secilecek birbirleri ile uyumlu olacak material design prensiplerine uygun olarak ve onlar kullanilacak. website tasarlanirken

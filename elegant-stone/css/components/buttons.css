@@ -1,0 +1,128 @@
+/* ============================================
+   Elegant Stone — Buttons
+   Material Design compliant sizing
+   ============================================ */
+
+/* ── Base Button ──────────────────────────── */
+
+.es-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: 48px;
+  min-width: 120px;
+  padding: var(--space-3) var(--space-6);
+  font-family: var(--font-body);
+  font-size: var(--text-label-lg);
+  font-weight: 500;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition:
+    background-color var(--duration-micro) var(--ease-standard),
+    color var(--duration-micro) var(--ease-standard),
+    box-shadow var(--duration-micro) var(--ease-standard),
+    transform var(--duration-micro) var(--ease-standard),
+    border-color var(--duration-micro) var(--ease-standard);
+  -webkit-user-select: none;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.es-btn:active {
+  transform: scale(0.98);
+}
+
+/* ── Primary (Filled — Gold) ──────────────── */
+
+.es-btn--primary {
+  background: var(--color-gold);
+  color: var(--color-text-inverse);
+  border: 1px solid var(--color-gold);
+  box-shadow: var(--shadow-1);
+}
+
+.es-btn--primary:hover {
+  background: var(--color-gold-light);
+  border-color: var(--color-gold-light);
+  box-shadow: var(--shadow-2), var(--shadow-glow);
+  color: var(--color-text-inverse);
+}
+
+.es-btn--primary:focus-visible {
+  outline-color: var(--color-gold-light);
+}
+
+/* ── Secondary (Outlined) ─────────────────── */
+
+.es-btn--secondary {
+  background: transparent;
+  color: var(--color-gold);
+  border: 1px solid var(--color-gold-dim);
+}
+
+.es-btn--secondary:hover {
+  background: var(--color-glow);
+  border-color: var(--color-gold);
+  color: var(--color-gold-light);
+}
+
+/* ── Ghost (Text button) ──────────────────── */
+
+.es-btn--ghost {
+  background: transparent;
+  color: var(--color-gold);
+  border: 1px solid transparent;
+  min-width: auto;
+  min-height: 40px;
+  padding: var(--space-2) var(--space-4);
+}
+
+.es-btn--ghost:hover {
+  background: var(--color-glow);
+  color: var(--color-gold-light);
+}
+
+/* ── Icon inside buttons ──────────────────── */
+
+.es-btn__icon {
+  width: 18px;
+  height: 18px;
+  transition: transform var(--duration-micro) var(--ease-standard);
+}
+
+.es-btn:hover .es-btn__icon {
+  transform: translateX(3px);
+}
+
+/* ── Button with arrow ────────────────────── */
+
+.es-btn--arrow::after {
+  content: '→';
+  display: inline-block;
+  margin-left: var(--space-2);
+  transition: transform var(--duration-micro) var(--ease-standard);
+}
+
+.es-btn--arrow:hover::after {
+  transform: translateX(4px);
+}
+
+/* ── Size Variants ────────────────────────── */
+
+.es-btn--sm {
+  min-height: 40px;
+  min-width: 96px;
+  padding: var(--space-2) var(--space-4);
+  font-size: var(--text-label-md);
+}
+
+.es-btn--lg {
+  min-height: 56px;
+  min-width: 160px;
+  padding: var(--space-4) var(--space-8);
+  font-size: var(--text-body-md);
+}

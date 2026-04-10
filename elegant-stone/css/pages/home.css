@@ -1,0 +1,171 @@
+/* ============================================
+   Elegant Stone — Home Page Styles
+   ============================================ */
+
+/* ── Brand Intro Strip ────────────────────── */
+
+.es-intro {
+  position: relative;
+  text-align: center;
+  padding-block: var(--space-16);
+  background: var(--color-bg-secondary);
+}
+
+/* Subtle radial glow behind the text */
+.es-intro::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 300px;
+  background: radial-gradient(ellipse, var(--color-glow) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.es-intro__text {
+  position: relative;
+  font-family: var(--font-accent);
+  font-size: var(--text-headline-sm);
+  font-style: italic;
+  font-weight: 300;
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-secondary);
+  max-width: 640px;
+  margin-inline: auto;
+}
+
+.es-intro__text em {
+  color: var(--color-gold);
+  font-style: normal;
+}
+
+/* ── Category Showcase ────────────────────── */
+
+.es-home-categories {
+  background: var(--color-bg-primary);
+}
+
+.es-home-categories .es-grid {
+  gap: var(--space-4);
+}
+
+/* Featured card takes 2 columns on desktop */
+@media (min-width: 1024px) {
+  .es-home-categories .es-category-card--featured {
+    grid-column: span 2;
+    aspect-ratio: 16 / 9;
+  }
+}
+
+/* ── Gallery Preview ──────────────────────── */
+
+.es-home-gallery {
+  background: var(--color-bg-secondary);
+}
+
+.es-home-gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-4);
+}
+
+@media (min-width: 768px) {
+  .es-home-gallery__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .es-home-gallery__grid {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 240px);
+  }
+
+  /* 5 photos: first image tall (spans 2 rows), rest fill naturally */
+  .es-home-gallery__item:nth-child(1) {
+    grid-row: span 2;
+  }
+
+  .es-home-gallery__item:nth-child(5) {
+    grid-column: span 1;
+  }
+}
+
+.es-home-gallery__item {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+}
+
+.es-home-gallery__item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--duration-long) var(--ease-standard);
+}
+
+.es-home-gallery__item:hover img {
+  transform: scale(1.06);
+}
+
+.es-home-gallery__cta {
+  text-align: center;
+  margin-top: var(--space-10);
+}
+
+/* ── Store CTA Section ────────────────────── */
+
+.es-home-cta {
+  position: relative;
+  min-height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.es-home-cta__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.es-home-cta__bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.es-home-cta__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    radial-gradient(ellipse at center, rgba(201, 168, 76, 0.04) 0%, transparent 50%),
+    rgba(10, 10, 8, 0.78);
+}
+
+.es-home-cta__content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: var(--space-12) var(--space-6);
+  max-width: 600px;
+}
+
+.es-home-cta__title {
+  font-family: var(--font-display);
+  font-size: var(--text-display-sm);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-4);
+}
+
+.es-home-cta__desc {
+  font-size: var(--text-body-lg);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-8);
+  line-height: var(--leading-relaxed);
+}

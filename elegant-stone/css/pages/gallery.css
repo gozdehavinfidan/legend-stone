@@ -1,0 +1,14 @@
+/* ============================================
+   Elegant Stone — Gallery Page Styles
+   ============================================ */
+
+.es-gallery-page {
+  background: var(--color-bg-primary);
+}
+
+/* Uniform square cards — object-fit:cover handles
+   both landscape and portrait source images cleanly
+   without white bars or distortion */
+.es-gallery-page .es-gallery-item__image {
+  aspect-ratio: 1 / 1;
+}

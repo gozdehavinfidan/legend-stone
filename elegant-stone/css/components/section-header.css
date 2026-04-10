@@ -1,0 +1,56 @@
+/* ============================================
+   Elegant Stone — Section Headers
+   ============================================ */
+
+.es-section-header {
+  text-align: center;
+  margin-bottom: var(--space-12);
+}
+
+.es-section-header--left {
+  text-align: left;
+}
+
+.es-section-header__eyebrow {
+  font-family: var(--font-body);
+  font-size: var(--text-label-lg);
+  font-weight: 400;
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: var(--space-3);
+}
+
+.es-section-header__title {
+  font-family: var(--font-display);
+  font-size: var(--text-display-sm);
+  font-weight: 400;
+  line-height: var(--leading-tight);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-4);
+}
+
+.es-section-header__line {
+  display: block;
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+  margin: var(--space-4) auto;
+}
+
+.es-section-header--left .es-section-header__line {
+  margin-left: 0;
+  background: linear-gradient(90deg, var(--color-gold), transparent);
+}
+
+.es-section-header__desc {
+  font-size: var(--text-body-lg);
+  color: var(--color-text-secondary);
+  max-width: 600px;
+  margin-inline: auto;
+  line-height: var(--leading-relaxed);
+}
+
+.es-section-header--left .es-section-header__desc {
+  margin-inline: 0;
+}
