@@ -49,13 +49,14 @@
   max-width: 800px;
 }
 
+/* Hero text sits on dark video overlay — always light regardless of theme */
 .es-hero__eyebrow {
   font-family: var(--font-body);
   font-size: var(--text-label-lg);
   font-weight: 400;
   letter-spacing: var(--tracking-wider);
   text-transform: uppercase;
-  color: var(--color-gold);
+  color: #E2C97A;
   margin-bottom: var(--space-4);
   opacity: 0;
   transform: translateY(16px);
@@ -67,7 +68,7 @@
   font-size: var(--text-display-lg);
   font-weight: 400;
   line-height: var(--leading-tight);
-  color: var(--color-text-primary);
+  color: #F5F0E8;
   margin-bottom: var(--space-6);
   opacity: 0;
   transform: translateY(24px);
@@ -76,14 +77,14 @@
 
 .es-hero__title em {
   font-style: italic;
-  color: var(--color-gold);
+  color: #E2C97A;
 }
 
 .es-hero__subtitle {
   font-family: var(--font-body);
   font-size: var(--text-body-lg);
   line-height: var(--leading-relaxed);
-  color: var(--color-text-secondary);
+  color: #D6D2BA;
   max-width: 540px;
   margin-inline: auto;
   margin-bottom: var(--space-10);

@@ -29,7 +29,11 @@
 /* ── Location Section ─────────────────────── */
 
 .es-visit-location {
-  background: var(--color-bg-secondary);
+  background: var(--md-sys-color-surface);
+}
+
+[data-theme="light"] .es-visit-location {
+  background: #FAF7F2;
 }
 
 /* ── Location Cards Grid ──────────────────── */
@@ -52,30 +56,45 @@
   }
 }
 
+/* Warm beige cards on white background */
 .es-location-card {
   position: relative;
   padding: var(--space-6);
-  background: var(--color-bg-tertiary);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
+  background: #F5F0E8;
+  border: 1px solid #E8E2D8;
+  border-radius: var(--md-sys-shape-corner-medium);
   text-align: center;
   transition:
     border-color var(--duration-short) var(--ease-standard),
     box-shadow var(--duration-short) var(--ease-standard),
-    transform var(--duration-short) var(--ease-standard);
+    transform var(--duration-short) var(--ease-standard),
+    background-color var(--duration-short) var(--ease-standard);
 }
 
 .es-location-card:hover {
+  border-color: #D9CDB8;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+  transform: translateY(-2px);
+  background: #EDE8DF;
+}
+
+/* Dark mode overrides */
+[data-theme="dark"] .es-location-card {
+  background: var(--md-sys-color-surface-container);
+  border-color: var(--color-border);
+}
+
+[data-theme="dark"] .es-location-card:hover {
+  background: var(--md-sys-color-surface-container-high);
   border-color: var(--color-border-hover);
   box-shadow: var(--shadow-glow);
-  transform: translateY(-2px);
 }
 
 .es-location-card__pin {
   width: 28px;
   height: 28px;
   margin: 0 auto var(--space-3);
-  color: var(--color-gold);
+  color: var(--md-sys-color-primary);
   flex-shrink: 0;
   overflow: hidden;
 }
@@ -92,7 +111,7 @@
   font-family: var(--font-display);
   font-size: var(--text-title-md);
   font-weight: 500;
-  color: var(--color-text-primary);
+  color: var(--md-sys-color-on-surface);
   margin-bottom: var(--space-1);
 }
 
@@ -100,14 +119,14 @@
   font-family: var(--font-body);
   font-size: var(--text-body-md);
   font-weight: 500;
-  color: var(--color-gold);
+  color: var(--md-sys-color-primary);
   margin-bottom: var(--space-1);
 }
 
 .es-location-card__city {
   font-family: var(--font-body);
   font-size: var(--text-body-sm);
-  color: var(--color-text-tertiary);
+  color: var(--md-sys-color-on-surface-variant);
   letter-spacing: var(--tracking-wide);
   text-transform: uppercase;
 }

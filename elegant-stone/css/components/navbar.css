@@ -56,20 +56,32 @@
 .es-nav__logo-icon svg {
   width: 100%;
   height: 100%;
-  fill: var(--color-gold);
-  transition: fill var(--duration-micro) var(--ease-standard);
+  fill: #E2C97A;
+  transition: fill var(--duration-short) var(--ease-standard);
 }
 
+/* Before scroll: nav is transparent over hero — force bright white text */
 .es-nav__logo-text {
   font-family: var(--font-display);
   font-size: var(--text-title-lg);
   font-weight: 500;
-  color: var(--color-text-primary);
+  color: #FFFFFF;
   letter-spacing: var(--tracking-wide);
   text-transform: uppercase;
+  transition: color var(--duration-short) var(--ease-standard);
 }
 
 .es-nav__logo-text span {
+  color: #E2C97A;
+  transition: color var(--duration-short) var(--ease-standard);
+}
+
+/* After scroll: nav has backdrop — use theme colors */
+.es-nav.is-scrolled .es-nav__logo-text {
+  color: var(--color-text-primary);
+}
+
+.es-nav.is-scrolled .es-nav__logo-text span {
   color: var(--color-gold);
 }
 
@@ -85,6 +97,7 @@
   gap: var(--space-1);
 }
 
+/* Before scroll: force bright link colors over hero */
 .es-nav__link {
   position: relative;
   padding: var(--space-2) var(--space-4);
@@ -93,9 +106,26 @@
   font-weight: 400;
   letter-spacing: var(--tracking-wide);
   text-transform: uppercase;
-  color: var(--color-text-secondary);
-  transition: color var(--duration-micro) var(--ease-standard);
+  color: #E8E4D8;
+  transition: color var(--duration-short) var(--ease-standard);
   white-space: nowrap;
+}
+
+/* After scroll: use theme colors */
+.es-nav.is-scrolled .es-nav__link {
+  color: var(--color-text-secondary);
+}
+
+.es-nav.is-scrolled .es-nav__logo-icon svg {
+  fill: var(--color-gold);
+}
+
+.es-nav.is-scrolled .es-theme-toggle {
+  color: var(--color-text-secondary);
+}
+
+.es-nav.is-scrolled .es-nav__hamburger-line {
+  background: var(--color-text-primary);
 }
 
 .es-nav__link::after {
@@ -113,6 +143,11 @@
 
 .es-nav__link:hover,
 .es-nav__link.is-active {
+  color: #E2C97A;
+}
+
+.es-nav.is-scrolled .es-nav__link:hover,
+.es-nav.is-scrolled .es-nav__link.is-active {
   color: var(--color-gold);
 }
 
@@ -138,7 +173,7 @@
   align-items: center;
   justify-content: center;
   border-radius: var(--radius-full);
-  color: var(--color-text-secondary);
+  color: #E8E4D8;
   transition:
     color var(--duration-micro) var(--ease-standard),
     background-color var(--duration-micro) var(--ease-standard);
@@ -181,7 +216,7 @@
   display: block;
   width: 22px;
   height: 1.5px;
-  background: var(--color-text-primary);
+  background: #FFFFFF;
   transition:
     transform var(--duration-short) var(--ease-standard),
     opacity var(--duration-micro) var(--ease-standard);
