@@ -289,6 +289,47 @@
   color: var(--color-gold);
 }
 
+/* ── Solid Nav (Inner Pages) ──────────────── */
+/* Inner pages have lighter heroes — nav uses
+   theme-aware colors from the start, no scroll
+   color transition needed. */
+
+.es-nav[data-nav-style="solid"] {
+  background: var(--color-overlay-heavy);
+  backdrop-filter: blur(20px) saturate(1.2);
+  -webkit-backdrop-filter: blur(20px) saturate(1.2);
+  box-shadow: var(--shadow-1), 0 1px 0 var(--color-border);
+}
+
+.es-nav[data-nav-style="solid"] .es-nav__logo-text {
+  color: var(--color-text-primary);
+}
+
+.es-nav[data-nav-style="solid"] .es-nav__logo-text span {
+  color: var(--color-gold);
+}
+
+.es-nav[data-nav-style="solid"] .es-nav__logo-icon svg {
+  fill: var(--color-gold);
+}
+
+.es-nav[data-nav-style="solid"] .es-nav__link {
+  color: var(--color-text-secondary);
+}
+
+.es-nav[data-nav-style="solid"] .es-nav__link:hover,
+.es-nav[data-nav-style="solid"] .es-nav__link.is-active {
+  color: var(--color-gold);
+}
+
+.es-nav[data-nav-style="solid"] .es-theme-toggle {
+  color: var(--color-text-secondary);
+}
+
+.es-nav[data-nav-style="solid"] .es-nav__hamburger-line {
+  background: var(--color-text-primary);
+}
+
 /* ── Desktop Breakpoint ───────────────────── */
 
 @media (min-width: 1024px) {
