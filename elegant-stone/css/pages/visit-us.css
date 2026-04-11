@@ -33,7 +33,7 @@
 }
 
 [data-theme="light"] .es-visit-location {
-  background: #FAF7F2;
+  background: var(--color-surface-page);
 }
 
 /* ── Location Cards Grid ──────────────────── */
@@ -56,12 +56,12 @@
   }
 }
 
-/* Warm beige cards on white background */
+/* Location cards — token-based for both themes */
 .es-location-card {
   position: relative;
   padding: var(--space-6);
-  background: #F5F0E8;
-  border: 1px solid #E8E2D8;
+  background: var(--md-sys-color-surface-container-high);
+  border: 1px solid var(--md-sys-color-outline-variant);
   border-radius: var(--md-sys-shape-corner-medium);
   text-align: center;
   transition:
@@ -72,22 +72,10 @@
 }
 
 .es-location-card:hover {
-  border-color: #D9CDB8;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+  border-color: var(--md-sys-color-primary);
+  box-shadow: var(--shadow-1);
   transform: translateY(-2px);
-  background: #EDE8DF;
-}
-
-/* Dark mode overrides */
-[data-theme="dark"] .es-location-card {
-  background: var(--md-sys-color-surface-container);
-  border-color: var(--color-border);
-}
-
-[data-theme="dark"] .es-location-card:hover {
-  background: var(--md-sys-color-surface-container-high);
-  border-color: var(--color-border-hover);
-  box-shadow: var(--shadow-glow);
+  background: var(--md-sys-color-surface-container-highest);
 }
 
 .es-location-card__pin {

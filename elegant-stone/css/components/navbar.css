@@ -56,7 +56,7 @@
 .es-nav__logo-icon svg {
   width: 100%;
   height: 100%;
-  fill: #E2C97A;
+  fill: var(--color-on-media-accent);
   transition: fill var(--duration-short) var(--ease-standard);
 }
 
@@ -65,14 +65,14 @@
   font-family: var(--font-display);
   font-size: var(--text-title-lg);
   font-weight: 500;
-  color: #FFFFFF;
+  color: var(--color-on-media);
   letter-spacing: var(--tracking-wide);
   text-transform: uppercase;
   transition: color var(--duration-short) var(--ease-standard);
 }
 
 .es-nav__logo-text span {
-  color: #E2C97A;
+  color: var(--color-on-media-accent);
   transition: color var(--duration-short) var(--ease-standard);
 }
 
@@ -106,7 +106,7 @@
   font-weight: 400;
   letter-spacing: var(--tracking-wide);
   text-transform: uppercase;
-  color: #E8E4D8;
+  color: var(--color-on-media-subtle);
   transition: color var(--duration-short) var(--ease-standard);
   white-space: nowrap;
 }
@@ -143,7 +143,7 @@
 
 .es-nav__link:hover,
 .es-nav__link.is-active {
-  color: #E2C97A;
+  color: var(--color-on-media-accent);
 }
 
 .es-nav.is-scrolled .es-nav__link:hover,
@@ -173,7 +173,7 @@
   align-items: center;
   justify-content: center;
   border-radius: var(--radius-full);
-  color: #E8E4D8;
+  color: var(--color-on-media-subtle);
   transition:
     color var(--duration-micro) var(--ease-standard),
     background-color var(--duration-micro) var(--ease-standard);
@@ -208,22 +208,22 @@
   align-items: center;
   width: 48px;
   height: 48px;
-  gap: 5px;
+  gap: var(--space-1);
   z-index: 1001;
 }
 
 .es-nav__hamburger-line {
   display: block;
-  width: 22px;
-  height: 1.5px;
-  background: #FFFFFF;
+  width: 20px;
+  height: 2px;
+  background: var(--color-on-media);
   transition:
     transform var(--duration-short) var(--ease-standard),
     opacity var(--duration-micro) var(--ease-standard);
 }
 
 .es-nav__hamburger.is-active .es-nav__hamburger-line:nth-child(1) {
-  transform: translateY(6.5px) rotate(45deg);
+  transform: translateY(6px) rotate(45deg);
 }
 
 .es-nav__hamburger.is-active .es-nav__hamburger-line:nth-child(2) {
@@ -231,7 +231,7 @@
 }
 
 .es-nav__hamburger.is-active .es-nav__hamburger-line:nth-child(3) {
-  transform: translateY(-6.5px) rotate(-45deg);
+  transform: translateY(-6px) rotate(-45deg);
 }
 
 /* ── Mobile Menu Overlay ──────────────────── */

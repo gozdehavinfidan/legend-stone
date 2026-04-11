@@ -145,6 +145,50 @@
   --color-glow:           rgba(201, 168, 76, 0.08);
   --color-glow-strong:    rgba(201, 168, 76, 0.15);
 
+  /* ── Overlay-Safe Tokens ────────────────────
+     Theme-invariant foreground colors for text
+     rendered on dark overlays / media scrims.
+     These use md-ref values so they stay light
+     regardless of active theme. */
+  --color-on-media:           var(--md-ref-palette-neutral96);
+  --color-on-media-accent:    var(--md-ref-palette-primary80);
+  --color-on-media-muted:     var(--md-ref-palette-neutral90);
+  --color-on-media-subtle:    var(--md-ref-palette-neutral80);
+
+  /* ── Decorative Effect Tokens ───────────────
+     Glow / shimmer colors for atmosphere.css
+     decorative effects. Not elevation shadows. */
+  --color-effect-glow-gold:    rgba(201, 168, 76, 0.07);
+  --color-effect-glow-copper:  rgba(196, 125, 78, 0.05);
+  --color-effect-glow-emerald: rgba(61, 107, 82, 0.04);
+  --color-effect-spark-gold:   rgba(201, 168, 76, 0.8);
+  --color-effect-spark-copper: rgba(196, 125, 78, 0.8);
+  --color-effect-spark-emerald:rgba(61, 107, 82, 0.6);
+  --color-effect-hover-gold:   rgba(201, 168, 76, 0.2);
+  --color-effect-hover-copper: rgba(196, 125, 78, 0.2);
+  --color-effect-hover-emerald:rgba(61, 107, 82, 0.2);
+  --color-effect-ambient-gold:   rgba(201, 168, 76, 0.04);
+  --color-effect-ambient-copper: rgba(196, 125, 78, 0.04);
+
+  /* ── Media Scrim Tokens ─────────────────────
+     Dark overlay / scrim stops used on hero,
+     cards, lightbox, gallery hover, CTA bg.
+     Centralized so no raw RGBA in components. */
+  --color-scrim-transparent:  rgba(10, 10, 8, 0);
+  --color-scrim-light:        rgba(10, 10, 8, 0.25);
+  --color-scrim-medium:       rgba(10, 10, 8, 0.3);
+  --color-scrim-strong:       rgba(10, 10, 8, 0.55);
+  --color-scrim-heavy:        rgba(10, 10, 8, 0.7);
+  --color-scrim-dense:        rgba(10, 10, 8, 0.85);
+  --color-scrim-max:          rgba(10, 10, 8, 0.9);
+  --color-scrim-near-opaque:  rgba(10, 10, 8, 0.95);
+  --color-scrim-backdrop:     rgba(10, 10, 8, 0.6);
+
+  /* ── Light-Theme Surface Alias ──────────────
+     Routed through alias so components never
+     reference md-ref directly. */
+  --color-surface-page:       var(--md-sys-color-surface);
+
   /* ══════════════════════════════════════════
      TYPOGRAPHY (md-sys-typescale)
      ══════════════════════════════════════════ */
@@ -335,6 +379,9 @@
   --color-copper:       var(--md-sys-color-secondary);
   --color-copper-light: var(--md-ref-palette-secondary50);
   --color-emerald:      var(--md-sys-color-tertiary);
+
+  /* Surface page — warm white for light theme sections */
+  --color-surface-page:   var(--md-ref-palette-neutral99);
 
   /* Functional overrides for light */
   --color-border:         rgba(30, 28, 20, 0.10);

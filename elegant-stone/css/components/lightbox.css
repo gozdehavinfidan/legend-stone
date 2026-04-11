@@ -9,7 +9,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(10, 10, 8, 0.95);
+  background: var(--color-scrim-near-opaque);
   backdrop-filter: blur(12px);
   opacity: 0;
   visibility: hidden;
@@ -58,7 +58,7 @@
 
 .es-lightbox__close:hover {
   color: var(--color-text-primary);
-  background: rgba(255, 255, 255, 0.08);
+  background: var(--color-glow);
 }
 
 .es-lightbox__close svg {
@@ -84,7 +84,7 @@
 
 .es-lightbox__nav:hover {
   color: var(--color-text-primary);
-  background: rgba(255, 255, 255, 0.08);
+  background: var(--color-glow);
 }
 
 .es-lightbox__nav svg {
