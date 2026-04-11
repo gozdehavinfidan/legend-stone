@@ -61,13 +61,14 @@
   padding: var(--space-6);
 }
 
+/* Card text sits on dark overlay — always use light colors regardless of theme */
 .es-category-card__label {
   font-family: var(--font-body);
   font-size: var(--text-label-md);
   font-weight: 500;
   letter-spacing: var(--tracking-wider);
   text-transform: uppercase;
-  color: var(--color-gold);
+  color: #E2C97A;
   margin-bottom: var(--space-2);
 }
 
@@ -75,13 +76,13 @@
   font-family: var(--font-display);
   font-size: var(--text-headline-sm);
   font-weight: 400;
-  color: var(--color-text-primary);
+  color: #F5F0E8;
   margin-bottom: var(--space-2);
 }
 
 .es-category-card__desc {
   font-size: var(--text-body-sm);
-  color: var(--color-text-secondary);
+  color: #D6D2BA;
   line-height: var(--leading-normal);
   max-height: 0;
   overflow: hidden;
@@ -106,7 +107,7 @@
   font-weight: 500;
   letter-spacing: var(--tracking-wide);
   text-transform: uppercase;
-  color: var(--color-gold);
+  color: #E2C97A;
   opacity: 0;
   transform: translateY(8px);
   transition:
