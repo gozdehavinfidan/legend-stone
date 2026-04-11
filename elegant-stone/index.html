@@ -173,73 +173,12 @@
           </p>
         </div>
 
-        <div class="es-grid es-grid--2">
-
-          <!-- Category: Gemstones -->
-          <a href="pages/gallery.html#gemstones" class="es-category-card es-reveal es-reveal--delay-1">
-            <div class="es-category-card__image">
-              <img src="assets/images/categories/gemstones-01.jpg" alt="Natural and polished gemstones collection" loading="lazy">
-            </div>
-            <div class="es-category-card__overlay"></div>
-            <div class="es-category-card__content">
-              <span class="es-category-card__label">Collection</span>
-              <h3 class="es-category-card__title">Natural Gemstones</h3>
-              <p class="es-category-card__desc">
-                Sourced from 15+ countries — raw, polished, and curated for collectors and seekers alike.
-              </p>
-              <span class="es-category-card__arrow">Explore <span>&rarr;</span></span>
-            </div>
-          </a>
-
-          <!-- Category: Decorative Figurines -->
-          <a href="pages/gallery.html#decor" class="es-category-card es-reveal es-reveal--delay-2">
-            <div class="es-category-card__image">
-              <img src="assets/images/categories/figurines-01.jpg" alt="Handcrafted decorative figurines and small statues" loading="lazy">
-            </div>
-            <div class="es-category-card__overlay"></div>
-            <div class="es-category-card__content">
-              <span class="es-category-card__label">Collection</span>
-              <h3 class="es-category-card__title">Decorative Figurines</h3>
-              <p class="es-category-card__desc">
-                Intricately crafted small statues and figurines — cultural symbols, artistic miniatures, and collectible art pieces.
-              </p>
-              <span class="es-category-card__arrow">Explore <span>&rarr;</span></span>
-            </div>
-          </a>
-
-          <!-- Category: Jewelry -->
-          <a href="pages/gallery.html#jewelry" class="es-category-card es-reveal es-reveal--delay-3">
-            <div class="es-category-card__image">
-              <img src="assets/images/categories/necklace-display.jpg" alt="Gemstone necklaces and jewelry collection" loading="lazy">
-            </div>
-            <div class="es-category-card__overlay"></div>
-            <div class="es-category-card__content">
-              <span class="es-category-card__label">Collection</span>
-              <h3 class="es-category-card__title">Artisan Jewelry</h3>
-              <p class="es-category-card__desc">
-                Necklaces, bracelets, rings, and earrings — each piece crafted from nature's finest stones.
-              </p>
-              <span class="es-category-card__arrow">Explore <span>&rarr;</span></span>
-            </div>
-          </a>
-
-          <!-- Category: Turkish Mosaic Lamps -->
-          <a href="pages/gallery.html#lamps" class="es-category-card es-reveal es-reveal--delay-1">
-            <div class="es-category-card__image">
-              <img src="assets/images/categories/turkish-lamps.jpg" alt="Authentic Turkish mosaic glass lamps" loading="lazy">
-            </div>
-            <div class="es-category-card__overlay"></div>
-            <div class="es-category-card__content">
-              <span class="es-category-card__label">Collection</span>
-              <h3 class="es-category-card__title">Turkish Mosaic Lamps</h3>
-              <p class="es-category-card__desc">
-                Handcrafted mosaic glass art with centuries of heritage — table lamps, wall sconces, and chandeliers in vibrant colors.
-              </p>
-              <span class="es-category-card__arrow">Explore <span>&rarr;</span></span>
-            </div>
-          </a>
-
-
+        <!-- Rendered dynamically from content/categories.json -->
+        <div class="es-grid es-grid--2" id="categories-grid">
+          <!-- JS will populate from shared data source -->
+          <noscript>
+            <p style="text-align:center; color: var(--color-text-secondary);">Please enable JavaScript to view our collections.</p>
+          </noscript>
         </div>
       </div>
     </section>
@@ -286,7 +225,7 @@
     <!-- ── Store CTA ──────────────────────── -->
     <section class="es-home-cta es-mosaic-shimmer">
       <div class="es-home-cta__bg">
-        <img src="assets/images/store/store-interior-02.jpg" alt="" aria-hidden="true" loading="lazy">
+        <img src="assets/images/hero/home-decor-hero-02.jpg" alt="" aria-hidden="true" loading="lazy">
       </div>
       <div class="es-home-cta__overlay"></div>
       <div class="es-home-cta__content es-reveal">
@@ -319,7 +258,7 @@
           Curators of energy, light, and culture — bringing the world's most elegant wonders to you.
         </p>
         <div class="es-footer__social">
-          <a href="#" class="es-footer__social-link" aria-label="Instagram">
+          <a href="https://www.instagram.com/elegantstonebms/" target="_blank" rel="noopener noreferrer" class="es-footer__social-link" aria-label="Instagram">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
               <rect x="2" y="2" width="20" height="20" rx="5"/>
               <circle cx="12" cy="12" r="5"/>

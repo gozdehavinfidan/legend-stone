@@ -6,6 +6,7 @@ import { initNavigation } from './navigation.js';
 import { initScrollReveal } from './animations.js';
 import { initGalleryFilter, initLightbox } from './gallery.js';
 import { lazyLoadImages } from './utils.js';
+import { renderCategories } from './categories.js';
 
 /* ── Theme Toggle ─────────────────────────── */
 
@@ -39,9 +40,21 @@ function initThemeToggle() {
 
 /* ── Initialize ───────────────────────────── */
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
   initThemeToggle();
   initNavigation();
+
+  // Detect if we're in /pages/ subfolder
+  const isSubPage = window.location.pathname.includes('/pages/');
+  const basePath = isSubPage ? '../' : '';
+
+  // Render categories from shared JSON
+  // Home page shows first 4 categories, Categories page shows all
+  const isCategoriesPage = window.location.pathname.includes('categories');
+  const maxItems = isCategoriesPage ? null : 4;
+  await renderCategories('categories-grid', { basePath, maxItems });
+
+  // Init after dynamic content is rendered
   initScrollReveal();
   initGalleryFilter();
   initLightbox();

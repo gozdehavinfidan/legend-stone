@@ -145,7 +145,7 @@
   z-index: 1;
   background:
     radial-gradient(ellipse at center, rgba(201, 168, 76, 0.04) 0%, transparent 50%),
-    rgba(10, 10, 8, 0.78);
+    rgba(10, 10, 8, 0.45);
 }
 
 .es-home-cta__content {
