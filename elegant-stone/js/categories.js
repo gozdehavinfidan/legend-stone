@@ -7,7 +7,7 @@
    ============================================ */
 
 function createCategoryCard(cat, basePath, delay, isFeatured) {
-  const galleryPath = basePath ? `${basePath}gallery.html` : 'pages/gallery.html';
+  const galleryPath = basePath ? 'gallery.html' : 'pages/gallery.html';
   const imgSrc = basePath ? `${basePath}${cat.image}` : cat.image;
 
   const card = document.createElement('a');
