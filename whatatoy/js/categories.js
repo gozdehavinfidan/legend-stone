@@ -44,13 +44,13 @@ function scrollToHashIfMatches(categories) {
 
 function renderInto(target, categories) {
   target.innerHTML = '';
-  const categoriesHref = `${basePathForPage()}pages/categories.html`;
+  const galleryHref = `${basePathForPage()}pages/gallery.html`;
   categories.forEach((cat, i) => {
     const tone = toneSuffix(cat.panelRole);
     const card = document.createElement('a');
     card.className = `wat-category-card wat-category-card--${tone}`;
     card.id = cat.id;
-    card.href = `${categoriesHref}#${cat.id}`;
+    card.href = `${galleryHref}#cat=${encodeURIComponent(cat.id)}`;
     card.dataset.category = cat.id;
     card.dataset.panelRole = cat.panelRole;
     card.dataset.reveal = '';
