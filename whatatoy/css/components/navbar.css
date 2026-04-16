@@ -4,16 +4,17 @@
    Owner:  Agent 2 components · team whatatoy-impl
    Date:   2026-04-16
 
-   Sticky top navbar on cream surface. The logo
-   carries the red — the navbar itself stays
-   cream so the logo does not lose its punch.
+   Sticky top navbar on a saturated candy-red bar.
+   The bar now behaves like the stage for the brand:
+   cream/navy vector wordmark, yellow stripe accent,
+   and a lighter Visit Us button that pops against red.
 
    Structure:
      .wat-nav            — fixed wrapper
        .wat-nav__inner   — container row
          .wat-logo       — left, brand lockup
          .wat-nav__links — center, 4 links
-         .wat-nav__cta   — right, Visit Us filled btn
+         .wat-nav__cta   — right, Visit Us contrast button
          .wat-nav__hamburger — mobile toggle
      .wat-nav__drawer    — mobile slide-down menu
    ============================================ */
@@ -28,7 +29,7 @@
   display: flex;
   align-items: center;
   padding-inline: var(--container-padding);
-  background-color: var(--md-sys-color-surface);
+  background: linear-gradient(180deg, var(--md-sys-color-primary) 0%, var(--color-primary-light) 100%);
   box-shadow: none;
   border-bottom: 1px solid transparent;
   transition:
@@ -37,9 +38,25 @@
     height var(--duration-short) var(--ease-standard);
 }
 
+.wat-nav::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 4px;
+  background-image: repeating-linear-gradient(
+    90deg,
+    var(--color-accent-stripe) 0 28px,
+    transparent 28px 56px
+  );
+  opacity: 0.92;
+  pointer-events: none;
+}
+
 .wat-nav.is-scrolled {
-  box-shadow: var(--md-sys-elevation-2);
-  border-bottom-color: var(--md-sys-color-outline-variant);
+  box-shadow: var(--md-sys-elevation-3);
+  border-bottom-color: color-mix(in srgb, var(--md-sys-color-on-primary) 18%, transparent);
 }
 
 .wat-nav__inner {
@@ -52,7 +69,7 @@
   margin-inline: auto;
 }
 
-/* ── Links ────────────────────────────────── */
+/* ── Links ─────────────────────────────────── */
 
 .wat-nav__links {
   display: none;
@@ -76,10 +93,12 @@
   font-size: var(--text-label-lg);
   font-weight: var(--weight-medium);
   letter-spacing: var(--tracking-wide);
-  color: var(--color-text-secondary);
+  color: var(--md-ref-palette-neutral99);
   text-decoration: none;
   border-radius: var(--radius-sm);
-  transition: color var(--duration-micro) var(--ease-standard);
+  transition:
+    color var(--duration-micro) var(--ease-standard),
+    background-color var(--duration-micro) var(--ease-standard);
 }
 
 .wat-nav__link::after {
@@ -89,7 +108,7 @@
   right: var(--space-4);
   bottom: 6px;
   height: 2px;
-  background-color: var(--md-sys-color-primary);
+  background-color: var(--color-accent-stripe);
   border-radius: var(--radius-full);
   transform: scaleX(0);
   transform-origin: right;
@@ -98,7 +117,8 @@
 
 .wat-nav__link:hover,
 .wat-nav__link.is-active {
-  color: var(--color-brand-ink);
+  color: var(--md-sys-color-on-primary);
+  background-color: color-mix(in srgb, var(--md-sys-color-on-primary) 10%, transparent);
 }
 
 .wat-nav__link:hover::after,
@@ -108,18 +128,31 @@
 }
 
 .wat-nav__link:focus-visible {
-  outline: 2px solid var(--md-sys-color-tertiary);
+  outline: 2px solid var(--md-sys-color-surface);
   outline-offset: 2px;
 }
 
-/* ── CTA (Visit Us) ───────────────────────── */
+/* ── CTA (Visit Us) ────────────────────────── */
 
 .wat-nav__cta {
   display: none;
   flex-shrink: 0;
 }
 
-/* ── Hamburger ────────────────────────────── */
+.wat-nav__cta.wat-btn--filled,
+.wat-nav__drawer-cta.wat-btn--filled {
+  background-color: var(--md-sys-color-surface);
+  color: var(--color-brand-ink);
+  border-color: var(--md-sys-color-surface);
+  box-shadow: none;
+}
+
+.wat-nav__cta.wat-btn--filled:hover,
+.wat-nav__drawer-cta.wat-btn--filled:hover {
+  box-shadow: var(--md-sys-elevation-2);
+}
+
+/* ── Hamburger ─────────────────────────────── */
 
 .wat-nav__hamburger {
   display: inline-flex;
@@ -138,11 +171,11 @@
 }
 
 .wat-nav__hamburger:hover {
-  background-color: var(--md-sys-color-surface-container);
+  background-color: color-mix(in srgb, var(--md-sys-color-on-primary) 12%, transparent);
 }
 
 .wat-nav__hamburger:focus-visible {
-  outline: 2px solid var(--md-sys-color-tertiary);
+  outline: 2px solid var(--md-sys-color-surface);
   outline-offset: 2px;
 }
 
@@ -150,7 +183,7 @@
   display: block;
   width: 22px;
   height: 2px;
-  background-color: var(--color-brand-ink);
+  background-color: var(--md-sys-color-on-primary);
   border-radius: var(--radius-full);
   transition:
     transform var(--duration-short) var(--ease-emphasized),
@@ -169,7 +202,7 @@
   transform: translateY(-7px) rotate(-45deg);
 }
 
-/* ── Drawer (mobile) ──────────────────────── */
+/* ── Drawer (mobile) ───────────────────────── */
 
 .wat-nav__drawer {
   position: fixed;
@@ -177,8 +210,8 @@
   left: 0;
   right: 0;
   z-index: calc(var(--z-nav) - 1);
-  background-color: var(--md-sys-color-surface);
-  border-bottom: 1px solid var(--md-sys-color-outline-variant);
+  background: linear-gradient(180deg, var(--md-sys-color-primary) 0%, var(--color-primary-light) 100%);
+  border-bottom: 1px solid color-mix(in srgb, var(--md-sys-color-on-primary) 18%, transparent);
   box-shadow: var(--md-sys-elevation-3);
   max-height: 0;
   overflow: hidden;
@@ -209,29 +242,31 @@
   font-family: var(--font-body);
   font-size: var(--text-title-md);
   font-weight: var(--weight-medium);
-  color: var(--color-text-primary);
+  color: var(--md-sys-color-on-primary);
   text-decoration: none;
   border-radius: var(--radius-md);
-  transition: background-color var(--duration-micro) var(--ease-standard);
+  transition:
+    background-color var(--duration-micro) var(--ease-standard),
+    color var(--duration-micro) var(--ease-standard);
 }
 
 .wat-nav__drawer-link:hover,
 .wat-nav__drawer-link.is-active {
-  background-color: var(--md-sys-color-primary-container);
-  color: var(--md-sys-color-on-primary-container);
+  background-color: color-mix(in srgb, var(--md-sys-color-on-primary) 12%, transparent);
+  color: var(--md-sys-color-on-primary);
 }
 
 .wat-nav__drawer-cta {
   margin-top: var(--space-3);
 }
 
-/* ── Spacer — push page content below fixed nav — */
+/* ── Spacer — push page content below fixed nav ── */
 
 .wat-nav-spacer {
   height: var(--nav-height);
 }
 
-/* ── Desktop breakpoint ───────────────────── */
+/* ── Desktop breakpoint ────────────────────── */
 
 @media (min-width: 1024px) {
   .wat-nav__links {
@@ -248,7 +283,7 @@
   }
 }
 
-/* ── Reduced motion ───────────────────────── */
+/* ── Reduced motion ────────────────────────── */
 
 @media (prefers-reduced-motion: reduce) {
   .wat-nav,

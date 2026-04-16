@@ -4,17 +4,15 @@
    Owner:  Agent 2 components · team whatatoy-impl
    Date:   2026-04-16
 
-   Encapsulates the brand lockup around /logo.jpeg.
-   The logo image already carries the red banner,
-   navy outlined wordmark, and yellow accent stripes,
-   so these rules NEVER tint, recolor, or filter the
-   raster — they only size, space, and frame it.
+   Encapsulates the hand-authored vector wordmark
+   inspired by the client's reference image.
+   Transparent SVG lets the brand sit cleanly on
+   both the new red navbar and cream page surfaces.
 
    Alt-text convention (pass via markup):
-     alt="What-A-Toy! logo - red banner with cream
-          hand-lettered wordmark outlined in navy
-          blue, yellow and cream horizontal accent
-          stripes below"
+     alt="What-A-Toy! custom wordmark with cream
+          playful lettering outlined in navy blue,
+          yellow stripes, and a curved ribbon flourish"
    ============================================ */
 
 /* ── Base ─────────────────────────────────── */
@@ -25,7 +23,10 @@
   flex-shrink: 0;
   text-decoration: none;
   line-height: 0;
-  transition: transform var(--duration-short) var(--ease-standard);
+  transition:
+    transform var(--duration-short) var(--ease-standard),
+    box-shadow var(--duration-short) var(--ease-standard),
+    background-color var(--duration-short) var(--ease-standard);
 }
 
 .wat-logo__img {
@@ -44,14 +45,18 @@
 
 /* ── Nav variant — compact lockup in navbar ── */
 
+.wat-logo--nav {
+  padding-block: var(--space-1);
+}
+
 .wat-logo--nav .wat-logo__img {
-  height: 48px;
+  height: 42px;
   width: auto;
 }
 
 @media (min-width: 768px) {
   .wat-logo--nav .wat-logo__img {
-    height: 56px;
+    height: 48px;
   }
 }
 
@@ -63,10 +68,11 @@
 
 .wat-logo--hero {
   display: inline-flex;
-  padding: var(--space-6) var(--space-8);
-  background-color: var(--md-sys-color-surface);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--md-sys-elevation-1);
+  padding: var(--space-6) var(--space-8) var(--space-5);
+  background: linear-gradient(145deg, var(--md-sys-color-primary) 0%, var(--color-primary-light) 100%);
+  border: 3px solid var(--color-brand-ink);
+  border-radius: calc(var(--radius-lg) + var(--space-2));
+  box-shadow: var(--md-sys-elevation-2);
 }
 
 .wat-logo--hero .wat-logo__img {
@@ -76,8 +82,17 @@
 
 /* ── Footer variant — small, cream, quiet ─── */
 
+.wat-logo--footer {
+  display: inline-flex;
+  padding: var(--space-3) var(--space-4);
+  background: linear-gradient(145deg, var(--md-sys-color-primary) 0%, var(--color-primary-light) 100%);
+  border: 2px solid var(--color-brand-ink);
+  border-radius: calc(var(--radius-md) + var(--space-1));
+  box-shadow: var(--md-sys-elevation-1);
+}
+
 .wat-logo--footer .wat-logo__img {
-  width: clamp(88px, 12vw, 120px);
+  width: clamp(108px, 12vw, 144px);
   height: auto;
 }
 

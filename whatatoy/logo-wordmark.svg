@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 240" role="img" aria-labelledby="logoTitle logoDesc">
+  <title id="logoTitle">What-A-Toy! custom wordmark</title>
+  <desc id="logoDesc">Playful cream lettering outlined in navy blue with yellow stripes and a curved ribbon flourish.</desc>
+  <defs>
+    <filter id="logo-shadow" x="-8%" y="-18%" width="116%" height="150%">
+      <feDropShadow dx="0" dy="7" stdDeviation="7" flood-color="#201A18" flood-opacity="0.16"/>
+    </filter>
+    <style>
+      .wat-logo-word {
+        font-family: "Comic Sans MS", "Trebuchet MS", "Arial Rounded MT Bold", "Segoe UI", sans-serif;
+        font-size: 100px;
+        font-style: italic;
+        font-weight: 700;
+        letter-spacing: 1px;
+      }
+    </style>
+  </defs>
+
+  <g transform="translate(18 16)" filter="url(#logo-shadow)">
+    <g fill="none" stroke="#F9BC2C" stroke-linecap="round" opacity="0.98">
+      <path d="M28 142C158 139 288 138 418 140 548 142 665 144 774 140" stroke-width="7"/>
+      <path d="M26 160C154 157 284 156 414 158 544 160 662 162 774 158" stroke-width="7"/>
+      <path d="M24 178C152 175 282 174 412 176 542 178 660 180 774 176" stroke-width="7"/>
+    </g>
+
+    <path d="M38 122C118 64 235 55 358 80 469 103 588 143 776 118" fill="none" stroke="#002A75" stroke-linecap="round" stroke-width="20"/>
+    <path d="M38 122C118 64 235 55 358 80 469 103 588 143 776 118" fill="none" stroke="#FBEEE9" stroke-linecap="round" stroke-width="13"/>
+
+    <text class="wat-logo-word" x="22" y="96" fill="#002A75" opacity="0.28">What-A-Toy!</text>
+    <text class="wat-logo-word"
+          x="18"
+          y="90"
+          fill="#FBEEE9"
+          stroke="#002A75"
+          stroke-linejoin="round"
+          stroke-width="10"
+          paint-order="stroke fill">
+      What-A-Toy!
+    </text>
+  </g>
+</svg>

@@ -1,7 +1,7 @@
 {
   "brand": {
-    "path": "logo.jpeg",
-    "altText": "What-A-Toy! logo — red banner with cream hand-lettered wordmark outlined in navy blue, yellow and cream horizontal accent stripes below",
+    "path": "logo-wordmark.svg",
+    "altText": "What-A-Toy! custom wordmark with cream playful lettering outlined in navy blue, yellow stripes, and a curved ribbon flourish",
     "usage": ["navbar", "hero", "footer"]
   },
   "assets": [
