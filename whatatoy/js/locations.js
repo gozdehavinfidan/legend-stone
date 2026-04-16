@@ -18,10 +18,22 @@ export async function initLocations() {
   try {
     const locations = await fetchJson(resolveContentUrl('locations.json'));
     targets.forEach((target) => renderInto(target, locations));
+    scrollToHashIfMatches(locations);
   } catch (err) {
     console.error('[locations] failed to load:', err);
     targets.forEach((t) => renderFallbackMessage(t));
   }
+}
+
+function scrollToHashIfMatches(locations) {
+  const hash = window.location.hash.replace('#', '');
+  if (!hash) return;
+  if (!locations.some((l) => l.id === hash)) return;
+  const target = document.getElementById(hash);
+  if (!target) return;
+  requestAnimationFrame(() => {
+    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
 }
 
 function renderInto(target, locations) {
@@ -34,6 +46,7 @@ function renderInto(target, locations) {
 function buildCard(loc, index) {
   const card = document.createElement('article');
   card.className = 'wat-store-card';
+  card.id = loc.id;
   card.dataset.locationId = loc.id;
   card.dataset.reveal = '';
   card.dataset.revealDelay = String(index * 60);

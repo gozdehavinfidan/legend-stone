@@ -10,7 +10,7 @@
     "mapUrl": "https://www.google.com/maps/place/Woodland+Hills+Mall,+Tulsa,+OK/",
     "hoursLabel": null,
     "hoursVerified": false,
-    "mallWebsiteUrl": null,
+    "mallWebsiteUrl": "https://www.simon.com/mall/woodland-hills-mall",
     "photoFolder": "Woodland Hills Mall TULSA",
     "heroPhoto": "Woodland (1).jpeg"
   },
@@ -25,7 +25,7 @@
     "mapUrl": "https://www.google.com/maps/place/Tulsa+Premium+Outlets,+Jenks,+OK/",
     "hoursLabel": null,
     "hoursVerified": false,
-    "mallWebsiteUrl": null,
+    "mallWebsiteUrl": "https://www.premiumoutlets.com/outlet/tulsa-premium-outlets",
     "photoFolder": "Premium Outlet Mall TULSA",
     "heroPhoto": "PremiumOutlet (1).jpeg"
   },
@@ -40,7 +40,7 @@
     "mapUrl": "https://www.google.com/maps/place/The+Empire+Mall,+Sioux+Falls,+SD/",
     "hoursLabel": null,
     "hoursVerified": false,
-    "mallWebsiteUrl": null,
+    "mallWebsiteUrl": "https://www.simon.com/mall/the-empire-mall",
     "photoFolder": "The Empire Mall South Dakota",
     "heroPhoto": "Empire (1).jpeg"
   },
@@ -55,7 +55,7 @@
     "mapUrl": "https://www.google.com/maps/place/Towne+East+Square+Mall,+Wichita,+KS/",
     "hoursLabel": null,
     "hoursVerified": false,
-    "mallWebsiteUrl": null,
+    "mallWebsiteUrl": "https://www.simon.com/mall/towne-east-square",
     "photoFolder": "Towne East Square Mall WICHITA",
     "heroPhoto": "TowneEast (1).jpeg"
   },
@@ -70,7 +70,7 @@
     "mapUrl": "https://www.google.com/maps/place/Grapevine+Mills+Mall,+Grapevine,+TX/",
     "hoursLabel": null,
     "hoursVerified": false,
-    "mallWebsiteUrl": null,
+    "mallWebsiteUrl": "https://www.simon.com/mall/grapevine-mills",
     "photoFolder": "Grapevine Mills Mall GRAPEVINE",
     "heroPhoto": "Grapevine (1).jpeg"
   }

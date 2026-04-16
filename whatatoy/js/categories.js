@@ -24,20 +24,33 @@ export async function initCategories() {
       const list = limit ? categories.slice(0, limit) : categories;
       renderInto(target, list);
     });
+    scrollToHashIfMatches(categories);
   } catch (err) {
     console.error('[categories] failed to load:', err);
     targets.forEach((t) => renderFallbackMessage(t));
   }
 }
 
+function scrollToHashIfMatches(categories) {
+  const hash = window.location.hash.replace('#', '');
+  if (!hash) return;
+  if (!categories.some((c) => c.id === hash)) return;
+  const target = document.getElementById(hash);
+  if (!target) return;
+  requestAnimationFrame(() => {
+    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+}
+
 function renderInto(target, categories) {
   target.innerHTML = '';
-  const galleryHref = `${basePathForPage()}pages/gallery.html`;
+  const categoriesHref = `${basePathForPage()}pages/categories.html`;
   categories.forEach((cat, i) => {
     const tone = toneSuffix(cat.panelRole);
     const card = document.createElement('a');
     card.className = `wat-category-card wat-category-card--${tone}`;
-    card.href = `${galleryHref}#${cat.id}`;
+    card.id = cat.id;
+    card.href = `${categoriesHref}#${cat.id}`;
     card.dataset.category = cat.id;
     card.dataset.panelRole = cat.panelRole;
     card.dataset.reveal = '';
