@@ -1,0 +1,657 @@
+{
+  "brand": {
+    "path": "logo.jpeg",
+    "altText": "What-A-Toy! logo — red banner with cream hand-lettered wordmark outlined in navy blue, yellow and cream horizontal accent stripes below",
+    "usage": ["navbar", "hero", "footer"]
+  },
+  "assets": [
+    {
+      "path": "assets/Woodland Hills Mall TULSA/Woodland (1).jpeg",
+      "alt": "Woodland Hills Mall — What A Toy! storefront, Tulsa OK",
+      "orientation": "landscape",
+      "usage": ["gallery", "location-hero", "location-strip"],
+      "location": "woodland",
+      "focusPoint": "center"
+    },
+    {
+      "path": "assets/Woodland Hills Mall TULSA/Woodland (5).jpeg",
+      "alt": "Woodland Hills Mall — store interior display (mall name, interior guessed)",
+      "orientation": "landscape",
+      "usage": ["gallery", "location-strip"],
+      "location": "woodland",
+      "focusPoint": "center"
+    },
+    {
+      "path": "assets/Woodland Hills Mall TULSA/Woodland (6).jpeg",
+      "alt": "Woodland Hills Mall — toy display wall (mall name, interior guessed)",
+      "orientation": "landscape",
+      "usage": ["gallery", "location-strip"],
+      "location": "woodland",
+      "focusPoint": "center"
+    },
+    {
+      "path": "assets/Woodland Hills Mall TULSA/Woodland (7).jpeg",
+      "alt": "Woodland Hills Mall — plush and collectibles aisle (mall name, interior guessed)",
+      "orientation": "landscape",
+      "usage": ["gallery", "location-strip"],
+      "location": "woodland",
+      "focusPoint": "center"
+    },
+    {
+      "path": "assets/Woodland Hills Mall TULSA/Woodland (8).jpeg",
+      "alt": "Woodland Hills Mall — featured toy shelf (mall name, interior guessed)",
+      "orientation": "landscape",
+      "usage": ["gallery", "location-strip"],
+      "location": "woodland",
+      "focusPoint": "center"
+    },
+    {
+      "path": "assets/Woodland Hills Mall TULSA/Woodland (9).jpeg",
+      "alt": "Woodland Hills Mall — store interior lane (mall name, interior guessed)",
+      "orientation": "landscape",
+      "usage": ["gallery", "location-strip"],
+      "location": "woodland",
+      "focusPoint": "center"
+    },
+    {
+      "path": "assets/Woodland Hills Mall TULSA/Woodland (10).jpeg",
+      "alt": "Woodland Hills Mall — storefront detail (mall name, exterior guessed)",
+      "orientation": "landscape",
+      "usage": ["gallery", "location-strip"],
+      "location": "woodland",
+      "focusPoint": "center"
+    },
+    {
+      "path": "assets/Woodland Hills Mall TULSA/Woodland (11).jpeg",
+      "alt": "Woodland Hills Mall — product showcase wall (mall name, interior guessed)",
+      "orientation": "landscape",
+      "usage": ["gallery", "location-strip"],
+      "location": "woodland",
+      "focusPoint": "center"
+    },
+    {
+      "path": "assets/Woodland Hills Mall TULSA/Woodland (12).jpeg",
+      "alt": "Woodland Hills Mall — toy category endcap (mall name, interior guessed)",
+      "orientation": "landscape",
+      "usage": ["gallery", "location-strip"],
+      "location": "woodland",
+      "focusPoint": "center"
+    },
+    {
+      "path": "assets/Woodland Hills Mall TULSA/Woodland (13).jpeg",
+      "alt": "Woodland Hills Mall — colorful toy display (mall name, interior guessed)",
+      "orientation": "landscape",
+      "usage": ["gallery", "location-strip"],
+      "location": "woodland",
+      "focusPoint": "center"
+    },
+    {
+      "path": "assets/Woodland Hills Mall TULSA/Woodland (14).jpeg",
+      "alt": "Woodland Hills Mall — action figure section (mall name, interior guessed)",
+      "orientation": "landscape",
+      "usage": ["gallery", "location-strip"],
+      "location": "woodland",
+      "focusPoint": "center"
+    },
+    {
+      "path": "assets/Woodland Hills Mall TULSA/Woodland (15).jpeg",
+      "alt": "Woodland Hills Mall — plush toys on display (mall name, interior guessed)",
+      "orientation": "landscape",
+      "usage": ["gallery", "location-strip"],
+      "location": "woodland",
+      "focusPoint": "center"
+    },
+    {
+      "path": "assets/Woodland Hills Mall TULSA/Woodland (16).jpeg",
+      "alt": "Woodland Hills Mall — store aisle perspective (mall name, interior guessed)",
+      "orientation": "landscape",
+      "usage": ["gallery", "location-strip"],
+      "location": "woodland",
+      "focusPoint": "center"
+    },
+    {
+      "path": "assets/Woodland Hills Mall TULSA/Woodland (17).jpeg",
+      "alt": "Woodland Hills Mall — curated toy arrangement (mall name, interior guessed)",
+      "orientation": "landscape",
+      "usage": ["gallery", "location-strip"],
+      "location": "woodland",
+      "focusPoint": "center"
+    },
+    {
+      "path": "assets/Premium Outlet Mall TULSA/PremiumOutlet (1).jpeg",
+      "alt": "Tulsa Premium Outlets — What A Toy! storefront, Jenks OK",
+      "orientation": "landscape",
+      "usage": ["gallery", "location-hero", "location-strip"],
+      "location": "tulsa-premium",
+      "focusPoint": "center"
+    },
+    {
+      "path": "assets/Premium Outlet Mall TULSA/PremiumOutlet (2).jpeg",
+      "alt": "Tulsa Premium Outlets — store interior (mall name, interior guessed)",
+      "orientation": "landscape",
+      "usage": ["gallery", "location-strip"],
+      "location": "tulsa-premium",
+      "focusPoint": "center"
+    },
+    {
+      "path": "assets/Premium Outlet Mall TULSA/PremiumOutlet (3).jpeg",
+      "alt": "Tulsa Premium Outlets — product display (mall name, interior guessed)",
+      "orientation": "landscape",
+      "usage": ["gallery", "location-strip"],
+      "location": "tulsa-premium",
+      "focusPoint": "center"
+    },
+    {
+      "path": "assets/Premium Outlet Mall TULSA/PremiumOutlet (4).jpeg",
+      "alt": "Tulsa Premium Outlets — plush and collectibles (mall name, interior guessed)",
+      "orientation": "landscape",
+      "usage": ["gallery", "location-strip"],
+      "location": "tulsa-premium",
+      "focusPoint": "center"
+    },
+    {
+      "path": "assets/Premium Outlet Mall TULSA/PremiumOutlet (5).jpeg",
+      "alt": "Tulsa Premium Outlets — action figure aisle (mall name, interior guessed)",
+      "orientation": "landscape",
+      "usage": ["gallery", "location-strip"],
+      "location": "tulsa-premium",
+      "focusPoint": "center"
+    },
+    {
+      "path": "assets/Premium Outlet Mall TULSA/PremiumOutlet (6).jpeg",
+      "alt": "Tulsa Premium Outlets — toy showcase wall (mall name, interior guessed)",
+      "orientation": "landscape",
+      "usage": ["gallery", "location-strip"],
+      "location": "tulsa-premium",
+      "focusPoint": "center"
+    },
+    {
+      "path": "assets/Premium Outlet Mall TULSA/PremiumOutlet (7).jpeg",
+      "alt": "Tulsa Premium Outlets — store interior perspective (mall name, interior guessed)",
+      "orientation": "landscape",
+      "usage": ["gallery", "location-strip"],
+      "location": "tulsa-premium",
+      "focusPoint": "center"
+    },
+    {
+      "path": "assets/Premium Outlet Mall TULSA/PremiumOutlet (8).jpeg",
+      "alt": "Tulsa Premium Outlets — featured toys display (mall name, interior guessed)",
+      "orientation": "landscape",
+      "usage": ["gallery", "location-strip"],
+      "location": "tulsa-premium",
+      "focusPoint": "center"
+    },
+    {
+      "path": "assets/Premium Outlet Mall TULSA/PremiumOutlet (9).jpeg",
+      "alt": "Tulsa Premium Outlets — STEM toys section (mall name, interior guessed)",
+      "orientation": "landscape",
+      "usage": ["gallery", "location-strip"],
+      "location": "tulsa-premium",
+      "focusPoint": "center"
+    },
+    {
+      "path": "assets/Premium Outlet Mall TULSA/PremiumOutlet (10).jpeg",
+      "alt": "Tulsa Premium Outlets — board games display (mall name, interior guessed)",
+      "orientation": "landscape",
+      "usage": ["gallery", "location-strip"],
+      "location": "tulsa-premium",
+      "focusPoint": "center"
+    },
+    {
+      "path": "assets/Premium Outlet Mall TULSA/PremiumOutlet (11).jpeg",
+      "alt": "Tulsa Premium Outlets — plush wall (mall name, interior guessed)",
+      "orientation": "landscape",
+      "usage": ["gallery", "location-strip"],
+      "location": "tulsa-premium",
+      "focusPoint": "center"
+    },
+    {
+      "path": "assets/Premium Outlet Mall TULSA/PremiumOutlet (12).jpeg",
+      "alt": "Tulsa Premium Outlets — toy category endcap (mall name, interior guessed)",
+      "orientation": "landscape",
+      "usage": ["gallery", "location-strip"],
+      "location": "tulsa-premium",
+      "focusPoint": "center"
+    },
+    {
+      "path": "assets/Premium Outlet Mall TULSA/PremiumOutlet (13).jpeg",
+      "alt": "Tulsa Premium Outlets — colorful shelves (mall name, interior guessed)",
+      "orientation": "landscape",
+      "usage": ["gallery", "location-strip"],
+      "location": "tulsa-premium",
+      "focusPoint": "center"
+    },
+    {
+      "path": "assets/Premium Outlet Mall TULSA/PremiumOutlet (14).jpeg",
+      "alt": "Tulsa Premium Outlets — curated toy arrangement (mall name, interior guessed)",
+      "orientation": "landscape",
+      "usage": ["gallery", "location-strip"],
+      "location": "tulsa-premium",
+      "focusPoint": "center"
+    },
+    {
+      "path": "assets/Premium Outlet Mall TULSA/PremiumOutlet (15).jpeg",
+      "alt": "Tulsa Premium Outlets — store overview (mall name, interior guessed)",
+      "orientation": "landscape",
+      "usage": ["gallery", "location-strip"],
+      "location": "tulsa-premium",
+      "focusPoint": "center"
+    },
+    {
+      "path": "assets/The Empire Mall South Dakota/Empire (1).jpeg",
+      "alt": "The Empire Mall — What A Toy! storefront, Sioux Falls SD",
+      "orientation": "landscape",
+      "usage": ["gallery", "location-hero", "location-strip"],
+      "location": "empire",
+      "focusPoint": "center"
+    },
+    {
+      "path": "assets/The Empire Mall South Dakota/Empire (2).jpeg",
+      "alt": "The Empire Mall — store interior display (mall name, interior guessed)",
+      "orientation": "landscape",
+      "usage": ["gallery", "location-strip"],
+      "location": "empire",
+      "focusPoint": "center"
+    },
+    {
+      "path": "assets/The Empire Mall South Dakota/Empire (3).jpeg",
+      "alt": "The Empire Mall — plush and collectibles display (mall name, interior guessed)",
+      "orientation": "landscape",
+      "usage": ["gallery", "location-strip"],
+      "location": "empire",
+      "focusPoint": "center"
+    },
+    {
+      "path": "assets/The Empire Mall South Dakota/Empire (4).jpeg",
+      "alt": "The Empire Mall — toy showcase wall (mall name, interior guessed)",
+      "orientation": "landscape",
+      "usage": ["gallery", "location-strip"],
+      "location": "empire",
+      "focusPoint": "center"
+    },
+    {
+      "path": "assets/The Empire Mall South Dakota/Empire (5).jpeg",
+      "alt": "The Empire Mall — featured product arrangement (mall name, interior guessed)",
+      "orientation": "landscape",
+      "usage": ["gallery", "location-strip"],
+      "location": "empire",
+      "focusPoint": "center"
+    },
+    {
+      "path": "assets/Towne East Square Mall WICHITA/TowneEast (1).jpeg",
+      "alt": "Towne East Square Mall — What A Toy! storefront, Wichita KS",
+      "orientation": "landscape",
+      "usage": ["gallery", "location-hero", "location-strip"],
+      "location": "towne-east",
+      "focusPoint": "center"
+    },
+    {
+      "path": "assets/Towne East Square Mall WICHITA/TowneEast (2).jpeg",
+      "alt": "Towne East Square Mall — store interior (mall name, interior guessed)",
+      "orientation": "landscape",
+      "usage": ["gallery", "location-strip"],
+      "location": "towne-east",
+      "focusPoint": "center"
+    },
+    {
+      "path": "assets/Towne East Square Mall WICHITA/TowneEast (3).jpeg",
+      "alt": "Towne East Square Mall — toy display aisle (mall name, interior guessed)",
+      "orientation": "landscape",
+      "usage": ["gallery", "location-strip"],
+      "location": "towne-east",
+      "focusPoint": "center"
+    },
+    {
+      "path": "assets/Towne East Square Mall WICHITA/TowneEast (4).jpeg",
+      "alt": "Towne East Square Mall — plush wall display (mall name, interior guessed)",
+      "orientation": "landscape",
+      "usage": ["gallery", "location-strip"],
+      "location": "towne-east",
+      "focusPoint": "center"
+    },
+    {
+      "path": "assets/Towne East Square Mall WICHITA/TowneEast (5).jpeg",
+      "alt": "Towne East Square Mall — action figure section (mall name, interior guessed)",
+      "orientation": "landscape",
+      "usage": ["gallery", "location-strip"],
+      "location": "towne-east",
+      "focusPoint": "center"
+    },
+    {
+      "path": "assets/Towne East Square Mall WICHITA/TowneEast (6).jpeg",
+      "alt": "Towne East Square Mall — STEM toys shelf (mall name, interior guessed)",
+      "orientation": "landscape",
+      "usage": ["gallery", "location-strip"],
+      "location": "towne-east",
+      "focusPoint": "center"
+    },
+    {
+      "path": "assets/Towne East Square Mall WICHITA/TowneEast (7).jpeg",
+      "alt": "Towne East Square Mall — board games display (mall name, interior guessed)",
+      "orientation": "landscape",
+      "usage": ["gallery", "location-strip"],
+      "location": "towne-east",
+      "focusPoint": "center"
+    },
+    {
+      "path": "assets/Towne East Square Mall WICHITA/TowneEast (8).jpeg",
+      "alt": "Towne East Square Mall — curated toy wall (mall name, interior guessed)",
+      "orientation": "landscape",
+      "usage": ["gallery", "location-strip"],
+      "location": "towne-east",
+      "focusPoint": "center"
+    },
+    {
+      "path": "assets/Towne East Square Mall WICHITA/TowneEast (9).jpeg",
+      "alt": "Towne East Square Mall — store perspective (mall name, interior guessed)",
+      "orientation": "landscape",
+      "usage": ["gallery", "location-strip"],
+      "location": "towne-east",
+      "focusPoint": "center"
+    },
+    {
+      "path": "assets/Towne East Square Mall WICHITA/TowneEast (10).jpeg",
+      "alt": "Towne East Square Mall — featured product endcap (mall name, interior guessed)",
+      "orientation": "landscape",
+      "usage": ["gallery", "location-strip"],
+      "location": "towne-east",
+      "focusPoint": "center"
+    },
+    {
+      "path": "assets/Towne East Square Mall WICHITA/TowneEast (11).jpeg",
+      "alt": "Towne East Square Mall — colorful toy shelves (mall name, interior guessed)",
+      "orientation": "landscape",
+      "usage": ["gallery", "location-strip"],
+      "location": "towne-east",
+      "focusPoint": "center"
+    },
+    {
+      "path": "assets/Towne East Square Mall WICHITA/TowneEast (12).jpeg",
+      "alt": "Towne East Square Mall — toy category arrangement (mall name, interior guessed)",
+      "orientation": "landscape",
+      "usage": ["gallery", "location-strip"],
+      "location": "towne-east",
+      "focusPoint": "center"
+    },
+    {
+      "path": "assets/Towne East Square Mall WICHITA/TowneEast (13).jpeg",
+      "alt": "Towne East Square Mall — store interior view (mall name, interior guessed)",
+      "orientation": "landscape",
+      "usage": ["gallery", "location-strip"],
+      "location": "towne-east",
+      "focusPoint": "center"
+    },
+    {
+      "path": "assets/Towne East Square Mall WICHITA/TowneEast (14).jpeg",
+      "alt": "Towne East Square Mall — plush toys corner (mall name, interior guessed)",
+      "orientation": "landscape",
+      "usage": ["gallery", "location-strip"],
+      "location": "towne-east",
+      "focusPoint": "center"
+    },
+    {
+      "path": "assets/Towne East Square Mall WICHITA/TowneEast (15).jpeg",
+      "alt": "Towne East Square Mall — toy aisle detail (mall name, interior guessed)",
+      "orientation": "landscape",
+      "usage": ["gallery", "location-strip"],
+      "location": "towne-east",
+      "focusPoint": "center"
+    },
+    {
+      "path": "assets/Towne East Square Mall WICHITA/TowneEast (16).jpeg",
+      "alt": "Towne East Square Mall — collectibles display (mall name, interior guessed)",
+      "orientation": "landscape",
+      "usage": ["gallery", "location-strip"],
+      "location": "towne-east",
+      "focusPoint": "center"
+    },
+    {
+      "path": "assets/Towne East Square Mall WICHITA/TowneEast (17).jpeg",
+      "alt": "Towne East Square Mall — store layout view (mall name, interior guessed)",
+      "orientation": "landscape",
+      "usage": ["gallery", "location-strip"],
+      "location": "towne-east",
+      "focusPoint": "center"
+    },
+    {
+      "path": "assets/Towne East Square Mall WICHITA/TowneEast (18).jpeg",
+      "alt": "Towne East Square Mall — featured toys shelf (mall name, interior guessed)",
+      "orientation": "landscape",
+      "usage": ["gallery", "location-strip"],
+      "location": "towne-east",
+      "focusPoint": "center"
+    },
+    {
+      "path": "assets/Towne East Square Mall WICHITA/TowneEast (19).jpeg",
+      "alt": "Towne East Square Mall — toy display wall (mall name, interior guessed)",
+      "orientation": "landscape",
+      "usage": ["gallery", "location-strip"],
+      "location": "towne-east",
+      "focusPoint": "center"
+    },
+    {
+      "path": "assets/Towne East Square Mall WICHITA/TowneEast (20).jpeg",
+      "alt": "Towne East Square Mall — curated product arrangement (mall name, interior guessed)",
+      "orientation": "landscape",
+      "usage": ["gallery", "location-strip"],
+      "location": "towne-east",
+      "focusPoint": "center"
+    },
+    {
+      "path": "assets/Towne East Square Mall WICHITA/TowneEast (21).jpeg",
+      "alt": "Towne East Square Mall — family games display (mall name, interior guessed)",
+      "orientation": "landscape",
+      "usage": ["gallery", "location-strip"],
+      "location": "towne-east",
+      "focusPoint": "center"
+    },
+    {
+      "path": "assets/Towne East Square Mall WICHITA/TowneEast (22).jpeg",
+      "alt": "Towne East Square Mall — toy showcase (mall name, interior guessed)",
+      "orientation": "landscape",
+      "usage": ["gallery", "location-strip"],
+      "location": "towne-east",
+      "focusPoint": "center"
+    },
+    {
+      "path": "assets/Towne East Square Mall WICHITA/TowneEast (23).jpeg",
+      "alt": "Towne East Square Mall — store view from aisle (mall name, interior guessed)",
+      "orientation": "landscape",
+      "usage": ["gallery", "location-strip"],
+      "location": "towne-east",
+      "focusPoint": "center"
+    },
+    {
+      "path": "assets/Towne East Square Mall WICHITA/TowneEast (24).jpeg",
+      "alt": "Towne East Square Mall — plush and figures wall (mall name, interior guessed)",
+      "orientation": "landscape",
+      "usage": ["gallery", "location-strip"],
+      "location": "towne-east",
+      "focusPoint": "center"
+    },
+    {
+      "path": "assets/Towne East Square Mall WICHITA/TowneEast (25).jpeg",
+      "alt": "Towne East Square Mall — featured endcap (mall name, interior guessed)",
+      "orientation": "landscape",
+      "usage": ["gallery", "location-strip"],
+      "location": "towne-east",
+      "focusPoint": "center"
+    },
+    {
+      "path": "assets/Towne East Square Mall WICHITA/TowneEast (26).jpeg",
+      "alt": "Towne East Square Mall — colorful toy arrangement (mall name, interior guessed)",
+      "orientation": "landscape",
+      "usage": ["gallery", "location-strip"],
+      "location": "towne-east",
+      "focusPoint": "center"
+    },
+    {
+      "path": "assets/Towne East Square Mall WICHITA/TowneEast (27).jpeg",
+      "alt": "Towne East Square Mall — store interior view (mall name, interior guessed)",
+      "orientation": "landscape",
+      "usage": ["gallery", "location-strip"],
+      "location": "towne-east",
+      "focusPoint": "center"
+    },
+    {
+      "path": "assets/Towne East Square Mall WICHITA/TowneEast (28).jpeg",
+      "alt": "Towne East Square Mall — toy display detail (mall name, interior guessed)",
+      "orientation": "landscape",
+      "usage": ["gallery", "location-strip"],
+      "location": "towne-east",
+      "focusPoint": "center"
+    },
+    {
+      "path": "assets/Towne East Square Mall WICHITA/TowneEast (29).jpeg",
+      "alt": "Towne East Square Mall — shop floor perspective (mall name, interior guessed)",
+      "orientation": "landscape",
+      "usage": ["gallery", "location-strip"],
+      "location": "towne-east",
+      "focusPoint": "center"
+    },
+    {
+      "path": "assets/Towne East Square Mall WICHITA/TowneEast (30).jpeg",
+      "alt": "Towne East Square Mall — overall store view (mall name, interior guessed)",
+      "orientation": "landscape",
+      "usage": ["gallery", "location-strip"],
+      "location": "towne-east",
+      "focusPoint": "center"
+    },
+    {
+      "path": "assets/Grapevine Mills Mall GRAPEVINE/Grapevine (1).jpeg",
+      "alt": "Grapevine Mills Mall — What A Toy! storefront, Grapevine TX",
+      "orientation": "landscape",
+      "usage": ["gallery", "location-hero", "location-strip"],
+      "location": "grapevine",
+      "focusPoint": "center"
+    },
+    {
+      "path": "assets/Grapevine Mills Mall GRAPEVINE/Grapevine (2).jpeg",
+      "alt": "Grapevine Mills Mall — store interior (mall name, interior guessed)",
+      "orientation": "landscape",
+      "usage": ["gallery", "location-strip"],
+      "location": "grapevine",
+      "focusPoint": "center"
+    },
+    {
+      "path": "assets/Grapevine Mills Mall GRAPEVINE/Grapevine (3).jpeg",
+      "alt": "Grapevine Mills Mall — toy display wall (mall name, interior guessed)",
+      "orientation": "landscape",
+      "usage": ["gallery", "location-strip"],
+      "location": "grapevine",
+      "focusPoint": "center"
+    },
+    {
+      "path": "assets/Grapevine Mills Mall GRAPEVINE/Grapevine (4).jpeg",
+      "alt": "Grapevine Mills Mall — plush and collectibles (mall name, interior guessed)",
+      "orientation": "landscape",
+      "usage": ["gallery", "location-strip"],
+      "location": "grapevine",
+      "focusPoint": "center"
+    },
+    {
+      "path": "assets/Grapevine Mills Mall GRAPEVINE/Grapevine (5).jpeg",
+      "alt": "Grapevine Mills Mall — action figures section (mall name, interior guessed)",
+      "orientation": "landscape",
+      "usage": ["gallery", "location-strip"],
+      "location": "grapevine",
+      "focusPoint": "center"
+    },
+    {
+      "path": "assets/Grapevine Mills Mall GRAPEVINE/Grapevine (6).jpeg",
+      "alt": "Grapevine Mills Mall — STEM toys shelf (mall name, interior guessed)",
+      "orientation": "landscape",
+      "usage": ["gallery", "location-strip"],
+      "location": "grapevine",
+      "focusPoint": "center"
+    },
+    {
+      "path": "assets/Grapevine Mills Mall GRAPEVINE/Grapevine (7).jpeg",
+      "alt": "Grapevine Mills Mall — family board games (mall name, interior guessed)",
+      "orientation": "landscape",
+      "usage": ["gallery", "location-strip"],
+      "location": "grapevine",
+      "focusPoint": "center"
+    },
+    {
+      "path": "assets/Grapevine Mills Mall GRAPEVINE/Grapevine (8).jpeg",
+      "alt": "Grapevine Mills Mall — featured endcap (mall name, interior guessed)",
+      "orientation": "landscape",
+      "usage": ["gallery", "location-strip"],
+      "location": "grapevine",
+      "focusPoint": "center"
+    },
+    {
+      "path": "assets/Grapevine Mills Mall GRAPEVINE/Grapevine (9).jpeg",
+      "alt": "Grapevine Mills Mall — plush wall (mall name, interior guessed)",
+      "orientation": "landscape",
+      "usage": ["gallery", "location-strip"],
+      "location": "grapevine",
+      "focusPoint": "center"
+    },
+    {
+      "path": "assets/Grapevine Mills Mall GRAPEVINE/Grapevine (10).jpeg",
+      "alt": "Grapevine Mills Mall — store perspective (mall name, interior guessed)",
+      "orientation": "landscape",
+      "usage": ["gallery", "location-strip"],
+      "location": "grapevine",
+      "focusPoint": "center"
+    },
+    {
+      "path": "assets/Grapevine Mills Mall GRAPEVINE/Grapevine (11).jpeg",
+      "alt": "Grapevine Mills Mall — colorful toy arrangement (mall name, interior guessed)",
+      "orientation": "landscape",
+      "usage": ["gallery", "location-strip"],
+      "location": "grapevine",
+      "focusPoint": "center"
+    },
+    {
+      "path": "assets/Grapevine Mills Mall GRAPEVINE/Grapevine (12).jpeg",
+      "alt": "Grapevine Mills Mall — toy aisle (mall name, interior guessed)",
+      "orientation": "landscape",
+      "usage": ["gallery", "location-strip"],
+      "location": "grapevine",
+      "focusPoint": "center"
+    },
+    {
+      "path": "assets/Grapevine Mills Mall GRAPEVINE/Grapevine (13).jpeg",
+      "alt": "Grapevine Mills Mall — curated display (mall name, interior guessed)",
+      "orientation": "landscape",
+      "usage": ["gallery", "location-strip"],
+      "location": "grapevine",
+      "focusPoint": "center"
+    },
+    {
+      "path": "assets/Grapevine Mills Mall GRAPEVINE/Grapevine (14).jpeg",
+      "alt": "Grapevine Mills Mall — featured products (mall name, interior guessed)",
+      "orientation": "landscape",
+      "usage": ["gallery", "location-strip"],
+      "location": "grapevine",
+      "focusPoint": "center"
+    },
+    {
+      "path": "assets/Grapevine Mills Mall GRAPEVINE/Grapevine (15).jpeg",
+      "alt": "Grapevine Mills Mall — collectibles shelf (mall name, interior guessed)",
+      "orientation": "landscape",
+      "usage": ["gallery", "location-strip"],
+      "location": "grapevine",
+      "focusPoint": "center"
+    },
+    {
+      "path": "assets/Grapevine Mills Mall GRAPEVINE/Grapevine (16).jpeg",
+      "alt": "Grapevine Mills Mall — toy category endcap (mall name, interior guessed)",
+      "orientation": "landscape",
+      "usage": ["gallery", "location-strip"],
+      "location": "grapevine",
+      "focusPoint": "center"
+    },
+    {
+      "path": "assets/Grapevine Mills Mall GRAPEVINE/Grapevine (17).jpeg",
+      "alt": "Grapevine Mills Mall — store overview (mall name, interior guessed)",
+      "orientation": "landscape",
+      "usage": ["gallery", "location-strip"],
+      "location": "grapevine",
+      "focusPoint": "center"
+    }
+  ]
+}

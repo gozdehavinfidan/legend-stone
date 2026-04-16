@@ -1,0 +1,92 @@
+/* ============================================
+   What A Toy! — Logo Lockup
+   Component: logo
+   Owner:  Agent 2 components · team whatatoy-impl
+   Date:   2026-04-16
+
+   Encapsulates the brand lockup around /logo.jpeg.
+   The logo image already carries the red banner,
+   navy outlined wordmark, and yellow accent stripes,
+   so these rules NEVER tint, recolor, or filter the
+   raster — they only size, space, and frame it.
+
+   Alt-text convention (pass via markup):
+     alt="What-A-Toy! logo - red banner with cream
+          hand-lettered wordmark outlined in navy
+          blue, yellow and cream horizontal accent
+          stripes below"
+   ============================================ */
+
+/* ── Base ─────────────────────────────────── */
+
+.wat-logo {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  text-decoration: none;
+  line-height: 0;
+  transition: transform var(--duration-short) var(--ease-standard);
+}
+
+.wat-logo__img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.wat-logo:focus-visible {
+  outline: 2px solid var(--md-sys-color-tertiary);
+  outline-offset: 4px;
+  border-radius: var(--radius-sm);
+}
+
+/* ── Nav variant — compact lockup in navbar ── */
+
+.wat-logo--nav .wat-logo__img {
+  height: 48px;
+  width: auto;
+}
+
+@media (min-width: 768px) {
+  .wat-logo--nav .wat-logo__img {
+    height: 56px;
+  }
+}
+
+.wat-logo--nav:hover {
+  transform: translateY(-1px);
+}
+
+/* ── Hero variant — large, plated, elevated ── */
+
+.wat-logo--hero {
+  display: inline-flex;
+  padding: var(--space-6) var(--space-8);
+  background-color: var(--md-sys-color-surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--md-sys-elevation-1);
+}
+
+.wat-logo--hero .wat-logo__img {
+  width: clamp(240px, 32vw, 420px);
+  height: auto;
+}
+
+/* ── Footer variant — small, cream, quiet ─── */
+
+.wat-logo--footer .wat-logo__img {
+  width: clamp(88px, 12vw, 120px);
+  height: auto;
+}
+
+/* ── Reduced motion ───────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  .wat-logo,
+  .wat-logo--nav:hover {
+    transition: none;
+    transform: none;
+  }
+}

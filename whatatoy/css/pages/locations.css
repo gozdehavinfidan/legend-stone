@@ -1,0 +1,75 @@
+/* ============================================
+   What A Toy! — Page: locations
+   Owner:  Agent 3 pages-html · team whatatoy-impl
+   Date:   2026-04-16
+
+   Vertical stack of 5 horizontal store cards
+   with generous rhythm + soft outline-variant
+   dividers echoing the hand-drawn ink language.
+   Tokens only — zero hex literals.
+   ============================================ */
+
+.locations-list__stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-10);
+}
+
+@media (min-width: 1024px) {
+  .locations-list__stack {
+    gap: var(--space-12);
+  }
+}
+
+.locations-list__stack > .wat-store-card {
+  position: relative;
+}
+
+.locations-list__stack > .wat-store-card + .wat-store-card::before {
+  content: '';
+  position: absolute;
+  top: calc(var(--space-10) * -0.5);
+  left: 10%;
+  right: 10%;
+  height: 2px;
+  background-image: repeating-linear-gradient(
+    90deg,
+    var(--md-sys-color-outline-variant) 0 6px,
+    transparent 6px 12px
+  );
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+/* Fallback CTA row */
+
+.locations-fallback__ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  justify-content: center;
+}
+
+/* Reveal init for cards */
+
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity var(--duration-long) var(--ease-emph-decel),
+    transform var(--duration-long) var(--ease-emph-decel);
+  transition-delay: var(--wat-reveal-delay, 0ms);
+}
+
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

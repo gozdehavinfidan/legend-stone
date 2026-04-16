@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What-A-Toy! · Wonder in Every Corner</title>
+  <meta name="description" content="What-A-Toy! is a five-location toy wonderland across Oklahoma, Kansas, South Dakota, and Texas. More than a store — it's an adventure.">
+  <meta name="theme-color" content="#FFFBF8">
+  <link rel="icon" type="image/jpeg" href="logo.jpeg">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components/logo.css">
+  <link rel="stylesheet" href="css/components/navbar.css">
+  <link rel="stylesheet" href="css/components/buttons.css">
+  <link rel="stylesheet" href="css/components/cards.css">
+  <link rel="stylesheet" href="css/components/store-card.css">
+  <link rel="stylesheet" href="css/components/hero.css">
+  <link rel="stylesheet" href="css/components/footer.css">
+  <link rel="stylesheet" href="css/components/forms.css">
+  <link rel="stylesheet" href="css/components/gallery-grid.css">
+  <link rel="stylesheet" href="css/components/lightbox.css">
+  <link rel="stylesheet" href="css/components/section-header.css">
+  <link rel="stylesheet" href="css/components/atmosphere.css">
+  <link rel="stylesheet" href="css/pages/home.css">
+</head>
+<body>
+  <header class="wat-nav">
+    <div class="wat-nav__inner">
+      <a class="wat-logo wat-logo--nav" href="index.html" aria-label="What-A-Toy! — home">
+        <img class="wat-logo__img" src="logo.jpeg"
+             alt="What-A-Toy! logo — red banner with cream hand-lettered wordmark outlined in navy blue, yellow and cream horizontal accent stripes below">
+      </a>
+      <nav aria-label="Primary">
+        <ul class="wat-nav__links">
+          <li class="wat-nav__item"><a class="wat-nav__link" href="index.html">Home</a></li>
+          <li class="wat-nav__item"><a class="wat-nav__link" href="pages/locations.html">Locations</a></li>
+          <li class="wat-nav__item"><a class="wat-nav__link" href="pages/our-world.html">Our World</a></li>
+          <li class="wat-nav__item"><a class="wat-nav__link" href="pages/contact.html">Contact Us</a></li>
+        </ul>
+      </nav>
+      <a class="wat-nav__cta wat-btn wat-btn--filled wat-btn--md" href="pages/locations.html">Visit Us</a>
+      <button class="wat-nav__hamburger" type="button" data-nav-toggle
+              aria-expanded="false" aria-controls="wat-nav-drawer" aria-label="Open menu">
+        <span class="wat-nav__hamburger-line"></span>
+        <span class="wat-nav__hamburger-line"></span>
+        <span class="wat-nav__hamburger-line"></span>
+      </button>
+    </div>
+    <div id="wat-nav-drawer" class="wat-nav__drawer" data-nav-drawer>
+      <div class="wat-nav__drawer-inner">
+        <a class="wat-nav__drawer-link" href="index.html">Home</a>
+        <a class="wat-nav__drawer-link" href="pages/locations.html">Locations</a>
+        <a class="wat-nav__drawer-link" href="pages/our-world.html">Our World</a>
+        <a class="wat-nav__drawer-link" href="pages/contact.html">Contact Us</a>
+        <a class="wat-nav__drawer-cta wat-btn wat-btn--filled" href="pages/locations.html">Visit Us</a>
+      </div>
+    </div>
+  </header>
+  <div class="wat-nav-spacer"></div>
+
+  <main id="main">
+
+    <section class="wat-hero" aria-labelledby="hero-title">
+      <div class="wat-hero__band wat-hero__band--bottom" aria-hidden="true"></div>
+      <div class="wat-hero__inner">
+        <div class="wat-hero__plate">
+          <span class="wat-logo wat-logo--hero wat-logo__wrap">
+            <img class="wat-logo__img" src="logo.jpeg"
+                 alt="What-A-Toy! logo — red banner with cream hand-lettered wordmark outlined in navy blue, yellow and cream horizontal accent stripes below">
+          </span>
+        </div>
+        <div class="wat-hero__copy" data-stagger data-stagger-step="90" data-stagger-start="120">
+          <p class="wat-hero__eyebrow">Wonder in Every Corner</p>
+          <h1 class="wat-hero__title" id="hero-title">More Than a Store, It&rsquo;s an <em>Adventure.</em></h1>
+          <p class="wat-hero__lede">Five curated toy wonderlands across Oklahoma, Kansas, South Dakota, and Texas. Step inside — feel the quality, see the colors, and discover something unforgettable.</p>
+          <div class="wat-hero__ctas">
+            <a class="wat-btn wat-btn--filled wat-btn--lg" href="pages/locations.html">Find Your Nearest Wonder</a>
+            <a class="wat-btn wat-btn--outlined wat-btn--lg" href="pages/categories.html">Explore Our Collections</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="u-section home-collections" aria-labelledby="collections-title">
+      <div class="u-container">
+        <header class="wat-section-header">
+          <p class="wat-section-header__eyebrow">Curated for Every Dreamer</p>
+          <h2 class="wat-section-header__title" id="collections-title">Our Collections</h2>
+          <p class="wat-section-header__lede">Hand-picked toys that spark imagination — heroes, puzzles, cuddly friends, and family nights around the table.</p>
+          <span class="wat-section-header__underline" aria-hidden="true"></span>
+        </header>
+        <div class="u-grid u-grid--4"
+             data-categories-target data-categories-limit="4"
+             data-reveal
+             aria-label="Featured categories"></div>
+        <div class="home-collections__footer">
+          <a class="wat-btn wat-btn--text" href="pages/categories.html">See every collection &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="u-section u-section--alt home-experience" aria-labelledby="experience-title">
+      <div class="u-container u-container--narrow">
+        <header class="wat-section-header">
+          <p class="wat-section-header__eyebrow">In-Store Experience</p>
+          <h2 class="wat-section-header__title" id="experience-title">The Joy of Hands-On Discovery</h2>
+          <p class="wat-section-header__lede">Why wait for a delivery? At What-A-Toy!, you can feel the quality, see the colors, and experience the fun before you take it home.</p>
+          <span class="wat-section-header__underline wat-section-header__underline--squiggle" aria-hidden="true"></span>
+        </header>
+      </div>
+    </section>
+
+    <section class="u-section home-locator" aria-labelledby="locator-title">
+      <div class="u-container">
+        <header class="wat-section-header">
+          <p class="wat-section-header__eyebrow">Find Your Nearest Wonder</p>
+          <h2 class="wat-section-header__title" id="locator-title">Five Shops. One Adventure.</h2>
+          <p class="wat-section-header__lede">Visit us at one of our 5 locations across the USA. Click through for directions and mall maps.</p>
+        </header>
+        <div class="u-grid u-grid--3 home-locator__grid"
+             data-locations-target
+             data-reveal
+             aria-label="Our store locations"></div>
+        <div class="home-locator__footer">
+          <a class="wat-btn wat-btn--filled wat-btn--lg" href="pages/locations.html">See All Locations</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="u-section u-section--alt home-social" aria-labelledby="social-title">
+      <div class="u-container u-container--narrow">
+        <header class="wat-section-header">
+          <p class="wat-section-header__eyebrow">Social Media</p>
+          <h2 class="wat-section-header__title" id="social-title">Join the Fun on Social!</h2>
+          <p class="wat-section-header__lede">Follow us for new arrivals, in-store events, and a daily dose of playfulness.</p>
+        </header>
+        <article class="wat-card wat-card--outlined home-social__card" data-reveal>
+          <div class="wat-card__body">
+            <p class="wat-card__eyebrow">Say Hello</p>
+            <h3 class="wat-card__title">We&rsquo;re building our feed — check back soon.</h3>
+            <p class="wat-card__text">In the meantime, drop by any of our 5 stores and tag us in your discoveries. Nothing beats a photo from the aisle.</p>
+          </div>
+          <div class="wat-card__footer">
+            <a class="wat-btn wat-btn--outlined" href="pages/contact.html">Say Hello</a>
+            <a class="wat-btn wat-btn--text" href="pages/locations.html">Or visit a store &rarr;</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="wat-footer">
+    <div class="wat-footer__main">
+      <div class="wat-footer__brand">
+        <img class="wat-logo wat-logo--footer" src="logo.jpeg"
+             alt="What-A-Toy! logo — red banner with cream hand-lettered wordmark outlined in navy blue, yellow and cream horizontal accent stripes below">
+        <p class="wat-footer__tagline">Wonder in Every Corner.</p>
+        <p class="wat-footer__brand-text">More Than a Store — It&rsquo;s an Adventure.</p>
+      </div>
+      <div class="wat-footer__column">
+        <h4 class="wat-footer__column-title">Explore</h4>
+        <ul class="wat-footer__links">
+          <li><a class="wat-footer__link" href="index.html">Home</a></li>
+          <li><a class="wat-footer__link" href="pages/locations.html">Locations</a></li>
+          <li><a class="wat-footer__link" href="pages/categories.html">Our Collections</a></li>
+          <li><a class="wat-footer__link" href="pages/gallery.html">Gallery</a></li>
+          <li><a class="wat-footer__link" href="pages/our-world.html">Our World</a></li>
+          <li><a class="wat-footer__link" href="pages/contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="wat-footer__column">
+        <h4 class="wat-footer__column-title">Our Stores</h4>
+        <ul class="wat-footer__locations">
+          <li class="wat-footer__location"><a class="wat-footer__link" href="pages/locations.html#woodland">Woodland Hills Mall &mdash; Tulsa, OK</a></li>
+          <li class="wat-footer__location"><a class="wat-footer__link" href="pages/locations.html#tulsa-premium">Tulsa Premium Outlets &mdash; Jenks, OK</a></li>
+          <li class="wat-footer__location"><a class="wat-footer__link" href="pages/locations.html#empire">The Empire Mall &mdash; Sioux Falls, SD</a></li>
+          <li class="wat-footer__location"><a class="wat-footer__link" href="pages/locations.html#towne-east">Towne East Square Mall &mdash; Wichita, KS</a></li>
+          <li class="wat-footer__location"><a class="wat-footer__link" href="pages/locations.html#grapevine">Grapevine Mills Mall &mdash; Grapevine, TX</a></li>
+        </ul>
+      </div>
+      <div class="wat-footer__contact">
+        <h4 class="wat-footer__column-title">Say Hello</h4>
+        <a class="wat-footer__link" href="mailto:hello@whatatoy.example">hello@whatatoy.example</a>
+        <p class="wat-footer__brand-text">Join the Fun on Social!</p>
+      </div>
+    </div>
+    <div class="wat-footer__bottom">
+      <span class="wat-footer__copyright">&copy; 2026 What-A-Toy!</span>
+      <span class="wat-footer__legal">Hours vary by mall — please check each mall&rsquo;s website.</span>
+    </div>
+  </footer>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

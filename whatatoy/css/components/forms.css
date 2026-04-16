@@ -1,0 +1,314 @@
+/* ============================================
+   What A Toy! — Forms
+   Component: forms
+   Owner:  Agent 2 components · team whatatoy-impl
+   Date:   2026-04-16
+
+   MD3 outlined text fields with floating label
+   behaviour keyed on :placeholder-shown. A real
+   placeholder of " " (single space) is required
+   on inputs for the float to work without JS.
+
+   Radio / checkbox / select share the same
+   visual language. Submit uses .wat-btn--filled
+   from buttons.css — not redeclared here.
+   ============================================ */
+
+/* ── Form wrapper ─────────────────────────── */
+
+.wat-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.wat-form__row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+}
+
+@media (min-width: 768px) {
+  .wat-form__row--2 {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* ── Field (outlined, floating label) ─────── */
+
+.wat-field {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.wat-field__control {
+  width: 100%;
+  min-height: 56px;
+  padding: var(--space-5) var(--space-4) var(--space-2);
+  font-family: var(--font-body);
+  font-size: var(--text-body-md);
+  line-height: var(--leading-snug);
+  color: var(--color-text-primary);
+  background-color: var(--md-sys-color-surface);
+  border: 1px solid var(--md-sys-color-outline);
+  border-radius: var(--md-sys-shape-corner-small);
+  outline: none;
+  transition:
+    border-color var(--duration-micro) var(--ease-standard),
+    box-shadow var(--duration-micro) var(--ease-standard),
+    background-color var(--duration-micro) var(--ease-standard);
+}
+
+.wat-field__control::placeholder {
+  color: transparent;
+}
+
+.wat-field__control:hover {
+  border-color: var(--color-brand-ink);
+}
+
+.wat-field__control:focus {
+  border-color: var(--md-sys-color-primary);
+  box-shadow: 0 0 0 1px var(--md-sys-color-primary);
+}
+
+.wat-field__label {
+  position: absolute;
+  top: 50%;
+  left: var(--space-4);
+  transform: translateY(-50%);
+  padding: 0 var(--space-1);
+  font-family: var(--font-body);
+  font-size: var(--text-body-md);
+  font-weight: var(--weight-regular);
+  color: var(--color-text-tertiary);
+  background-color: transparent;
+  pointer-events: none;
+  transition:
+    transform var(--duration-short) var(--ease-standard),
+    font-size var(--duration-short) var(--ease-standard),
+    color var(--duration-short) var(--ease-standard),
+    background-color var(--duration-short) var(--ease-standard);
+}
+
+/* Floated state: field has focus OR has content (not :placeholder-shown) */
+.wat-field__control:focus + .wat-field__label,
+.wat-field__control:not(:placeholder-shown) + .wat-field__label {
+  transform: translateY(-28px) translateY(-50%);
+  font-size: var(--text-label-md);
+  color: var(--md-sys-color-primary);
+  background-color: var(--md-sys-color-surface);
+}
+
+.wat-field__control:hover:not(:focus) + .wat-field__label {
+  color: var(--color-brand-ink);
+}
+
+/* ── Textarea ─────────────────────────────── */
+
+textarea.wat-field__control {
+  min-height: 140px;
+  padding-top: var(--space-6);
+  resize: vertical;
+  line-height: var(--leading-normal);
+}
+
+textarea.wat-field__control + .wat-field__label {
+  top: var(--space-5);
+  transform: none;
+}
+
+textarea.wat-field__control:focus + .wat-field__label,
+textarea.wat-field__control:not(:placeholder-shown) + .wat-field__label {
+  transform: translateY(-28px);
+}
+
+/* ── Select ───────────────────────────────── */
+
+.wat-field select.wat-field__control {
+  appearance: none;
+  padding-right: var(--space-10);
+  background-image: linear-gradient(45deg, transparent 50%, currentColor 50%),
+                    linear-gradient(135deg, currentColor 50%, transparent 50%);
+  background-position:
+    calc(100% - 20px) 55%,
+    calc(100% - 14px) 55%;
+  background-size: 6px 6px, 6px 6px;
+  background-repeat: no-repeat;
+  color: var(--color-text-primary);
+}
+
+/* ── Helper text + error ──────────────────── */
+
+.wat-field__helper {
+  margin-top: var(--space-1);
+  padding-inline: var(--space-4);
+  font-size: var(--text-label-md);
+  color: var(--color-text-tertiary);
+}
+
+.wat-field--error .wat-field__control {
+  border-color: var(--md-sys-color-error);
+}
+
+.wat-field--error .wat-field__control:focus {
+  box-shadow: 0 0 0 1px var(--md-sys-color-error);
+}
+
+.wat-field--error .wat-field__label,
+.wat-field--error .wat-field__control:focus + .wat-field__label,
+.wat-field--error .wat-field__control:not(:placeholder-shown) + .wat-field__label {
+  color: var(--md-sys-color-error);
+}
+
+.wat-field--error .wat-field__helper {
+  color: var(--md-sys-color-error);
+}
+
+/* ── Checkbox / Radio ─────────────────────── */
+
+.wat-choice {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-2) 0;
+  font-family: var(--font-body);
+  font-size: var(--text-body-md);
+  color: var(--color-text-primary);
+  cursor: pointer;
+  user-select: none;
+}
+
+.wat-choice__input {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  background-color: var(--md-sys-color-surface);
+  border: 2px solid var(--md-sys-color-outline);
+  transition:
+    background-color var(--duration-micro) var(--ease-standard),
+    border-color var(--duration-micro) var(--ease-standard),
+    box-shadow var(--duration-micro) var(--ease-standard);
+  flex-shrink: 0;
+  position: relative;
+  cursor: pointer;
+}
+
+.wat-choice__input[type="checkbox"] {
+  border-radius: var(--radius-xs);
+}
+
+.wat-choice__input[type="radio"] {
+  border-radius: var(--radius-full);
+}
+
+.wat-choice__input:hover {
+  border-color: var(--md-sys-color-primary);
+}
+
+.wat-choice__input:focus-visible {
+  outline: 2px solid var(--md-sys-color-tertiary);
+  outline-offset: 2px;
+}
+
+.wat-choice__input:checked {
+  background-color: var(--md-sys-color-primary);
+  border-color: var(--md-sys-color-primary);
+}
+
+.wat-choice__input[type="checkbox"]:checked::after {
+  content: '';
+  position: absolute;
+  left: 5px;
+  top: 1px;
+  width: 5px;
+  height: 10px;
+  border: solid var(--md-sys-color-on-primary);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.wat-choice__input[type="radio"]:checked::after {
+  content: '';
+  position: absolute;
+  inset: 3px;
+  border-radius: var(--radius-full);
+  background-color: var(--md-sys-color-on-primary);
+}
+
+/* ── Contact mailto card ──────────────────── */
+
+.wat-contact-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-6);
+  background-color: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
+  border-radius: var(--md-sys-shape-corner-large);
+}
+
+.wat-contact-card__label {
+  font-family: var(--font-body);
+  font-size: var(--text-label-lg);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.wat-contact-card__value {
+  font-family: var(--font-body);
+  font-size: var(--text-headline-sm);
+  font-weight: var(--weight-semibold);
+  margin: 0;
+  word-break: break-word;
+}
+
+.wat-contact-card__value a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition: border-color var(--duration-micro) var(--ease-standard);
+}
+
+.wat-contact-card__value a:hover {
+  border-bottom-color: currentColor;
+}
+
+.wat-contact-card__text {
+  font-size: var(--text-body-md);
+  line-height: var(--leading-relaxed);
+  color: inherit;
+  opacity: 0.85;
+  margin: 0;
+}
+
+/* ── Progressive enhancement form shell ───── */
+
+[data-contact-endpoint] {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  padding: var(--space-8);
+  background-color: var(--md-sys-color-surface-container-lowest);
+  border: 1px solid var(--md-sys-color-outline-variant);
+  border-radius: var(--md-sys-shape-corner-large);
+  box-shadow: var(--md-sys-elevation-1);
+}
+
+[data-contact-endpoint][hidden] {
+  display: none;
+}
+
+/* ── Reduced motion ───────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  .wat-field__control,
+  .wat-field__label,
+  .wat-choice__input {
+    transition: none;
+  }
+}

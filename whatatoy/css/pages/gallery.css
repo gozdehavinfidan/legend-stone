@@ -1,0 +1,37 @@
+/* ============================================
+   What A Toy! — Page: gallery
+   Owner:  Agent 3 pages-html · team whatatoy-impl
+   Date:   2026-04-16
+
+   Thin adjustments for the gallery grid section
+   and lightbox body-lock rule. Filter chip row
+   and grid both style themselves from components.
+   Tokens only — zero hex literals.
+   ============================================ */
+
+.gallery-section > .u-container > .wat-gallery {
+  gap: var(--space-10);
+}
+
+.wat-gallery__filters {
+  padding-bottom: var(--space-2);
+}
+
+/* Body-level lock when lightbox open (set by js/lightbox.js) */
+
+body.has-lightbox-open {
+  overflow: hidden;
+}
+
+/* Keep an empty-grid ghost height while loading so chip count
+   does not re-flow the page the instant images render. */
+
+.wat-gallery__grid:empty {
+  min-height: 320px;
+}
+
+@media (min-width: 1024px) {
+  .wat-gallery__grid:empty {
+    min-height: 480px;
+  }
+}

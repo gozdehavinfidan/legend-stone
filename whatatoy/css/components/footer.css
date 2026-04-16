@@ -1,0 +1,260 @@
+/* ============================================
+   What A Toy! — Footer
+   Component: footer
+   Owner:  Agent 2 components · team whatatoy-impl
+   Date:   2026-04-16
+
+   Multi-column footer on cream surface. Logo
+   carries the red; body uses navy/neutral.
+   Bottom strip: legal copy + subtle yellow
+   accent stripe (decorative, ≤ 8%).
+   ============================================ */
+
+.wat-footer {
+  position: relative;
+  background-color: var(--md-sys-color-surface-container-low);
+  color: var(--color-text-secondary);
+  border-top: 1px solid var(--md-sys-color-outline-variant);
+  overflow: hidden;
+}
+
+.wat-footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background-image: repeating-linear-gradient(
+    90deg,
+    var(--color-accent-stripe) 0 24px,
+    var(--md-sys-color-surface-container-low) 24px 48px
+  );
+  opacity: 0.55;
+}
+
+.wat-footer__main {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-10);
+  padding: var(--space-16) var(--container-padding) var(--space-10);
+  max-width: var(--container-max);
+  margin-inline: auto;
+}
+
+/* ── Brand column ─────────────────────────── */
+
+.wat-footer__brand {
+  max-width: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.wat-footer__tagline {
+  font-family: var(--font-display);
+  font-size: var(--text-title-lg);
+  font-weight: var(--weight-medium);
+  line-height: var(--leading-snug);
+  color: var(--color-brand-ink);
+  margin: 0;
+}
+
+.wat-footer__brand-text {
+  font-size: var(--text-body-md);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+/* ── Link columns ─────────────────────────── */
+
+.wat-footer__column {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.wat-footer__column-title {
+  font-family: var(--font-body);
+  font-size: var(--text-label-lg);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--color-brand-ink);
+  margin: 0 0 var(--space-2);
+}
+
+.wat-footer__links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.wat-footer__link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-body);
+  font-size: var(--text-body-md);
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  transition: color var(--duration-micro) var(--ease-standard);
+}
+
+.wat-footer__link:hover {
+  color: var(--md-sys-color-primary);
+}
+
+.wat-footer__link:focus-visible {
+  outline: 2px solid var(--md-sys-color-tertiary);
+  outline-offset: 2px;
+  border-radius: var(--radius-xs);
+}
+
+/* ── Locations list (tabular numerals) ────── */
+
+.wat-footer__locations {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
+.wat-footer__location {
+  font-size: var(--text-body-sm);
+  line-height: var(--leading-snug);
+  color: var(--color-text-secondary);
+}
+
+.wat-footer__location-name {
+  display: block;
+  font-weight: var(--weight-semibold);
+  color: var(--color-text-primary);
+}
+
+/* ── Social + contact ─────────────────────── */
+
+.wat-footer__social {
+  display: flex;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+}
+
+.wat-footer__social-link {
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-secondary);
+  background-color: var(--md-sys-color-surface);
+  border: 1px solid var(--md-sys-color-outline-variant);
+  border-radius: var(--radius-full);
+  transition:
+    color var(--duration-micro) var(--ease-standard),
+    border-color var(--duration-micro) var(--ease-standard),
+    background-color var(--duration-micro) var(--ease-standard);
+}
+
+.wat-footer__social-link:hover {
+  color: var(--md-sys-color-on-primary);
+  background-color: var(--md-sys-color-primary);
+  border-color: var(--md-sys-color-primary);
+}
+
+.wat-footer__social-link svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+.wat-footer__contact {
+  margin-top: var(--space-4);
+  font-size: var(--text-body-md);
+  color: var(--color-text-secondary);
+}
+
+.wat-footer__contact a {
+  color: var(--md-sys-color-primary);
+  font-weight: var(--weight-semibold);
+  text-decoration: none;
+}
+
+.wat-footer__contact a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ── Bottom bar ───────────────────────────── */
+
+.wat-footer__bottom {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: var(--space-6) var(--container-padding);
+  max-width: var(--container-max);
+  margin-inline: auto;
+  border-top: 1px solid var(--md-sys-color-outline-variant);
+  font-size: var(--text-body-sm);
+  color: var(--color-text-tertiary);
+}
+
+.wat-footer__copyright {
+  margin: 0;
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
+.wat-footer__legal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.wat-footer__legal a {
+  color: var(--color-text-tertiary);
+  text-decoration: none;
+  transition: color var(--duration-micro) var(--ease-standard);
+}
+
+.wat-footer__legal a:hover {
+  color: var(--md-sys-color-primary);
+}
+
+/* ── Responsive ───────────────────────────── */
+
+@media (min-width: 768px) {
+  .wat-footer__main {
+    grid-template-columns: 1.4fr 1fr 1.2fr 1fr;
+  }
+}
+
+@media (max-width: 767px) {
+  .wat-footer__bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* ── Reduced motion ───────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  .wat-footer__link,
+  .wat-footer__social-link {
+    transition: none;
+  }
+}

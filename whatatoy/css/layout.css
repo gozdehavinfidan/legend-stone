@@ -1,0 +1,181 @@
+/* ============================================
+   What A Toy! — Layout System
+   Theme:  "Candy Carnival"
+   Owner:  Agent 1 tokens-base · team whatatoy-impl
+   Date:   2026-04-16
+
+   Container, grid, flex, and vertical-rhythm
+   utilities. References tokens from
+   variables.css only — no hex literals.
+   ============================================ */
+
+/* ── Container ────────────────────────────── */
+
+.u-container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--container-padding);
+}
+
+.u-container--narrow {
+  max-width: var(--container-narrow);
+}
+
+.u-container--wide {
+  max-width: var(--container-wide);
+}
+
+.u-container--full {
+  max-width: none;
+  padding-inline: 0;
+}
+
+/* ── Section rhythm ───────────────────────── */
+
+.u-section {
+  padding-block: var(--space-20);
+}
+
+.u-section--compact {
+  padding-block: var(--space-12);
+}
+
+.u-section--flush {
+  padding-block: 0;
+}
+
+.u-section--alt {
+  background-color: var(--color-bg-secondary);
+}
+
+.u-section--elevated {
+  background-color: var(--color-bg-elevated);
+}
+
+/* ── Grid ─────────────────────────────────── */
+
+.u-grid {
+  display: grid;
+  gap: var(--space-6);
+}
+
+.u-grid--2,
+.u-grid--3,
+.u-grid--4 {
+  grid-template-columns: 1fr;
+}
+
+.u-grid--gap-sm { gap: var(--space-3); }
+.u-grid--gap-md { gap: var(--space-6); }
+.u-grid--gap-lg { gap: var(--space-10); }
+
+@media (min-width: 768px) {
+  .u-grid--2 { grid-template-columns: repeat(2, 1fr); }
+  .u-grid--3 { grid-template-columns: repeat(2, 1fr); }
+  .u-grid--4 { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 1024px) {
+  .u-grid--3 { grid-template-columns: repeat(3, 1fr); }
+  .u-grid--4 { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (min-width: 1440px) {
+  .u-grid--4 { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* ── Flex ─────────────────────────────────── */
+
+.u-flex {
+  display: flex;
+}
+
+.u-flex--center {
+  align-items: center;
+  justify-content: center;
+}
+
+.u-flex--between {
+  align-items: center;
+  justify-content: space-between;
+}
+
+.u-flex--column {
+  flex-direction: column;
+}
+
+.u-flex--wrap {
+  flex-wrap: wrap;
+}
+
+.u-flex--gap-sm { gap: var(--space-3); }
+.u-flex--gap-md { gap: var(--space-6); }
+.u-flex--gap-lg { gap: var(--space-10); }
+
+/* ── Split (two-column content layout) ────── */
+
+.u-split {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-10);
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .u-split {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-12);
+  }
+
+  .u-split--reverse {
+    direction: rtl;
+  }
+
+  .u-split--reverse > * {
+    direction: ltr;
+  }
+}
+
+/* ── Stack (vertical rhythm) ──────────────── */
+
+.u-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.u-stack--xs { gap: var(--space-2); }
+.u-stack--sm { gap: var(--space-3); }
+.u-stack--md { gap: var(--space-6); }
+.u-stack--lg { gap: var(--space-10); }
+.u-stack--xl { gap: var(--space-16); }
+
+/* Apply margin between direct siblings instead of gap
+   when parent is not flex/grid — e.g. prose sections. */
+.u-stack--flow > * + * {
+  margin-block-start: var(--space-4);
+}
+
+/* ── Responsive adjustments ───────────────── */
+
+@media (max-width: 767px) {
+  :root {
+    --container-padding: var(--space-4);
+    --nav-height: var(--nav-height-mobile);
+  }
+
+  .u-section {
+    padding-block: var(--space-12);
+  }
+
+  .u-section--compact {
+    padding-block: var(--space-8);
+  }
+}
+
+@media (min-width: 1440px) {
+  :root {
+    --container-padding: var(--space-8);
+  }
+}

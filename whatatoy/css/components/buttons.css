@@ -1,0 +1,239 @@
+/* ============================================
+   What A Toy! — Buttons
+   Component: buttons
+   Owner:  Agent 2 components · team whatatoy-impl
+   Date:   2026-04-16
+
+   MD3 button family. State layers are rendered
+   via ::after overlays that scale opacity with
+   --md-sys-state-*-opacity tokens.
+
+   Typography: DM Sans (--font-body) only.
+   Display font is NOT applied to buttons.
+   Radius: --md-sys-shape-corner-medium (toy-warm).
+   ============================================ */
+
+/* ── Base ─────────────────────────────────── */
+
+.wat-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: 48px;
+  min-width: 120px;
+  padding: var(--space-3) var(--space-6);
+  font-family: var(--font-body);
+  font-size: var(--text-label-lg);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-wide);
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+  border: 1px solid transparent;
+  border-radius: var(--md-sys-shape-corner-medium);
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  overflow: hidden;
+  isolation: isolate;
+  transition:
+    background-color var(--duration-short) var(--ease-standard),
+    color var(--duration-short) var(--ease-standard),
+    border-color var(--duration-short) var(--ease-standard),
+    box-shadow var(--duration-short) var(--ease-standard),
+    transform var(--duration-micro) var(--ease-standard);
+}
+
+/* State-layer overlay (MD3) */
+.wat-btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-color: currentColor;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--duration-micro) var(--ease-standard);
+}
+
+.wat-btn > * {
+  position: relative;
+  z-index: 1;
+}
+
+.wat-btn:hover::after            { opacity: var(--md-sys-state-hover-opacity); }
+.wat-btn:focus-visible::after    { opacity: var(--md-sys-state-focus-opacity); }
+.wat-btn:active::after           { opacity: var(--md-sys-state-pressed-opacity); }
+
+.wat-btn:focus-visible {
+  outline: 2px solid var(--md-sys-color-tertiary);
+  outline-offset: 3px;
+}
+
+.wat-btn:active {
+  transform: scale(0.98);
+}
+
+.wat-btn[disabled],
+.wat-btn[aria-disabled="true"] {
+  pointer-events: none;
+  opacity: var(--md-sys-state-disabled-opacity);
+  box-shadow: none;
+}
+
+/* ── Variant: Filled (primary emphasis) ───── */
+
+.wat-btn--filled {
+  background-color: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
+  border-color: var(--md-sys-color-primary);
+  box-shadow: var(--md-sys-elevation-1);
+}
+
+.wat-btn--filled:hover {
+  box-shadow: var(--md-sys-elevation-2);
+}
+
+/* ── Variant: Tonal (secondary emphasis) ──── */
+
+.wat-btn--tonal {
+  background-color: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
+  border-color: var(--md-sys-color-primary-container);
+}
+
+/* ── Variant: Outlined ────────────────────── */
+
+.wat-btn--outlined {
+  background-color: transparent;
+  color: var(--md-sys-color-primary);
+  border-color: var(--md-sys-color-outline);
+}
+
+.wat-btn--outlined:hover {
+  border-color: var(--md-sys-color-primary);
+}
+
+/* ── Variant: Text ────────────────────────── */
+
+.wat-btn--text {
+  background-color: transparent;
+  color: var(--md-sys-color-primary);
+  border-color: transparent;
+  min-width: auto;
+  padding-inline: var(--space-4);
+}
+
+/* ── Variant: Elevated ────────────────────── */
+
+.wat-btn--elevated {
+  background-color: var(--md-sys-color-surface-container-low);
+  color: var(--md-sys-color-primary);
+  border-color: transparent;
+  box-shadow: var(--md-sys-elevation-1);
+}
+
+.wat-btn--elevated:hover {
+  box-shadow: var(--md-sys-elevation-2);
+}
+
+/* ── Variant: FAB (optional, floating) ────── */
+
+.wat-btn--fab {
+  min-width: 56px;
+  min-height: 56px;
+  width: 56px;
+  height: 56px;
+  padding: 0;
+  border-radius: var(--md-sys-shape-corner-large);
+  background-color: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
+  border-color: transparent;
+  box-shadow: var(--md-sys-elevation-3);
+}
+
+.wat-btn--fab:hover {
+  box-shadow: var(--md-sys-elevation-4);
+}
+
+/* ── Variant: Icon-only ───────────────────── */
+
+.wat-btn--icon {
+  min-width: 48px;
+  min-height: 48px;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  border-radius: var(--md-sys-shape-corner-full);
+  background-color: transparent;
+  color: var(--md-sys-color-on-surface-variant);
+  border-color: transparent;
+}
+
+.wat-btn--icon:hover {
+  color: var(--md-sys-color-primary);
+}
+
+/* ── Sizes ────────────────────────────────── */
+
+.wat-btn--sm {
+  min-height: 40px;
+  min-width: 96px;
+  padding: var(--space-2) var(--space-4);
+  font-size: var(--text-label-md);
+}
+
+.wat-btn--md { /* default — declared for explicit composition */
+  min-height: 48px;
+  min-width: 120px;
+  padding: var(--space-3) var(--space-6);
+  font-size: var(--text-label-lg);
+}
+
+.wat-btn--lg {
+  min-height: 56px;
+  min-width: 160px;
+  padding: var(--space-4) var(--space-8);
+  font-size: var(--text-body-md);
+}
+
+/* ── Icon slot inside a button ────────────── */
+
+.wat-btn__icon {
+  display: inline-flex;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  transition: transform var(--duration-short) var(--ease-standard);
+}
+
+.wat-btn__icon svg {
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+}
+
+.wat-btn:hover .wat-btn__icon--arrow {
+  transform: translateX(3px);
+}
+
+/* ── Full-width utility ───────────────────── */
+
+.wat-btn--block {
+  width: 100%;
+}
+
+/* ── Reduced motion ───────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  .wat-btn,
+  .wat-btn::after,
+  .wat-btn__icon {
+    transition: none;
+  }
+  .wat-btn:active {
+    transform: none;
+  }
+}

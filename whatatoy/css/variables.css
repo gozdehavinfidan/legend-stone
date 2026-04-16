@@ -1,0 +1,459 @@
+/* ============================================
+   What A Toy! — Design Tokens
+   Theme:  "Candy Carnival"
+   Owner:  Agent 1 tokens-base · team whatatoy-impl
+   Date:   2026-04-16
+
+   Structure: Material Design 3 three-layer tokens
+     1. md-ref-palette-*  — raw tonal ramps (per-hue)
+     2. md-sys-color-*    — role-based system tokens (light theme)
+     3. Brand aliases     — semantic names consumed by components
+
+   Hard rule: ALL hex values live in this file. Every other
+   file in this codebase references tokens only.
+   ============================================ */
+
+/* ── Web fonts (Fredoka display + DM Sans body) ───────────── */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,400..700&display=swap');
+
+/* ══════════════════════════════════════════════════════════
+   SURFACE-AREA DISCIPLINE (plan P2 final — COLLAB_BOARD)
+   ══════════════════════════════════════════════════════════
+   ~70% cream / neutral (page surfaces, body copy background)
+   ~18% red   (CTAs, chips, emphasis pills, hero plate accents)
+   ~ 8% yellow (stripe bands, highlight chips, SVG fill accents)
+   ~ 4% navy  (supporting accents, hover states, SVG strokes)
+
+   The logo itself supplies the red every time it renders
+   (navbar, hero, footer). Do NOT paint large page surfaces
+   red — that would collapse the brand hierarchy and cause
+   the logo to lose its punch. Reserve red for components;
+   let the logo carry the primary brand signal.
+
+   Hard constraints derived from this discipline:
+     • --color-accent-stripe (yellow S80) is NEVER used as
+       text on cream. Decorative bands / chip fills /
+       SVG accents ONLY.
+     • Body-text contrast rides on primary / tertiary /
+       neutral only — never on secondary.
+   ══════════════════════════════════════════════════════════ */
+
+:root {
+
+  /* ══════════════════════════════════════════
+     MATERIAL REFERENCE TOKENS (md-ref-palette)
+     Raw tonal ramps — never used directly by
+     components. Exposed for theme wiring only.
+     ══════════════════════════════════════════ */
+
+  /* Primary — Candy Red (logo background field) */
+  --md-ref-palette-primary10:  #410001;
+  --md-ref-palette-primary20:  #680003;
+  --md-ref-palette-primary30:  #8F0007;
+  --md-ref-palette-primary40:  #B4231A;
+  --md-ref-palette-primary50:  #D63D31;
+  --md-ref-palette-primary60:  #EF5448;
+  --md-ref-palette-primary70:  #FF8A7E;
+  --md-ref-palette-primary80:  #FFB4A8;
+  --md-ref-palette-primary90:  #FFDAD4;
+  --md-ref-palette-primary95:  #FFEDE9;
+  --md-ref-palette-primary99:  #FFFBFF;
+
+  /* Secondary — Golden Yellow (logo accent stripes) */
+  --md-ref-palette-secondary10: #251A00;
+  --md-ref-palette-secondary20: #3F2E00;
+  --md-ref-palette-secondary30: #5B4300;
+  --md-ref-palette-secondary40: #7A5900;
+  --md-ref-palette-secondary50: #9A7100;
+  --md-ref-palette-secondary60: #BB8A00;
+  --md-ref-palette-secondary70: #DCA300;
+  --md-ref-palette-secondary80: #F9BC2C;
+  --md-ref-palette-secondary90: #FFDF9E;
+  --md-ref-palette-secondary95: #FFEFD5;
+  --md-ref-palette-secondary99: #FFFBFF;
+
+  /* Tertiary — Navy Ink (logo letter outline) */
+  --md-ref-palette-tertiary10:  #001849;
+  --md-ref-palette-tertiary20:  #002A75;
+  --md-ref-palette-tertiary30:  #003EA2;
+  --md-ref-palette-tertiary40:  #1F53C6;
+  --md-ref-palette-tertiary50:  #3F6DE0;
+  --md-ref-palette-tertiary60:  #5D87FC;
+  --md-ref-palette-tertiary70:  #84A5FF;
+  --md-ref-palette-tertiary80:  #AEC3FF;
+  --md-ref-palette-tertiary90:  #D9E2FF;
+  --md-ref-palette-tertiary95:  #ECF0FF;
+  --md-ref-palette-tertiary99:  #FFFBFF;
+
+  /* Neutral — Warm Cream (logo letter fill, page paper) */
+  --md-ref-palette-neutral10:   #201A18;
+  --md-ref-palette-neutral20:   #362F2D;
+  --md-ref-palette-neutral30:   #4D4542;
+  --md-ref-palette-neutral40:   #655D5A;
+  --md-ref-palette-neutral50:   #7F7672;
+  --md-ref-palette-neutral60:   #998F8B;
+  --md-ref-palette-neutral70:   #B4AAA5;
+  --md-ref-palette-neutral80:   #D0C5C0;
+  --md-ref-palette-neutral87:   #DCD2CD;
+  --md-ref-palette-neutral90:   #EDE0DB;
+  --md-ref-palette-neutral94:   #F5E8E2;
+  --md-ref-palette-neutral95:   #FBEEE9;
+  --md-ref-palette-neutral99:   #FFFBF8;
+
+  /* Neutral-Variant — cool cream for outline / surface-variant roles */
+  --md-ref-palette-neutral-variant10: #2C1712;
+  --md-ref-palette-neutral-variant20: #432B25;
+  --md-ref-palette-neutral-variant30: #5C413A;
+  --md-ref-palette-neutral-variant40: #755951;
+  --md-ref-palette-neutral-variant50: #8F7269;
+  --md-ref-palette-neutral-variant60: #AB8C82;
+  --md-ref-palette-neutral-variant70: #C7A69C;
+  --md-ref-palette-neutral-variant80: #E4C1B6;
+  --md-ref-palette-neutral-variant90: #FFDAD0;
+  --md-ref-palette-neutral-variant95: #FFEDE7;
+  --md-ref-palette-neutral-variant99: #FFFBFF;
+
+  /* Error — MD3 standard error ramp */
+  --md-ref-palette-error10:     #410002;
+  --md-ref-palette-error20:     #690005;
+  --md-ref-palette-error30:     #93000A;
+  --md-ref-palette-error40:     #BA1A1A;
+  --md-ref-palette-error80:     #FFB4AB;
+  --md-ref-palette-error90:     #FFDAD6;
+  --md-ref-palette-error99:     #FFFBFF;
+
+  /* ══════════════════════════════════════════
+     MATERIAL SYSTEM TOKENS (md-sys-color)
+     Light theme — single theme for v1.
+     Components consume these, never md-ref.
+     ══════════════════════════════════════════ */
+
+  /* Primary role — Candy Red */
+  --md-sys-color-primary:                  var(--md-ref-palette-primary40);
+  --md-sys-color-on-primary:               var(--md-ref-palette-primary99);
+  --md-sys-color-primary-container:        var(--md-ref-palette-primary90);
+  --md-sys-color-on-primary-container:     var(--md-ref-palette-primary10);
+
+  /* Secondary role — Golden Yellow */
+  --md-sys-color-secondary:                var(--md-ref-palette-secondary40);
+  --md-sys-color-on-secondary:             var(--md-ref-palette-secondary99);
+  --md-sys-color-secondary-container:      var(--md-ref-palette-secondary90);
+  --md-sys-color-on-secondary-container:   var(--md-ref-palette-secondary10);
+
+  /* Tertiary role — Navy Ink */
+  --md-sys-color-tertiary:                 var(--md-ref-palette-tertiary40);
+  --md-sys-color-on-tertiary:              var(--md-ref-palette-tertiary99);
+  --md-sys-color-tertiary-container:       var(--md-ref-palette-tertiary90);
+  --md-sys-color-on-tertiary-container:    var(--md-ref-palette-tertiary10);
+
+  /* Error role */
+  --md-sys-color-error:                    var(--md-ref-palette-error40);
+  --md-sys-color-on-error:                 #FFFFFF;
+  --md-sys-color-error-container:          var(--md-ref-palette-error90);
+  --md-sys-color-on-error-container:       var(--md-ref-palette-error10);
+
+  /* Surface + on-surface */
+  --md-sys-color-surface:                  var(--md-ref-palette-neutral99);
+  --md-sys-color-on-surface:               var(--md-ref-palette-neutral10);
+  --md-sys-color-surface-variant:          var(--md-ref-palette-neutral-variant90);
+  --md-sys-color-on-surface-variant:       var(--md-ref-palette-neutral-variant30);
+
+  /* Surface containers — tonal elevation scale
+     (lowest = brightest / highest = dimmest) */
+  --md-sys-color-surface-container-lowest: #FFFFFF;
+  --md-sys-color-surface-container-low:    var(--md-ref-palette-neutral95);
+  --md-sys-color-surface-container:        var(--md-ref-palette-neutral90);
+  --md-sys-color-surface-container-high:   var(--md-ref-palette-neutral87);
+  --md-sys-color-surface-container-highest:var(--md-ref-palette-neutral80);
+
+  /* Outline + structural strokes */
+  --md-sys-color-outline:                  var(--md-ref-palette-neutral50);
+  --md-sys-color-outline-variant:          var(--md-ref-palette-neutral80);
+
+  /* Inverse (snackbars, tooltips, dark-on-light overlays) */
+  --md-sys-color-inverse-surface:          var(--md-ref-palette-neutral20);
+  --md-sys-color-inverse-on-surface:       var(--md-ref-palette-neutral95);
+  --md-sys-color-inverse-primary:          var(--md-ref-palette-primary80);
+
+  /* Shadow + scrim bases (raw black — opacity applied at use site) */
+  --md-sys-color-shadow:                   #000000;
+  --md-sys-color-scrim:                    #000000;
+
+  /* ══════════════════════════════════════════
+     BRAND ALIASES
+     Semantic names consumed by components.
+     Keep in lockstep with md-sys-color.
+     ══════════════════════════════════════════ */
+
+  /* — Backgrounds — */
+  --color-bg-primary:      var(--md-sys-color-surface);
+  --color-bg-secondary:    var(--md-sys-color-surface-container-low);
+  --color-bg-tertiary:     var(--md-sys-color-surface-container);
+  --color-bg-elevated:     var(--md-sys-color-surface-container-lowest);
+  --color-surface-page:    var(--md-sys-color-surface);
+
+  /* — Text — */
+  --color-text-primary:    var(--md-sys-color-on-surface);
+  --color-text-secondary:  var(--md-sys-color-on-surface-variant);
+  --color-text-tertiary:   var(--md-ref-palette-neutral40);
+  --color-text-inverse:    var(--md-sys-color-inverse-on-surface);
+
+  /* — Brand hues (direct) — */
+  --color-primary:         var(--md-sys-color-primary);
+  --color-primary-light:   var(--md-ref-palette-primary50);
+  --color-primary-dim:     var(--md-ref-palette-primary30);
+  --color-secondary:       var(--md-sys-color-secondary);
+  --color-tertiary:        var(--md-sys-color-tertiary);
+
+  /* — Signature brand tokens (plan P2 final) — */
+  /* Yellow — decorative bands, chip fills, SVG accents ONLY.
+     NEVER use as text color on cream (contrast insufficient). */
+  --color-accent-stripe:   var(--md-ref-palette-secondary80);
+  /* Navy ink — headings accent, SVG strokes, hand-drawn details
+     echoing the logo's letter outline. */
+  --color-brand-ink:       var(--md-ref-palette-tertiary20);
+
+  /* — Functional (rgba on-black; used for subtle borders) — */
+  --color-border:          rgba(32, 26, 24, 0.10);
+  --color-border-hover:    rgba(32, 26, 24, 0.22);
+  --color-border-strong:   rgba(32, 26, 24, 0.38);
+
+  /* — Overlay-safe foregrounds — text rendered on dark scrims
+        over media. Theme-invariant (light tones always). */
+  --color-on-media:        var(--md-ref-palette-neutral99);
+  --color-on-media-muted:  var(--md-ref-palette-neutral90);
+  --color-on-media-accent: var(--md-ref-palette-primary80);
+
+  /* — Scrim stops — centralized so no raw rgba in components — */
+  --color-scrim-transparent: rgba(0, 0, 0, 0);
+  --color-scrim-light:       rgba(0, 0, 0, 0.20);
+  --color-scrim-medium:      rgba(0, 0, 0, 0.35);
+  --color-scrim-strong:      rgba(0, 0, 0, 0.55);
+  --color-scrim-heavy:       rgba(0, 0, 0, 0.75);
+  --color-scrim-backdrop:    rgba(0, 0, 0, 0.60);
+
+  /* ══════════════════════════════════════════
+     STATE-LAYER OPACITIES (MD3 interaction states)
+     Applied as overlay-alpha on top of base color.
+     ══════════════════════════════════════════ */
+
+  --md-sys-state-hover-opacity:         0.08;
+  --md-sys-state-focus-opacity:         0.12;
+  --md-sys-state-pressed-opacity:       0.12;
+  --md-sys-state-dragged-opacity:       0.16;
+  --md-sys-state-disabled-opacity:      0.38;
+  --md-sys-state-disabled-container-opacity: 0.12;
+
+  /* Brand aliases */
+  --state-hover:     var(--md-sys-state-hover-opacity);
+  --state-focus:     var(--md-sys-state-focus-opacity);
+  --state-pressed:   var(--md-sys-state-pressed-opacity);
+  --state-dragged:   var(--md-sys-state-dragged-opacity);
+  --state-disabled:  var(--md-sys-state-disabled-opacity);
+
+  /* ══════════════════════════════════════════
+     TYPOGRAPHY (md-sys-typescale)
+     Display font scope is limited — see base.css.
+     ══════════════════════════════════════════ */
+
+  /* Typeface refs */
+  --md-ref-typeface-brand: 'Fredoka', ui-rounded, system-ui, sans-serif;
+  --md-ref-typeface-plain: 'DM Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  /* Brand aliases
+     Display font scope: h1, h2 only. All other text
+     (h3-h6, nav, buttons, body, labels) uses --font-body. */
+  --font-display: var(--md-ref-typeface-brand);
+  --font-body:    var(--md-ref-typeface-plain);
+
+  /* Type scale (fluid display sizes, fixed beyond headline) */
+  --md-sys-typescale-display-large:   clamp(2.75rem, 4.5vw + 1rem, 4.25rem);
+  --md-sys-typescale-display-medium:  clamp(2.25rem, 3.5vw + 0.75rem, 3.5rem);
+  --md-sys-typescale-display-small:   clamp(1.875rem, 2.5vw + 0.5rem, 2.75rem);
+  --md-sys-typescale-headline-large:  2rem;
+  --md-sys-typescale-headline-medium: 1.75rem;
+  --md-sys-typescale-headline-small:  1.5rem;
+  --md-sys-typescale-title-large:     1.375rem;
+  --md-sys-typescale-title-medium:    1.125rem;
+  --md-sys-typescale-title-small:     1rem;
+  --md-sys-typescale-body-large:      1.125rem;
+  --md-sys-typescale-body-medium:     1rem;
+  --md-sys-typescale-body-small:      0.875rem;
+  --md-sys-typescale-label-large:     0.875rem;
+  --md-sys-typescale-label-medium:    0.75rem;
+  --md-sys-typescale-label-small:     0.6875rem;
+
+  /* Brand aliases */
+  --text-display-lg:  var(--md-sys-typescale-display-large);
+  --text-display-md:  var(--md-sys-typescale-display-medium);
+  --text-display-sm:  var(--md-sys-typescale-display-small);
+  --text-headline-lg: var(--md-sys-typescale-headline-large);
+  --text-headline-md: var(--md-sys-typescale-headline-medium);
+  --text-headline-sm: var(--md-sys-typescale-headline-small);
+  --text-title-lg:    var(--md-sys-typescale-title-large);
+  --text-title-md:    var(--md-sys-typescale-title-medium);
+  --text-title-sm:    var(--md-sys-typescale-title-small);
+  --text-body-lg:     var(--md-sys-typescale-body-large);
+  --text-body-md:     var(--md-sys-typescale-body-medium);
+  --text-body-sm:     var(--md-sys-typescale-body-small);
+  --text-label-lg:    var(--md-sys-typescale-label-large);
+  --text-label-md:    var(--md-sys-typescale-label-medium);
+  --text-label-sm:    var(--md-sys-typescale-label-small);
+
+  /* Line-height */
+  --leading-tight:   1.15;
+  --leading-snug:    1.35;
+  --leading-normal:  1.6;
+  --leading-relaxed: 1.8;
+
+  /* Letter-spacing */
+  --tracking-tight:  -0.02em;
+  --tracking-normal: 0em;
+  --tracking-wide:   0.04em;
+  --tracking-wider:  0.10em;
+
+  /* Font weights */
+  --weight-light:    300;
+  --weight-regular:  400;
+  --weight-medium:   500;
+  --weight-semibold: 600;
+  --weight-bold:     700;
+
+  /* ══════════════════════════════════════════
+     SPACING (4px base unit — Material Design)
+     ══════════════════════════════════════════ */
+
+  --space-0:   0;
+  --space-1:   0.25rem;   /*   4px */
+  --space-2:   0.5rem;    /*   8px */
+  --space-3:   0.75rem;   /*  12px */
+  --space-4:   1rem;      /*  16px */
+  --space-5:   1.25rem;   /*  20px */
+  --space-6:   1.5rem;    /*  24px */
+  --space-8:   2rem;      /*  32px */
+  --space-10:  2.5rem;    /*  40px */
+  --space-12:  3rem;      /*  48px */
+  --space-16:  4rem;      /*  64px */
+  --space-20:  5rem;      /*  80px */
+  --space-24:  6rem;      /*  96px */
+  --space-32:  8rem;      /* 128px */
+
+  /* ══════════════════════════════════════════
+     SHAPE / RADIUS (md-sys-shape)
+     Tuned up ~2-4px at medium/large per brief
+     for playful warmth (MD3-compliant range).
+     ══════════════════════════════════════════ */
+
+  --md-sys-shape-corner-none:        0;
+  --md-sys-shape-corner-extra-small: 6px;    /* +2 from MD3 base 4px */
+  --md-sys-shape-corner-small:       10px;   /* +2 from MD3 base 8px */
+  --md-sys-shape-corner-medium:      16px;   /* +4 from MD3 base 12px */
+  --md-sys-shape-corner-large:       20px;   /* +4 from MD3 base 16px */
+  --md-sys-shape-corner-extra-large: 32px;   /* +4 from MD3 base 28px */
+  --md-sys-shape-corner-full:        9999px;
+
+  /* Brand aliases */
+  --radius-xs:   var(--md-sys-shape-corner-extra-small);
+  --radius-sm:   var(--md-sys-shape-corner-small);
+  --radius-md:   var(--md-sys-shape-corner-medium);
+  --radius-lg:   var(--md-sys-shape-corner-large);
+  --radius-xl:   var(--md-sys-shape-corner-extra-large);
+  --radius-full: var(--md-sys-shape-corner-full);
+
+  /* ══════════════════════════════════════════
+     ELEVATION (md-sys-elevation levels 0-5)
+     Soft shadows tuned for cream-surface light UI.
+     ══════════════════════════════════════════ */
+
+  --md-sys-elevation-0: none;
+  --md-sys-elevation-1: 0 1px 2px rgba(0, 0, 0, 0.06),
+                        0 1px 3px rgba(0, 0, 0, 0.08);
+  --md-sys-elevation-2: 0 2px 4px rgba(0, 0, 0, 0.07),
+                        0 3px 6px rgba(0, 0, 0, 0.09);
+  --md-sys-elevation-3: 0 4px 8px rgba(0, 0, 0, 0.08),
+                        0 8px 16px rgba(0, 0, 0, 0.10);
+  --md-sys-elevation-4: 0 6px 12px rgba(0, 0, 0, 0.10),
+                        0 12px 24px rgba(0, 0, 0, 0.12);
+  --md-sys-elevation-5: 0 10px 20px rgba(0, 0, 0, 0.12),
+                        0 20px 40px rgba(0, 0, 0, 0.14);
+
+  /* Brand aliases */
+  --shadow-0: var(--md-sys-elevation-0);
+  --shadow-1: var(--md-sys-elevation-1);
+  --shadow-2: var(--md-sys-elevation-2);
+  --shadow-3: var(--md-sys-elevation-3);
+  --shadow-4: var(--md-sys-elevation-4);
+  --shadow-5: var(--md-sys-elevation-5);
+
+  /* ══════════════════════════════════════════
+     MOTION (md-sys-motion)
+     Easing curves + durations per MD3.
+     ══════════════════════════════════════════ */
+
+  /* Easing */
+  --md-sys-motion-easing-standard:            cubic-bezier(0.2, 0.0, 0.0, 1.0);
+  --md-sys-motion-easing-standard-decelerate: cubic-bezier(0.0, 0.0, 0.0, 1.0);
+  --md-sys-motion-easing-standard-accelerate: cubic-bezier(0.3, 0.0, 1.0, 1.0);
+  --md-sys-motion-easing-emphasized:          cubic-bezier(0.2, 0.0, 0.0, 1.0);
+  --md-sys-motion-easing-emphasized-decelerate: cubic-bezier(0.05, 0.7, 0.1, 1.0);
+  --md-sys-motion-easing-emphasized-accelerate: cubic-bezier(0.3, 0.0, 0.8, 0.15);
+  --md-sys-motion-easing-linear:              cubic-bezier(0, 0, 1, 1);
+
+  /* Durations (short / medium / long / extra-long — MD3 spec) */
+  --md-sys-motion-duration-short1:       50ms;
+  --md-sys-motion-duration-short2:      100ms;
+  --md-sys-motion-duration-short3:      150ms;
+  --md-sys-motion-duration-short4:      200ms;
+  --md-sys-motion-duration-medium1:     250ms;
+  --md-sys-motion-duration-medium2:     300ms;
+  --md-sys-motion-duration-medium3:     350ms;
+  --md-sys-motion-duration-medium4:     400ms;
+  --md-sys-motion-duration-long1:       450ms;
+  --md-sys-motion-duration-long2:       500ms;
+  --md-sys-motion-duration-long3:       550ms;
+  --md-sys-motion-duration-long4:       600ms;
+  --md-sys-motion-duration-extra-long1: 700ms;
+  --md-sys-motion-duration-extra-long2: 800ms;
+  --md-sys-motion-duration-extra-long3: 900ms;
+  --md-sys-motion-duration-extra-long4: 1000ms;
+
+  /* Brand aliases */
+  --ease-standard:      var(--md-sys-motion-easing-standard);
+  --ease-decelerate:    var(--md-sys-motion-easing-standard-decelerate);
+  --ease-accelerate:    var(--md-sys-motion-easing-standard-accelerate);
+  --ease-emphasized:    var(--md-sys-motion-easing-emphasized);
+  --ease-emph-decel:    var(--md-sys-motion-easing-emphasized-decelerate);
+  --ease-emph-accel:    var(--md-sys-motion-easing-emphasized-accelerate);
+
+  --duration-micro:   var(--md-sys-motion-duration-short2);
+  --duration-short:   var(--md-sys-motion-duration-short4);
+  --duration-medium:  var(--md-sys-motion-duration-medium2);
+  --duration-long:    var(--md-sys-motion-duration-long2);
+  --duration-xlong:   var(--md-sys-motion-duration-extra-long1);
+
+  /* ══════════════════════════════════════════
+     LAYOUT
+     ══════════════════════════════════════════ */
+
+  --container-max:      1240px;
+  --container-wide:     1440px;
+  --container-narrow:   860px;
+  --container-padding:  var(--space-6);
+
+  --breakpoint-sm:      480px;
+  --breakpoint-md:      768px;
+  --breakpoint-lg:      1024px;
+  --breakpoint-xl:      1440px;
+
+  --nav-height:         76px;
+  --nav-height-mobile:  64px;
+
+  --z-base:      1;
+  --z-raised:    10;
+  --z-sticky:    100;
+  --z-nav:       500;
+  --z-overlay:   900;
+  --z-modal:     1000;
+  --z-lightbox:  1100;
+  --z-toast:     1200;
+}

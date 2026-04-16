@@ -1,0 +1,222 @@
+/* ============================================
+   What A Toy! — Lightbox
+   Component: lightbox
+   Owner:  Agent 2 components · team whatatoy-impl
+   Date:   2026-04-16
+
+   Fullscreen overlay — scrim token at 0.7
+   opacity. Centred image, close + prev/next,
+   caption strip at bottom. Structure is
+   focus-trap-friendly (controls are actual
+   buttons; close carries the initial focus
+   ring in tertiary).
+   ============================================ */
+
+.wat-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-lightbox);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-6);
+  background-color: var(--color-scrim-heavy);
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity var(--duration-medium) var(--ease-standard),
+    visibility var(--duration-medium) var(--ease-standard);
+}
+
+.wat-lightbox.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.wat-lightbox[hidden] {
+  display: none;
+}
+
+/* ── Stage + image ────────────────────────── */
+
+.wat-lightbox__stage {
+  position: relative;
+  max-width: 95vw;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.wat-lightbox__image {
+  max-width: 100%;
+  max-height: 75vh;
+  object-fit: contain;
+  display: block;
+  border-radius: var(--md-sys-shape-corner-medium);
+  box-shadow: var(--md-sys-elevation-5);
+  background-color: var(--md-sys-color-surface);
+  transform: scale(0.96);
+  opacity: 0;
+  transition:
+    transform var(--duration-medium) var(--ease-emph-decel),
+    opacity var(--duration-medium) var(--ease-standard);
+}
+
+.wat-lightbox.is-open .wat-lightbox__image {
+  transform: scale(1);
+  opacity: 1;
+}
+
+/* ── Close button ─────────────────────────── */
+
+.wat-lightbox__close {
+  position: absolute;
+  top: var(--space-5);
+  right: var(--space-5);
+  width: 48px;
+  height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--md-sys-color-surface);
+  color: var(--md-sys-color-on-surface);
+  border: none;
+  border-radius: var(--md-sys-shape-corner-full);
+  cursor: pointer;
+  box-shadow: var(--md-sys-elevation-2);
+  transition:
+    background-color var(--duration-micro) var(--ease-standard),
+    color var(--duration-micro) var(--ease-standard);
+}
+
+.wat-lightbox__close:hover {
+  background-color: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
+}
+
+.wat-lightbox__close:focus-visible {
+  outline: 3px solid var(--md-sys-color-tertiary);
+  outline-offset: 3px;
+}
+
+.wat-lightbox__close svg {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+}
+
+/* ── Prev / next ──────────────────────────── */
+
+.wat-lightbox__nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 52px;
+  height: 52px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--md-sys-color-surface);
+  color: var(--md-sys-color-on-surface);
+  border: none;
+  border-radius: var(--md-sys-shape-corner-full);
+  cursor: pointer;
+  box-shadow: var(--md-sys-elevation-2);
+  transition:
+    background-color var(--duration-micro) var(--ease-standard),
+    color var(--duration-micro) var(--ease-standard),
+    transform var(--duration-micro) var(--ease-standard);
+}
+
+.wat-lightbox__nav:hover {
+  background-color: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
+}
+
+.wat-lightbox__nav:focus-visible {
+  outline: 3px solid var(--md-sys-color-tertiary);
+  outline-offset: 3px;
+}
+
+.wat-lightbox__nav svg {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+}
+
+.wat-lightbox__nav--prev {
+  left: var(--space-5);
+}
+
+.wat-lightbox__nav--prev:hover {
+  transform: translateY(-50%) translateX(-2px);
+}
+
+.wat-lightbox__nav--next {
+  right: var(--space-5);
+}
+
+.wat-lightbox__nav--next:hover {
+  transform: translateY(-50%) translateX(2px);
+}
+
+.wat-lightbox__nav[disabled] {
+  opacity: var(--md-sys-state-disabled-opacity);
+  pointer-events: none;
+}
+
+/* ── Caption strip ────────────────────────── */
+
+.wat-lightbox__caption {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  align-items: center;
+  max-width: 680px;
+  padding: var(--space-3) var(--space-5);
+  background-color: var(--md-sys-color-surface);
+  color: var(--color-text-primary);
+  border-radius: var(--md-sys-shape-corner-medium);
+  text-align: center;
+}
+
+.wat-lightbox__caption-title {
+  font-family: var(--font-body);
+  font-size: var(--text-title-md);
+  font-weight: var(--weight-semibold);
+  margin: 0;
+}
+
+.wat-lightbox__caption-meta {
+  font-family: var(--font-body);
+  font-size: var(--text-label-md);
+  letter-spacing: var(--tracking-wide);
+  color: var(--color-text-tertiary);
+  margin: 0;
+}
+
+.wat-lightbox__counter {
+  font-family: var(--font-body);
+  font-size: var(--text-label-md);
+  color: var(--color-on-media-muted);
+  font-variant-numeric: tabular-nums;
+  padding: var(--space-1) var(--space-3);
+  background-color: var(--color-scrim-medium);
+  border-radius: var(--md-sys-shape-corner-full);
+}
+
+/* ── Reduced motion ───────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  .wat-lightbox,
+  .wat-lightbox__image,
+  .wat-lightbox__nav,
+  .wat-lightbox__close {
+    transition: none;
+  }
+  .wat-lightbox__image {
+    transform: none;
+  }
+}

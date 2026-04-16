@@ -1,0 +1,92 @@
+/* ============================================
+   What A Toy! — Page: home
+   Owner:  Agent 3 pages-html · team whatatoy-impl
+   Date:   2026-04-16
+
+   Thin page-level overrides for index.html.
+   Heavy lifting lives in component CSS.
+   Tokens only — zero hex literals.
+   ============================================ */
+
+/* ── Hero: side-by-side layout at lg, tightened spacing ── */
+
+.wat-hero .wat-hero__inner {
+  gap: var(--space-10);
+}
+
+.wat-hero__plate {
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .wat-hero__plate {
+    align-items: flex-start;
+  }
+}
+
+/* Reveal-friendly defaults for hero copy children */
+.wat-hero__copy > * {
+  opacity: 0;
+  transform: translateY(12px);
+  transition:
+    opacity var(--duration-long) var(--ease-emph-decel),
+    transform var(--duration-long) var(--ease-emph-decel);
+  transition-delay: var(--wat-reveal-delay, 0ms);
+}
+
+.wat-hero__copy > .is-visible,
+.wat-hero__copy.is-visible > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Home: Collections footer CTA row ─────── */
+
+.home-collections__footer {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--space-10);
+}
+
+/* ── Home: Locator grid + footer CTA ──────── */
+
+.home-locator__grid {
+  margin-bottom: var(--space-10);
+}
+
+.home-locator__footer {
+  display: flex;
+  justify-content: center;
+}
+
+/* ── Home: Social card centered, breathing ── */
+
+.home-social__card {
+  max-width: 640px;
+  margin-inline: auto;
+}
+
+/* ── Reveal init for grid children ────────── */
+
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity var(--duration-long) var(--ease-emph-decel),
+    transform var(--duration-long) var(--ease-emph-decel);
+  transition-delay: var(--wat-reveal-delay, 0ms);
+}
+
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wat-hero__copy > *,
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

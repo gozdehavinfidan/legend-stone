@@ -1,0 +1,60 @@
+/* ============================================
+   What A Toy! — Page: contact
+   Owner:  Agent 3 pages-html · team whatatoy-impl
+   Date:   2026-04-16
+
+   Two-column layout on desktop: progressive form
+   (left) + mailto card + hours card (right).
+   On mobile, aside stacks above/below the form.
+   Tokens only — zero hex literals.
+   ============================================ */
+
+.contact-grid {
+  gap: var(--space-8);
+  align-items: start;
+}
+
+@media (min-width: 768px) {
+  .contact-grid {
+    grid-template-columns: 1.2fr 1fr;
+    gap: var(--space-10);
+  }
+}
+
+@media (min-width: 1024px) {
+  .contact-grid {
+    gap: var(--space-12);
+  }
+}
+
+/* Contact form spacing override — slightly tighter
+   vertical rhythm than default .wat-form. */
+
+.contact-form.wat-form {
+  gap: var(--space-4);
+}
+
+.contact-form [data-contact-status]:empty {
+  display: none;
+}
+
+.contact-form [data-contact-status] {
+  margin-top: var(--space-2);
+}
+
+/* Aside column (mailto + hours) */
+
+.contact-aside {
+  position: sticky;
+  top: calc(var(--nav-height) + var(--space-6));
+}
+
+@media (max-width: 767px) {
+  .contact-aside {
+    position: static;
+  }
+}
+
+.contact-hours {
+  background-color: var(--md-sys-color-surface-container-low);
+}

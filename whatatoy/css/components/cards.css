@@ -1,0 +1,387 @@
+/* ============================================
+   What A Toy! — Cards
+   Component: cards
+   Owner:  Agent 2 components · team whatatoy-impl
+   Date:   2026-04-16
+
+   Generic card primitive + variants (filled,
+   elevated, outlined) + domain cards:
+     .wat-category-card — tonal container surface,
+       one per category slot.
+     .wat-store-card    — hero photo + address
+       block + two-CTA footer.
+
+   All surfaces respect the P2 palette discipline:
+   cream dominates; red restricted to CTA chrome
+   and container accents; yellow never as text.
+   ============================================ */
+
+/* ── Base card ────────────────────────────── */
+
+.wat-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--md-sys-color-surface-container-lowest);
+  color: var(--color-text-primary);
+  border-radius: var(--md-sys-shape-corner-large);
+  overflow: hidden;
+  isolation: isolate;
+  transition:
+    box-shadow var(--duration-short) var(--ease-standard),
+    transform var(--duration-short) var(--ease-standard),
+    background-color var(--duration-short) var(--ease-standard);
+}
+
+.wat-card__media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background-color: var(--md-sys-color-surface-container);
+}
+
+.wat-card__media img,
+.wat-card__media svg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform var(--duration-long) var(--ease-standard);
+}
+
+.wat-card__body {
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  flex: 1;
+}
+
+.wat-card__eyebrow {
+  font-family: var(--font-body);
+  font-size: var(--text-label-md);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--color-brand-ink);
+}
+
+.wat-card__title {
+  font-size: var(--text-title-lg);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-snug);
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.wat-card__text {
+  font-size: var(--text-body-md);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+.wat-card__footer {
+  margin-top: auto;
+  padding: var(--space-4) var(--space-6) var(--space-6);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  align-items: center;
+}
+
+/* ── Variants ─────────────────────────────── */
+
+.wat-card--filled {
+  background-color: var(--md-sys-color-surface-container);
+}
+
+.wat-card--elevated {
+  background-color: var(--md-sys-color-surface-container-lowest);
+  box-shadow: var(--md-sys-elevation-1);
+}
+
+.wat-card--elevated:hover {
+  box-shadow: var(--md-sys-elevation-3);
+  transform: translateY(-2px);
+}
+
+.wat-card--outlined {
+  background-color: var(--md-sys-color-surface);
+  border: 1px solid var(--md-sys-color-outline-variant);
+}
+
+.wat-card--outlined:hover {
+  border-color: var(--md-sys-color-outline);
+}
+
+/* ── Category card ────────────────────────────
+   Tonal container fills, one per category slot.
+   Use modifier classes to pick the tone:
+     .wat-category-card--primary
+     .wat-category-card--secondary   (use sparingly — yellow bg)
+     .wat-category-card--tertiary
+     .wat-category-card--neutral
+   ──────────────────────────────────────────── */
+
+.wat-category-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding: var(--space-6);
+  min-height: 280px;
+  background-color: var(--md-sys-color-surface-container);
+  color: var(--color-text-primary);
+  border-radius: var(--md-sys-shape-corner-large);
+  text-decoration: none;
+  overflow: hidden;
+  isolation: isolate;
+  box-shadow: var(--md-sys-elevation-1);
+  transition:
+    box-shadow var(--duration-short) var(--ease-standard),
+    transform var(--duration-short) var(--ease-standard);
+}
+
+.wat-category-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-color: currentColor;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--duration-micro) var(--ease-standard);
+}
+
+.wat-category-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.wat-category-card:hover {
+  box-shadow: var(--md-sys-elevation-3);
+  transform: translateY(-4px);
+}
+
+.wat-category-card:hover::after {
+  opacity: var(--md-sys-state-hover-opacity);
+}
+
+.wat-category-card:focus-visible {
+  outline: 2px solid var(--md-sys-color-tertiary);
+  outline-offset: 3px;
+}
+
+.wat-category-card__media {
+  width: 72px;
+  height: 72px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--md-sys-shape-corner-medium);
+  background-color: var(--md-sys-color-surface);
+  box-shadow: var(--md-sys-elevation-1);
+  flex-shrink: 0;
+}
+
+.wat-category-card__media svg,
+.wat-category-card__media img {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+}
+
+.wat-category-card__title {
+  font-size: var(--text-title-lg);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-snug);
+  margin: 0;
+}
+
+.wat-category-card__text {
+  font-size: var(--text-body-md);
+  line-height: var(--leading-relaxed);
+  margin: 0;
+}
+
+.wat-category-card__cta {
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-body);
+  font-size: var(--text-label-lg);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-wide);
+  color: inherit;
+}
+
+.wat-category-card__cta::after {
+  content: '→';
+  transition: transform var(--duration-micro) var(--ease-standard);
+}
+
+.wat-category-card:hover .wat-category-card__cta::after {
+  transform: translateX(4px);
+}
+
+/* Category tone variants */
+
+.wat-category-card--primary {
+  background-color: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
+}
+
+.wat-category-card--secondary {
+  background-color: var(--md-sys-color-secondary-container);
+  color: var(--md-sys-color-on-secondary-container);
+}
+
+.wat-category-card--tertiary {
+  background-color: var(--md-sys-color-tertiary-container);
+  color: var(--md-sys-color-on-tertiary-container);
+}
+
+.wat-category-card--neutral {
+  background-color: var(--md-sys-color-surface-variant);
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+.wat-category-card--primary .wat-category-card__text,
+.wat-category-card--secondary .wat-category-card__text,
+.wat-category-card--tertiary .wat-category-card__text,
+.wat-category-card--neutral .wat-category-card__text {
+  color: inherit;
+  opacity: 0.85;
+}
+
+/* ── Store card ─────────────────────────────── */
+
+.wat-store-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--md-sys-color-surface-container-lowest);
+  border-radius: var(--md-sys-shape-corner-large);
+  overflow: hidden;
+  box-shadow: var(--md-sys-elevation-1);
+  transition:
+    box-shadow var(--duration-short) var(--ease-standard),
+    transform var(--duration-short) var(--ease-standard);
+}
+
+.wat-store-card:hover {
+  box-shadow: var(--md-sys-elevation-3);
+  transform: translateY(-2px);
+}
+
+.wat-store-card__media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  background-color: var(--md-sys-color-surface-container);
+  overflow: hidden;
+}
+
+.wat-store-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform var(--duration-long) var(--ease-standard);
+}
+
+.wat-store-card:hover .wat-store-card__media img {
+  transform: scale(1.04);
+}
+
+.wat-store-card__badge {
+  position: absolute;
+  top: var(--space-4);
+  left: var(--space-4);
+  padding: var(--space-1) var(--space-3);
+  font-family: var(--font-body);
+  font-size: var(--text-label-sm);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--md-sys-color-on-primary);
+  background-color: var(--md-sys-color-primary);
+  border-radius: var(--md-sys-shape-corner-full);
+}
+
+.wat-store-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-6);
+  flex: 1;
+}
+
+.wat-store-card__name {
+  font-size: var(--text-title-lg);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-snug);
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.wat-store-card__address {
+  font-family: var(--font-body);
+  font-size: var(--text-body-md);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-secondary);
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+  margin: 0;
+  font-style: normal;
+}
+
+.wat-store-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-4);
+  font-size: var(--text-body-sm);
+  color: var(--color-text-tertiary);
+}
+
+.wat-store-card__footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  align-items: center;
+  padding: 0 var(--space-6) var(--space-6);
+}
+
+.wat-store-card__mall-link {
+  margin-left: auto;
+  font-family: var(--font-body);
+  font-size: var(--text-label-lg);
+  font-weight: var(--weight-medium);
+  color: var(--md-sys-color-tertiary);
+  text-decoration: none;
+  transition: color var(--duration-micro) var(--ease-standard);
+}
+
+.wat-store-card__mall-link:hover {
+  color: var(--color-brand-ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ── Reduced motion ───────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  .wat-card,
+  .wat-card__media img,
+  .wat-card__media svg,
+  .wat-category-card,
+  .wat-category-card__cta::after,
+  .wat-store-card,
+  .wat-store-card__media img {
+    transition: none;
+    transform: none;
+  }
+}

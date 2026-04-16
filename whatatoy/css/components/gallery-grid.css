@@ -1,0 +1,241 @@
+/* ============================================
+   What A Toy! — Gallery Grid
+   Component: gallery-grid
+   Owner:  Agent 2 components · team whatatoy-impl
+   Date:   2026-04-16
+
+   Filterable grid. Columns scale: 1→2→3→4
+   at 375 / 768 / 1024 / 1440. Chips use
+   secondary-container tones (toy-friendly).
+   ============================================ */
+
+/* ── Gallery wrapper ──────────────────────── */
+
+.wat-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+/* ── Filter chip row ──────────────────────── */
+
+.wat-gallery__filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-2);
+}
+
+.wat-gallery__chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 36px;
+  padding: var(--space-2) var(--space-4);
+  font-family: var(--font-body);
+  font-size: var(--text-label-lg);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-wide);
+  color: var(--md-sys-color-on-surface);
+  background-color: var(--md-sys-color-surface);
+  border: 1px solid var(--md-sys-color-outline);
+  border-radius: var(--md-sys-shape-corner-full);
+  cursor: pointer;
+  user-select: none;
+  transition:
+    color var(--duration-micro) var(--ease-standard),
+    background-color var(--duration-micro) var(--ease-standard),
+    border-color var(--duration-micro) var(--ease-standard);
+}
+
+.wat-gallery__chip:hover {
+  background-color: var(--md-sys-color-secondary-container);
+  border-color: var(--md-sys-color-secondary-container);
+  color: var(--md-sys-color-on-secondary-container);
+}
+
+.wat-gallery__chip:focus-visible {
+  outline: 2px solid var(--md-sys-color-tertiary);
+  outline-offset: 2px;
+}
+
+.wat-gallery__chip.is-active {
+  background-color: var(--md-sys-color-primary);
+  border-color: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
+}
+
+.wat-gallery__chip-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 22px;
+  height: 22px;
+  padding: 0 var(--space-2);
+  font-size: var(--text-label-sm);
+  font-weight: var(--weight-semibold);
+  color: var(--md-sys-color-on-primary-container);
+  background-color: var(--md-sys-color-primary-container);
+  border-radius: var(--radius-full);
+  font-variant-numeric: tabular-nums;
+}
+
+.wat-gallery__chip.is-active .wat-gallery__chip-count {
+  color: var(--md-sys-color-primary);
+  background-color: var(--md-sys-color-on-primary);
+}
+
+/* ── Grid ─────────────────────────────────── */
+
+.wat-gallery__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+}
+
+@media (min-width: 768px) {
+  .wat-gallery__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-5);
+  }
+}
+
+@media (min-width: 1024px) {
+  .wat-gallery__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1440px) {
+  .wat-gallery__grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-6);
+  }
+}
+
+/* ── Item ─────────────────────────────────── */
+
+.wat-gallery__item {
+  position: relative;
+  display: block;
+  aspect-ratio: 4 / 5;
+  background-color: var(--md-sys-color-surface-container);
+  border-radius: var(--md-sys-shape-corner-large);
+  overflow: hidden;
+  text-decoration: none;
+  box-shadow: var(--md-sys-elevation-1);
+  transition:
+    opacity var(--duration-medium) var(--ease-standard),
+    transform var(--duration-medium) var(--ease-standard),
+    box-shadow var(--duration-short) var(--ease-standard);
+}
+
+.wat-gallery__item:hover {
+  box-shadow: var(--md-sys-elevation-3);
+}
+
+.wat-gallery__item:focus-visible {
+  outline: 2px solid var(--md-sys-color-tertiary);
+  outline-offset: 3px;
+}
+
+.wat-gallery__item.is-hidden {
+  opacity: 0;
+  transform: scale(0.96);
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.wat-gallery__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform var(--duration-long) var(--ease-standard);
+}
+
+.wat-gallery__item:hover .wat-gallery__image {
+  transform: scale(1.06);
+}
+
+.wat-gallery__caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: var(--space-5) var(--space-4) var(--space-4);
+  color: var(--color-on-media);
+  background: linear-gradient(
+    180deg,
+    var(--color-scrim-transparent) 0%,
+    var(--color-scrim-strong) 100%
+  );
+  opacity: 0;
+  transform: translateY(8px);
+  transition:
+    opacity var(--duration-short) var(--ease-standard),
+    transform var(--duration-short) var(--ease-standard);
+}
+
+.wat-gallery__item:hover .wat-gallery__caption,
+.wat-gallery__item:focus-visible .wat-gallery__caption {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.wat-gallery__caption-title {
+  font-family: var(--font-body);
+  font-size: var(--text-title-md);
+  font-weight: var(--weight-semibold);
+  margin: 0 0 var(--space-1);
+}
+
+.wat-gallery__caption-meta {
+  font-family: var(--font-body);
+  font-size: var(--text-label-md);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-on-media-muted);
+  margin: 0;
+}
+
+.wat-gallery__tag {
+  position: absolute;
+  top: var(--space-3);
+  left: var(--space-3);
+  padding: var(--space-1) var(--space-3);
+  font-family: var(--font-body);
+  font-size: var(--text-label-sm);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--md-sys-color-on-primary);
+  background-color: var(--md-sys-color-primary);
+  border-radius: var(--md-sys-shape-corner-full);
+}
+
+/* ── Empty state ──────────────────────────── */
+
+.wat-gallery__empty {
+  grid-column: 1 / -1;
+  padding: var(--space-12);
+  text-align: center;
+  color: var(--color-text-tertiary);
+  font-size: var(--text-body-lg);
+  background-color: var(--md-sys-color-surface-container-low);
+  border-radius: var(--md-sys-shape-corner-medium);
+}
+
+/* ── Reduced motion ───────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  .wat-gallery__item,
+  .wat-gallery__image,
+  .wat-gallery__caption {
+    transition: none;
+    transform: none;
+  }
+  .wat-gallery__caption {
+    opacity: 1;
+  }
+}

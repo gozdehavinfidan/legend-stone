@@ -1,0 +1,262 @@
+/* ============================================
+   What A Toy! — Navigation Bar
+   Component: navbar
+   Owner:  Agent 2 components · team whatatoy-impl
+   Date:   2026-04-16
+
+   Sticky top navbar on cream surface. The logo
+   carries the red — the navbar itself stays
+   cream so the logo does not lose its punch.
+
+   Structure:
+     .wat-nav            — fixed wrapper
+       .wat-nav__inner   — container row
+         .wat-logo       — left, brand lockup
+         .wat-nav__links — center, 4 links
+         .wat-nav__cta   — right, Visit Us filled btn
+         .wat-nav__hamburger — mobile toggle
+     .wat-nav__drawer    — mobile slide-down menu
+   ============================================ */
+
+.wat-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-nav);
+  height: var(--nav-height);
+  display: flex;
+  align-items: center;
+  padding-inline: var(--container-padding);
+  background-color: var(--md-sys-color-surface);
+  box-shadow: none;
+  border-bottom: 1px solid transparent;
+  transition:
+    box-shadow var(--duration-short) var(--ease-standard),
+    border-color var(--duration-short) var(--ease-standard),
+    height var(--duration-short) var(--ease-standard);
+}
+
+.wat-nav.is-scrolled {
+  box-shadow: var(--md-sys-elevation-2);
+  border-bottom-color: var(--md-sys-color-outline-variant);
+}
+
+.wat-nav__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+}
+
+/* ── Links ────────────────────────────────── */
+
+.wat-nav__links {
+  display: none;
+  align-items: center;
+  gap: var(--space-1);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.wat-nav__item {
+  display: flex;
+}
+
+.wat-nav__link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-2) var(--space-4);
+  font-family: var(--font-body);
+  font-size: var(--text-label-lg);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-wide);
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  transition: color var(--duration-micro) var(--ease-standard);
+}
+
+.wat-nav__link::after {
+  content: '';
+  position: absolute;
+  left: var(--space-4);
+  right: var(--space-4);
+  bottom: 6px;
+  height: 2px;
+  background-color: var(--md-sys-color-primary);
+  border-radius: var(--radius-full);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform var(--duration-short) var(--ease-standard);
+}
+
+.wat-nav__link:hover,
+.wat-nav__link.is-active {
+  color: var(--color-brand-ink);
+}
+
+.wat-nav__link:hover::after,
+.wat-nav__link.is-active::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.wat-nav__link:focus-visible {
+  outline: 2px solid var(--md-sys-color-tertiary);
+  outline-offset: 2px;
+}
+
+/* ── CTA (Visit Us) ───────────────────────── */
+
+.wat-nav__cta {
+  display: none;
+  flex-shrink: 0;
+}
+
+/* ── Hamburger ────────────────────────────── */
+
+.wat-nav__hamburger {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: background-color var(--duration-micro) var(--ease-standard);
+}
+
+.wat-nav__hamburger:hover {
+  background-color: var(--md-sys-color-surface-container);
+}
+
+.wat-nav__hamburger:focus-visible {
+  outline: 2px solid var(--md-sys-color-tertiary);
+  outline-offset: 2px;
+}
+
+.wat-nav__hamburger-line {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background-color: var(--color-brand-ink);
+  border-radius: var(--radius-full);
+  transition:
+    transform var(--duration-short) var(--ease-emphasized),
+    opacity var(--duration-micro) var(--ease-standard);
+}
+
+.wat-nav__hamburger.is-active .wat-nav__hamburger-line:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.wat-nav__hamburger.is-active .wat-nav__hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.wat-nav__hamburger.is-active .wat-nav__hamburger-line:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ── Drawer (mobile) ──────────────────────── */
+
+.wat-nav__drawer {
+  position: fixed;
+  top: var(--nav-height);
+  left: 0;
+  right: 0;
+  z-index: calc(var(--z-nav) - 1);
+  background-color: var(--md-sys-color-surface);
+  border-bottom: 1px solid var(--md-sys-color-outline-variant);
+  box-shadow: var(--md-sys-elevation-3);
+  max-height: 0;
+  overflow: hidden;
+  visibility: hidden;
+  transition:
+    max-height var(--duration-medium) var(--ease-emphasized),
+    visibility var(--duration-medium) var(--ease-standard);
+}
+
+.wat-nav__drawer.is-open {
+  max-height: calc(100vh - var(--nav-height));
+  visibility: visible;
+}
+
+.wat-nav__drawer-inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-4) var(--container-padding) var(--space-6);
+  max-width: var(--container-max);
+  margin-inline: auto;
+}
+
+.wat-nav__drawer-link {
+  display: flex;
+  align-items: center;
+  padding: var(--space-4);
+  font-family: var(--font-body);
+  font-size: var(--text-title-md);
+  font-weight: var(--weight-medium);
+  color: var(--color-text-primary);
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  transition: background-color var(--duration-micro) var(--ease-standard);
+}
+
+.wat-nav__drawer-link:hover,
+.wat-nav__drawer-link.is-active {
+  background-color: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
+}
+
+.wat-nav__drawer-cta {
+  margin-top: var(--space-3);
+}
+
+/* ── Spacer — push page content below fixed nav — */
+
+.wat-nav-spacer {
+  height: var(--nav-height);
+}
+
+/* ── Desktop breakpoint ───────────────────── */
+
+@media (min-width: 1024px) {
+  .wat-nav__links {
+    display: flex;
+  }
+
+  .wat-nav__cta {
+    display: inline-flex;
+  }
+
+  .wat-nav__hamburger,
+  .wat-nav__drawer {
+    display: none;
+  }
+}
+
+/* ── Reduced motion ───────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  .wat-nav,
+  .wat-nav__link,
+  .wat-nav__link::after,
+  .wat-nav__hamburger-line,
+  .wat-nav__drawer,
+  .wat-nav__drawer-link {
+    transition: none;
+  }
+}

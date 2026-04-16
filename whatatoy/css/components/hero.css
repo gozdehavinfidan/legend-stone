@@ -1,0 +1,231 @@
+/* ============================================
+   What A Toy! — Hero
+   Component: hero
+   Owner:  Agent 2 components · team whatatoy-impl
+   Date:   2026-04-16
+
+   Home-page hero on cream. The logo plate is
+   the visual anchor; tagline in Fredoka/navy
+   sits beside it; CTAs below.
+
+   Optional yellow stripe band (.wat-hero__band)
+   keeps yellow decorative only — never text,
+   kept ≤ 8% surface area.
+
+   Red is NOT a hero background. The hero logo
+   plate already carries the red through the logo.
+   ============================================ */
+
+.wat-hero {
+  position: relative;
+  overflow: hidden;
+  padding-block: var(--space-20) var(--space-16);
+  background-color: var(--md-sys-color-surface);
+  isolation: isolate;
+}
+
+.wat-hero__inner {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-10);
+  align-items: center;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--container-padding);
+}
+
+/* ── Brand anchor plate ───────────────────── */
+
+.wat-hero__plate {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-6);
+}
+
+.wat-hero__logo-wrap {
+  display: inline-flex;
+}
+
+/* ── Copy stack ───────────────────────────── */
+
+.wat-hero__copy {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  max-width: 560px;
+}
+
+.wat-hero__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-body);
+  font-size: var(--text-label-lg);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--color-brand-ink);
+  margin: 0;
+}
+
+.wat-hero__eyebrow::before {
+  content: '';
+  display: inline-block;
+  width: 24px;
+  height: 3px;
+  background-color: var(--color-accent-stripe);
+  border-radius: var(--radius-full);
+}
+
+.wat-hero__title {
+  font-family: var(--font-display);
+  font-size: var(--text-display-lg);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  color: var(--color-brand-ink);
+  margin: 0;
+}
+
+.wat-hero__title em {
+  font-style: normal;
+  color: var(--md-sys-color-primary);
+}
+
+.wat-hero__lede {
+  font-family: var(--font-body);
+  font-size: var(--text-body-lg);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+/* ── CTA row ──────────────────────────────── */
+
+.wat-hero__ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-2);
+}
+
+/* ── Decorative yellow stripe band (optional) ─
+   Used above or below the plate as a playful
+   accent. Keeps yellow within the 8% ceiling
+   by constraining height to one rem band. */
+
+.wat-hero__band {
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  height: 32px;
+  pointer-events: none;
+  background-image: repeating-linear-gradient(
+    135deg,
+    var(--color-accent-stripe) 0 12px,
+    transparent 12px 28px
+  );
+  opacity: 0.55;
+}
+
+.wat-hero__band--top    { top: 0; }
+.wat-hero__band--bottom { bottom: 0; }
+
+/* ── Ink stroke accent (decorative, navy) ─── */
+
+.wat-hero__ink {
+  position: absolute;
+  bottom: var(--space-12);
+  right: var(--space-8);
+  width: 180px;
+  height: 40px;
+  color: var(--color-brand-ink);
+  opacity: 0.18;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.wat-hero__ink svg {
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+
+/* ── Layout breakpoints ───────────────────── */
+
+@media (min-width: 1024px) {
+  .wat-hero {
+    padding-block: var(--space-24) var(--space-20);
+  }
+
+  .wat-hero__inner {
+    grid-template-columns: minmax(320px, 460px) 1fr;
+    gap: var(--space-16);
+  }
+}
+
+/* ── Page hero (inner pages, shorter) ─────── */
+
+.wat-page-hero {
+  position: relative;
+  padding-block: calc(var(--nav-height) + var(--space-12)) var(--space-12);
+  background-color: var(--md-sys-color-surface-container-low);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.wat-page-hero__inner {
+  position: relative;
+  z-index: 2;
+  max-width: var(--container-narrow);
+  margin-inline: auto;
+  padding-inline: var(--container-padding);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.wat-page-hero__eyebrow {
+  font-family: var(--font-body);
+  font-size: var(--text-label-lg);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--md-sys-color-primary);
+  margin: 0;
+}
+
+.wat-page-hero__title {
+  font-family: var(--font-display);
+  font-size: var(--text-display-md);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-tight);
+  color: var(--color-brand-ink);
+  margin: 0;
+}
+
+.wat-page-hero__lede {
+  font-size: var(--text-body-lg);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-secondary);
+  max-width: 620px;
+  margin-inline: auto;
+  margin-bottom: 0;
+}
+
+/* ── Reduced motion ───────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  .wat-hero__band,
+  .wat-hero__ink {
+    animation: none;
+  }
+}

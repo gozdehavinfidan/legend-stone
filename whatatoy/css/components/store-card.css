@@ -1,0 +1,83 @@
+/* ============================================
+   What A Toy! — Store Card (extensions)
+   Component: store-card
+   Owner:  Agent 2 components · team whatatoy-impl
+   Date:   2026-04-16
+
+   Core .wat-store-card rules live in cards.css.
+   This file layers locations-page-specific helpers
+   (horizontal layout, hours panel, regional tag).
+   ============================================ */
+
+/* ── Horizontal layout (wide viewports) ───── */
+
+.wat-store-card--horizontal {
+  flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .wat-store-card--horizontal {
+    flex-direction: row;
+  }
+
+  .wat-store-card--horizontal .wat-store-card__media {
+    flex: 0 0 42%;
+    aspect-ratio: auto;
+    min-height: 100%;
+  }
+
+  .wat-store-card--horizontal .wat-store-card__body {
+    flex: 1;
+  }
+}
+
+/* ── Regional tag (state chip on card) ────── */
+
+.wat-store-card__region {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-1) var(--space-3);
+  font-family: var(--font-body);
+  font-size: var(--text-label-sm);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--md-sys-color-on-tertiary-container);
+  background-color: var(--md-sys-color-tertiary-container);
+  border-radius: var(--md-sys-shape-corner-full);
+  align-self: flex-start;
+}
+
+/* ── Hours panel ─────────────────────────── */
+
+.wat-store-card__hours {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space-1) var(--space-4);
+  padding: var(--space-3) var(--space-4);
+  font-family: var(--font-body);
+  font-size: var(--text-body-sm);
+  color: var(--color-text-secondary);
+  background-color: var(--md-sys-color-surface-container-low);
+  border-radius: var(--md-sys-shape-corner-medium);
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
+.wat-store-card__hours-day {
+  font-weight: var(--weight-semibold);
+  color: var(--color-text-primary);
+}
+
+/* ── Empty / loading placeholder ──────────── */
+
+.wat-store-card--placeholder {
+  background-color: var(--md-sys-color-surface-container);
+  min-height: 320px;
+  pointer-events: none;
+}
+
+.wat-store-card--placeholder .wat-store-card__media {
+  background-color: var(--md-sys-color-surface-container-high);
+}

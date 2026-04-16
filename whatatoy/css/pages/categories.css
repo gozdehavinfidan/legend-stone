@@ -1,0 +1,77 @@
+/* ============================================
+   What A Toy! — Page: categories
+   Owner:  Agent 3 pages-html · team whatatoy-impl
+   Date:   2026-04-16
+
+   Full-bleed category grid and the three
+   In-Store Experience benefit cards.
+   Tokens only — zero hex literals.
+   ============================================ */
+
+.categories-grid {
+  gap: var(--space-6);
+}
+
+@media (min-width: 1024px) {
+  .categories-grid {
+    gap: var(--space-8);
+  }
+}
+
+/* Benefit cards row: consistent minimum height so
+   titles line up across 3 cards at md+ */
+
+.categories-experience__benefits .wat-card {
+  min-height: 100%;
+}
+
+/* Closing "Visit Us" band */
+
+.categories-visit__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-5);
+  text-align: center;
+}
+
+.categories-visit__title {
+  font-family: var(--font-display);
+  font-size: var(--text-display-sm);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-tight);
+  color: var(--color-brand-ink);
+  margin: 0;
+}
+
+.categories-visit__text {
+  font-size: var(--text-body-lg);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-secondary);
+  margin: 0;
+  max-width: 560px;
+}
+
+/* Reveal init */
+
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity var(--duration-long) var(--ease-emph-decel),
+    transform var(--duration-long) var(--ease-emph-decel);
+  transition-delay: var(--wat-reveal-delay, 0ms);
+}
+
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
