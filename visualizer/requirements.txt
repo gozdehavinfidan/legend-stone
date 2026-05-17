@@ -1,0 +1,5 @@
+pyserial>=3.5
+
+
+ .\run.ps1
+http://localhost:8000

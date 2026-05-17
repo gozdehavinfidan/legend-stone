@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FPST·13 — Forensic Console</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Type stack:
+       · Fraunces — variable serif with optical SOFT axis, used for editorial
+         headlines (italic at 9° gives it the "lab journal" feel without going
+         full blackletter).
+       · Geist — geometric sans for UI labels and body. Less worn-out than Inter
+         and pairs cleanly with serifs because of its open apertures.
+       · JetBrains Mono — calibrated for hex grids and frame metadata. The
+         "0" with center dot is a giveaway: this UI was made for byte-people. -->
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,400..900,0..100;1,9..144,400..900,0..100&family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+
+  <script type="importmap">
+    { "imports": { "@material/web/": "https://esm.run/@material/web/" } }
+  </script>
+  <script type="module">
+    import '@material/web/all.js';
+    import { styles as typescaleStyles } from '@material/web/typography/md-typescale-styles.js';
+    document.adoptedStyleSheets.push(typescaleStyles.styleSheet);
+  </script>
+</head>
+
+<body>
+  <!-- The grid + grain texture lives on a fixed-position pseudo layer in CSS;
+       this empty div is just an explicit anchor for the vignette gradient. -->
+  <div class="page-vignette" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <div class="brand">
+      <!-- Custom SVG mark instead of the generic Material fingerprint icon.
+           Concentric arcs evoke a sensor reading; the vertical tick at center
+           reads as a scan-line / verification stroke. -->
+      <svg class="brand-mark" viewBox="0 0 48 48" aria-hidden="true">
+        <g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round">
+          <path d="M24 6 C12 6 6 14 6 24 C6 34 12 42 24 42 C36 42 42 34 42 24 C42 14 36 6 24 6 Z" opacity=".25"/>
+          <path d="M11 24 C11 17 16 11 24 11 C32 11 37 17 37 24"/>
+          <path d="M15 27 C15 21 19 16 24 16 C29 16 33 21 33 27"/>
+          <path d="M19 30 C19 25 21 21 24 21 C27 21 29 25 29 30"/>
+          <path d="M23 32 L23 38" stroke-width="2"/>
+        </g>
+      </svg>
+      <div class="brand-text">
+        <p class="brand-eyebrow">CASE №<span class="brand-eyebrow-num">P—13</span> · STM32F407 / R307</p>
+        <h1 class="brand-title">
+          <span class="brand-title-mono">FPST</span><span class="brand-title-divider">·</span><em class="brand-title-italic">Forensic&nbsp;Console</em>
+        </h1>
+        <p class="brand-sub">Live capture · Encrypted FPST stream · Bare-metal CMSIS</p>
+      </div>
+    </div>
+    <div class="topbar-actions">
+      <!-- "Vital sign" — a 2-line SVG sparkline that pulses subtly when the
+           backend health check succeeds. The actual data isn't plotted; it's
+           a stylised waveform that conveys "device alive" without claiming
+           to be a real-time graph. -->
+      <svg class="vital" viewBox="0 0 120 28" aria-hidden="true">
+        <polyline points="0,14 16,14 22,6 28,22 34,10 40,18 46,14 60,14 66,8 72,20 78,12 84,16 90,14 120,14"
+                  fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <md-icon-button id="theme-toggle" title="Toggle dark / light mode">
+        <span class="material-symbols-outlined" id="theme-icon">dark_mode</span>
+      </md-icon-button>
+      <button class="status-pill" id="health-pill" type="button" title="Configure serial port">
+        <span class="dot dot-loading"></span>
+        <span id="health-text">connecting…</span>
+        <span class="material-symbols-outlined pill-cog">tune</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Serial-port configurator. Native <dialog> for a11y + free
+       backdrop / Esc handling; styled in the same forensic-instrument
+       palette as the rest of the page. Opens on a click of the status
+       pill in the topbar. -->
+  <dialog class="port-dialog" id="port-dialog">
+    <form method="dialog" class="port-dialog-form" id="port-dialog-form">
+      <header class="port-dialog-head">
+        <span class="card-tag">§ / SERIAL LINK</span>
+        <h2 class="card-title"><em>Connect</em> to STM32</h2>
+        <p class="port-dialog-sub">
+          Pick the OS port the USB-TTL adapter is enumerated on. Choice
+          persists across backend restarts. Currently:
+          <code id="port-dialog-current">—</code>
+        </p>
+      </header>
+
+      <div class="port-dialog-row">
+        <label for="port-select">Port</label>
+        <div class="port-select-wrap">
+          <select id="port-select" name="port"></select>
+          <button type="button" class="port-refresh" id="port-refresh" title="Re-scan OS ports">
+            <span class="material-symbols-outlined">refresh</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="port-dialog-row">
+        <label for="port-baud">Baud rate</label>
+        <input type="number" id="port-baud" name="baud" min="300" max="4000000" step="100" value="115200" />
+      </div>
+
+      <div class="port-dialog-status" id="port-dialog-status" role="status" aria-live="polite"></div>
+
+      <footer class="port-dialog-actions">
+        <button type="button" class="btn-ghost" id="port-cancel">Cancel</button>
+        <button type="button" class="btn-primary" id="port-connect">Connect</button>
+      </footer>
+    </form>
+  </dialog>
+
+  <main>
+    <section class="card" id="status-card">
+      <div class="card-head">
+        <div class="card-title-block">
+          <span class="card-tag">§01 / Telemetry</span>
+          <h2 class="card-title"><em>Sensor</em> &amp; Library</h2>
+        </div>
+        <md-filled-tonal-icon-button id="refresh-status" title="Refresh">
+          <span class="material-symbols-outlined">refresh</span>
+        </md-filled-tonal-icon-button>
+      </div>
+      <div class="status-grid">
+        <div class="status-item">
+          <span class="label">Sensor</span>
+          <span class="value" id="sensor-value">—</span>
+        </div>
+        <div class="status-item">
+          <span class="label">Mask</span>
+          <span class="value mono" id="mask-value">—</span>
+        </div>
+        <div class="status-item slots">
+          <span class="label">Enrolled slots</span>
+          <div class="chip-row" id="slots-chips"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card" id="image-card">
+      <div class="card-head">
+        <div class="card-title-block">
+          <span class="card-tag">§02 / Specimen Plate</span>
+          <h2 class="card-title"><em>Live</em> Image Capture</h2>
+        </div>
+        <span class="hint">256 × 288 · 4-bit packed grayscale · 36 864 bytes</span>
+      </div>
+      <div class="image-row">
+        <div class="image-stage">
+          <img id="captured-img" alt="Captured fingerprint" />
+          <div class="image-placeholder" id="image-placeholder">
+            <span class="material-symbols-outlined ph-icon">photo_camera</span>
+            <span>awaiting specimen</span>
+          </div>
+          <div class="image-overlay" id="image-overlay" hidden>
+            <md-circular-progress indeterminate></md-circular-progress>
+            <span class="overlay-text">capturing · hold finger steady</span>
+          </div>
+          <!-- Decorative crosshair corners — pure CSS via the .image-stage
+               pseudo-elements; the divs would just clutter HTML. -->
+        </div>
+        <div class="image-meta">
+          <md-filled-button id="btn-capture-img">
+            <span class="material-symbols-outlined" slot="icon">camera</span>
+            Capture image
+          </md-filled-button>
+          <md-outlined-button id="btn-download-img" disabled>
+            <span class="material-symbols-outlined" slot="icon">download</span>
+            Download PNG
+          </md-outlined-button>
+          <ul class="meta-list" id="image-meta-list">
+            <li><span>Frame ID</span><b id="img-frame">—</b></li>
+            <li><span>Payload</span><b><span id="img-len">—</span> <em>bytes</em></b></li>
+            <li><span>Pixels</span><b>256 × 288</b></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="card" id="template-card">
+      <div class="card-head">
+        <div class="card-title-block">
+          <span class="card-tag">§03 / Minutiae Files</span>
+          <h2 class="card-title"><em>Templates</em> &amp; Characteristics</h2>
+        </div>
+        <span class="hint">FPST frame · XOR cipher · 256–768 byte payload</span>
+      </div>
+      <div class="template-row">
+        <div class="template-form">
+          <md-filled-text-field id="tpl-slot" label="Slot (1–9)" type="number" min="1" max="9" value="1" supporting-text="Library slot index"></md-filled-text-field>
+          <div class="action-buttons">
+            <md-filled-button id="btn-fetch-tpl">
+              <span class="material-symbols-outlined" slot="icon">database</span>
+              Fetch TPL
+            </md-filled-button>
+            <md-outlined-button id="btn-fetch-char">
+              <span class="material-symbols-outlined" slot="icon">touch_app</span>
+              Live CHAR
+            </md-outlined-button>
+          </div>
+        </div>
+        <div class="template-result">
+          <div class="template-stats" id="template-stats">No template fetched yet.</div>
+          <canvas class="byte-heatmap" id="template-heatmap" width="256" height="120"></canvas>
+          <pre id="template-hex" class="hex-grid"></pre>
+          <div class="template-meta" id="template-meta"></div>
+          <p class="hint hint-block" id="template-hint">
+            <b>Fetch TPL</b> reads a stored template from R307 library slot N
+            (first byte = slot id, rest is the compressed minutiae file ~256–768 B).
+            <b>Live CHAR</b> captures a fingerprint NOW, runs Img2Tz, returns
+            the live characteristic — same opaque proprietary blob, no slot prefix.
+            Heatmap colours each byte (0 = empty, 255 = signal) so you can eyeball
+            template density vs. zero padding.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="card" id="match-card">
+      <div class="card-head">
+        <div class="card-title-block">
+          <span class="card-tag">§04 / Comparator</span>
+          <h2 class="card-title"><em>Match</em> two slots</h2>
+        </div>
+        <span class="hint">Slot a → CharBuffer1 · Slot b → CharBuffer2 · on-chip Match</span>
+      </div>
+      <div class="match-row">
+        <md-filled-text-field id="match-a" label="Slot A" type="number" min="1" max="9" value="1"></md-filled-text-field>
+        <span class="vs">vs</span>
+        <md-filled-text-field id="match-b" label="Slot B" type="number" min="1" max="9" value="2"></md-filled-text-field>
+        <md-filled-button id="btn-match">
+          <span class="material-symbols-outlined" slot="icon">compare_arrows</span>
+          Run match
+        </md-filled-button>
+      </div>
+      <div class="match-result" id="match-result">
+        <div class="match-line">
+          <span id="match-verdict" class="match-verdict">— · standby</span>
+          <span id="match-cc-label" class="cc-label">no comparison run</span>
+        </div>
+        <!-- Score readout: the chip's own match metric. Big numeric so
+             the actual value reads at a glance; the bands underneath are
+             a position guide ("how high is this on the 0..65535 axis"). -->
+        <div class="score-readout">
+          <span class="score-readout-label">chip score</span>
+          <span class="score-readout-value" id="match-score-value">—</span>
+          <span class="score-readout-max">16-bit field · max 65535</span>
+        </div>
+        <!-- Bands sized from observed user data (slot 1 vs slot 1 self-
+             match → 628; slot 1 vs slot 2 sibling-enroll → 73). These
+             are observation buckets, not a chip-published spec — the
+             chip never documents its practical range. Colour still
+             follows the verdict (green/red), not the position. -->
+        <div class="score-bands" id="match-bands">
+          <span class="band" data-min="0">0–100<br><small>weak</small></span>
+          <span class="band" data-min="100">100–300<br><small>moderate</small></span>
+          <span class="band" data-min="300">300–600<br><small>good</small></span>
+          <span class="band" data-min="600">600+<br><small>strong</small></span>
+        </div>
+        <span class="match-detail" id="match-detail"></span>
+        <p class="hint hint-block">
+          <b>How is the verdict decided?</b> The R307's onboard matcher
+          compares the two characteristic files in CharBuffer1 and 2;
+          <code>cc=0x00</code> means the chip accepted them as the same
+          finger. The score is the chip's own confidence metric (16-bit
+          field, theoretical max 65535) — it scales with how many
+          minutiae aligned. The chip does not document its threshold or
+          practical range, so the bands below are observation-based
+          buckets, not a calibrated verdict line.
+        </p>
+
+        <div class="compare-row" id="match-compare" hidden>
+          <figure>
+            <figcaption>SLOT A · template</figcaption>
+            <canvas class="byte-heatmap" id="cmp-a" width="256" height="120"></canvas>
+          </figure>
+          <figure>
+            <figcaption>SLOT B · template</figcaption>
+            <canvas class="byte-heatmap" id="cmp-b" width="256" height="120"></canvas>
+          </figure>
+          <figure>
+            <figcaption>XOR · differing bytes</figcaption>
+            <canvas class="byte-heatmap" id="cmp-diff" width="256" height="120"></canvas>
+          </figure>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>FPST·13 console</span>
+    <span class="dot-sep">·</span>
+    <span>Bare-metal STM32F407 firmware → FastAPI bridge → Material Web shell</span>
+    <span class="dot-sep">·</span>
+    <span>Demo cipher; not for production traffic</span>
+  </footer>
+
+  <md-snackbar id="snackbar"></md-snackbar>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>

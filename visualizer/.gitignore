@@ -1,0 +1,34 @@
+# Local Python virtualenvs
+.venv/
+venv/
+
+# Machine-specific runtime config — different PCs enumerate different
+# COM ports, so the persisted port choice should never travel with the
+# repo. The backend recreates this file on first successful connect.
+backend/.port.json
+
+# Captured fingerprint artefacts. The web UI saves downloaded images
+# as `fp_<timestamp>.png` and the probe tools dump raw / pgm / bin
+# blobs; none of those should land in version control.
+fp_*.png
+*.raw
+*.pgm
+*.bin
+
+# Playwright MCP scratch (smoke-test screenshots, console logs)
+.playwright-mcp/
+playwright-report/
+test-results/
+
+# Caches
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Tooling
+.coverage
+htmlcov/
+
+# OS junk
+.DS_Store
+Thumbs.db
