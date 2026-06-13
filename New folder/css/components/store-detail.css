@@ -59,11 +59,17 @@
   background: linear-gradient(90deg, var(--red) 0 33%, var(--gold) 33% 66%, var(--navy) 66% 100%);
 }
 
-/* ---- Close button ---- */
+/* ---- Header row: "Details" subtitle + close button (vertically aligned) ---- */
+.store-detail__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+/* ---- Close button (sits in the header row, centered with the title) ---- */
 .store-detail__close {
-  position: absolute;
-  top: var(--space-2);
-  right: var(--space-2);
+  flex: 0 0 auto;
   width: 1.9rem;
   height: 1.9rem;
   display: inline-flex;
@@ -71,7 +77,6 @@
   justify-content: center;
   font-size: 1.2rem;
   line-height: 1;
-  z-index: 2;
   cursor: pointer;
   color: var(--navy);
   background: var(--surface-alt);
@@ -92,16 +97,16 @@
   outline-offset: 2px;
 }
 
-/* ---- "Details" title ---- */
+/* ---- "Details" subtitle (smaller than the store name on the card above) ---- */
 .store-detail__title {
   margin: 0;
-  padding-right: 2.2rem; /* clear the close button */
   font-family: var(--font-display);
-  font-weight: 700;
-  font-size: var(--fs-xl);
+  font-weight: 600;
+  font-size: var(--fs-sm);
   line-height: var(--lh-tight);
-  letter-spacing: 0.01em;
-  color: var(--cream);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(244, 232, 211, 0.85);
 }
 
 /* ---- Mini photo strip: horizontal scroll on small, wraps gracefully ---- */
