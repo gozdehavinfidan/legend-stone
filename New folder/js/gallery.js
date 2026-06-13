@@ -7,8 +7,8 @@
 
 const GALLERY_URL = 'content/gallery.json';
 
-// How many photos to show before the "See all photos" button.
-const PREVIEW_COUNT = 6;
+// How many preview photos to show in the gallery section.
+const PREVIEW_COUNT = 4;
 
 /**
  * Build a lightbox-friendly item from a raw photo path + group label.
@@ -28,8 +28,7 @@ export function initGallery() {
   // The flat list of items currently shown in the grid (drives lightbox index).
   let currentItems = [];
   let activeId = 'all';
-  let expanded = false;      // false = show only the preview (PREVIEW_COUNT)
-  let moreWrap = null;       // wrapper holding the "See all photos" button
+  let moreWrap = null;       // wrapper holding the "View all photos" button
 
   fetch(GALLERY_URL)
     .then((res) => {
@@ -67,7 +66,6 @@ export function initGallery() {
       chip.addEventListener('click', () => {
         if (activeId === def.id) return;
         activeId = def.id;
-        expanded = false; // each filter starts collapsed to its preview
         // Update pressed state across all chips.
         filtersEl.querySelectorAll('.gallery__chip').forEach((c) => {
           c.setAttribute('aria-pressed', c.dataset.filter === activeId ? 'true' : 'false');
@@ -96,10 +94,8 @@ export function initGallery() {
       return;
     }
 
-    // Show only the preview slice until the visitor expands the gallery.
-    const visible = expanded
-      ? currentItems
-      : currentItems.slice(0, PREVIEW_COUNT);
+    // Show only a small preview; "View all photos" opens the rest in the lightbox.
+    const visible = currentItems.slice(0, PREVIEW_COUNT);
 
     const frag = document.createDocumentFragment();
     visible.forEach((item, index) => {
@@ -130,7 +126,7 @@ export function initGallery() {
     renderMoreButton();
   }
 
-  /* ---- "See all photos" button (only while collapsed with extras) ---- */
+  /* ---- "View all photos" button -> opens the full set in the lightbox ---- */
   function renderMoreButton() {
     if (!moreWrap) {
       moreWrap = document.createElement('div');
@@ -139,16 +135,16 @@ export function initGallery() {
     }
     moreWrap.innerHTML = '';
 
-    const hidden = currentItems.length - PREVIEW_COUNT;
-    if (expanded || hidden <= 0) return;
+    if (currentItems.length <= PREVIEW_COUNT) return;
 
     const btn = document.createElement('button');
     btn.type = 'button';
     btn.className = 'btn btn--primary gallery__more-btn';
     btn.textContent = `See all ${currentItems.length} photos`;
     btn.addEventListener('click', () => {
-      expanded = true;
-      renderGrid(activeId);
+      if (window.WhatAToy && typeof window.WhatAToy.openLightbox === 'function') {
+        window.WhatAToy.openLightbox(currentItems, 0);
+      }
     });
     moreWrap.appendChild(btn);
   }

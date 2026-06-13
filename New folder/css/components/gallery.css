@@ -48,25 +48,26 @@
   box-shadow: var(--shadow-red);
 }
 
-/* ---- Photo grid (CSS columns = masonry-ish) ---- */
+/* ---- Preview grid: a tidy row of uniform thumbnails ---- */
 .gallery__grid {
-  column-count: 3;
-  column-gap: var(--space-4);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-4);
 }
 
 @media (max-width: 880px) {
-  .gallery__grid { column-count: 2; }
+  .gallery__grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 520px) {
-  .gallery__grid { column-count: 1; }
+  .gallery__grid { grid-template-columns: 1fr; }
 }
 
 /* ---- Individual photo tile ---- */
 .gallery__item {
   display: block;
   width: 100%;
-  margin: 0 0 var(--space-4);
+  margin: 0;
   padding: 0;
   border: 0;
   background: var(--surface-card);
@@ -74,9 +75,6 @@
   overflow: hidden;
   cursor: zoom-in;
   box-shadow: var(--shadow-sm);
-  /* avoid a tile breaking across columns */
-  break-inside: avoid;
-  -webkit-column-break-inside: avoid;
   transition: transform var(--dur-base) var(--ease-out),
     box-shadow var(--dur-base) var(--ease-out);
 }
@@ -94,9 +92,17 @@
 .gallery__img {
   display: block;
   width: 100%;
-  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
   border-radius: inherit;
   background: var(--surface-alt);
+}
+
+/* ---- "See all N photos" button: centered, below the preview row ---- */
+.gallery__more {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--space-5);
 }
 
 /* ---- Empty / loading message ---- */
