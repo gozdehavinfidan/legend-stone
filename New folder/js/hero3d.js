@@ -18,7 +18,7 @@ import { GLTFLoader } from 'https://unpkg.com/three@0.160.0/examples/jsm/loaders
 const RIGHT_X = 3.3;     // world-x of the bears on page 1 (right of the content)
 const LEFT_X = 3.3;      // world-x on page 2 (left of the content)
 const TARGET_SPAN = 2.0; // desired world max-dimension (kept clear of the text)
-const FACE_ROT_Y = 0.2;  // gentle angle so faces turn toward the content (left)
+const FACE_ROT_Y = 0.4;  // angle so faces turn toward the content (left)
 const FADE_START = 1.0;  // scroll-progress (in viewport heights) where fade begins
 const FADE_END = 1.7;    // fully gone by here
 
