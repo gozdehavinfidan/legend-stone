@@ -50,19 +50,26 @@
   );
   border: 1px solid rgba(255, 255, 255, 0.16);
   border-radius: var(--radius-lg);
-  padding: var(--space-4);
+  padding: var(--space-2); /* smaller card — hugs the globe */
 }
 
-/* ---- The globe canvas mount (bigger to fill the page) ---- */
+/* ---- The globe canvas mount (large, fills the page) ---- */
 #globe-canvas.locations__globe {
-  width: clamp(280px, 30vw, 440px);
+  width: clamp(360px, 40vw, 540px);
   aspect-ratio: 1 / 1;
-  min-height: 280px;
+  min-height: 360px;
   margin-inline: auto;
   background: transparent;
   border-radius: var(--radius-md);
   overflow: hidden;
   touch-action: pan-y; /* allow page scroll while still dragging the globe */
+}
+
+/* When the detail panel opens BELOW the globe, shrink the globe to make room
+   (keeps the whole locations page within one viewport). */
+.locations__globe-wrap:has(.store-detail.is-open) #globe-canvas.locations__globe {
+  width: clamp(200px, 20vw, 290px);
+  min-height: 200px;
 }
 
 /* globe.gl canvas should fill the mount */
@@ -135,14 +142,14 @@
 .store-list__name {
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: var(--fs-sm);
+  font-size: var(--fs-md);
   line-height: var(--lh-snug);
   color: var(--cream);
 }
 
 .store-list__place {
-  font-size: var(--fs-xs, 0.78rem);
-  color: rgba(244, 232, 211, 0.72);
+  font-size: var(--fs-sm);
+  color: rgba(244, 232, 211, 0.78);
 }
 
 /* A small gold marker dot to echo the globe pins */

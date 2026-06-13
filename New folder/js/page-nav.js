@@ -95,6 +95,8 @@ export function initPageNav(lenis) {
   window.addEventListener(
     'wheel',
     (e) => {
+      // Over the globe: let globe.gl zoom; never page-snap (don't preventDefault).
+      if (e.target && e.target.closest && e.target.closest('#globe-canvas')) return;
       const dir = e.deltaY > 0 ? 1 : -1;
       if (innerScrollCanTake(e.target, dir)) return; // let the inner area scroll
       e.preventDefault();

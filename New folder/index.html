@@ -15,25 +15,25 @@
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet" />
 
   <!-- Styles (linked in order; some files written by other agents) -->
-  <link rel="stylesheet" href="css/reset.css?v=9" />
-  <link rel="stylesheet" href="css/variables.css?v=9" />
-  <link rel="stylesheet" href="css/base.css?v=9" />
-  <link rel="stylesheet" href="css/components/navbar.css?v=9" />
-  <link rel="stylesheet" href="css/components/hero.css?v=9" />
-  <link rel="stylesheet" href="css/components/buttons.css?v=9" />
-  <link rel="stylesheet" href="css/components/cards.css?v=9" />
-  <link rel="stylesheet" href="css/components/product-card.css?v=9" />
-  <link rel="stylesheet" href="css/components/globe.css?v=9" />
-  <link rel="stylesheet" href="css/components/store-detail.css?v=9" />
-  <link rel="stylesheet" href="css/components/gallery.css?v=9" />
-  <link rel="stylesheet" href="css/components/lightbox.css?v=9" />
-  <link rel="stylesheet" href="css/components/footer.css?v=9" />
-  <link rel="stylesheet" href="css/components/section.css?v=9" />
-  <link rel="stylesheet" href="css/components/transition.css?v=9" />
-  <link rel="stylesheet" href="css/components/brand-logo.css?v=9" />
-  <link rel="stylesheet" href="css/animations.css?v=9" />
+  <link rel="stylesheet" href="css/reset.css?v=11" />
+  <link rel="stylesheet" href="css/variables.css?v=11" />
+  <link rel="stylesheet" href="css/base.css?v=11" />
+  <link rel="stylesheet" href="css/components/navbar.css?v=11" />
+  <link rel="stylesheet" href="css/components/hero.css?v=11" />
+  <link rel="stylesheet" href="css/components/buttons.css?v=11" />
+  <link rel="stylesheet" href="css/components/cards.css?v=11" />
+  <link rel="stylesheet" href="css/components/product-card.css?v=11" />
+  <link rel="stylesheet" href="css/components/globe.css?v=11" />
+  <link rel="stylesheet" href="css/components/store-detail.css?v=11" />
+  <link rel="stylesheet" href="css/components/gallery.css?v=11" />
+  <link rel="stylesheet" href="css/components/lightbox.css?v=11" />
+  <link rel="stylesheet" href="css/components/footer.css?v=11" />
+  <link rel="stylesheet" href="css/components/section.css?v=11" />
+  <link rel="stylesheet" href="css/components/transition.css?v=11" />
+  <link rel="stylesheet" href="css/components/brand-logo.css?v=11" />
+  <link rel="stylesheet" href="css/animations.css?v=11" />
   <!-- bg-theme last so its section-transparency + dark-section text overrides win -->
-  <link rel="stylesheet" href="css/components/bg-theme.css?v=9" />
+  <link rel="stylesheet" href="css/components/bg-theme.css?v=11" />
 </head>
 <body>
   <!-- Fixed background stack (behind all content):
@@ -141,7 +141,6 @@
         <div class="section__head reveal">
           <p class="section__eyebrow">Five stores, one big welcome</p>
           <h2 class="section__title">Find Your Nearest Wonder</h2>
-          <p class="section__lead">Spin the globe or pick a store from the list to see photos and grab directions. We'd love to see you in person.</p>
         </div>
 
         <!-- Globe centered + bigger; store cards split to its left & right -->
@@ -152,9 +151,9 @@
 
           <div class="locations__globe-wrap">
             <div id="globe-canvas" class="locations__globe" role="img" aria-label="Interactive globe showing What-A-Toy! store locations"></div>
-            <p class="locations__hint">Tip: drag to spin the globe, or pick a store.</p>
 
-            <!-- Store detail panel (overlays the globe when a store is chosen) -->
+            <!-- Store detail panel — opens BELOW the globe when a store is chosen -->
+
             <aside id="store-detail" class="store-detail" aria-labelledby="store-detail-name" hidden>
               <button class="store-detail__close" id="store-detail-close" aria-label="Close store details">&times;</button>
               <h3 id="store-detail-name" class="store-detail__name"></h3>
@@ -307,6 +306,6 @@
   }
   </script>
 
-  <script type="module" src="js/main.js?v=19"></script>
+  <script type="module" src="js/main.js?v=20"></script>
 </body>
 </html>

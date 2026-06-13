@@ -12,32 +12,28 @@
    ========================================================================= */
 
 .store-detail {
-  /* Overlays the globe when a store is chosen */
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: min(90%, 380px);
-  max-height: 88%;
-  overflow: auto;
-  z-index: 5;
+  /* Sits BELOW the globe (in normal flow) so the globe stays fully visible */
+  position: relative;
+  width: min(100%, 480px);
+  margin-top: var(--space-3);
 
   /* Translucent dark card (on the navy page) with cream text */
-  background: rgba(22, 30, 54, 0.74);
+  background: rgba(22, 30, 54, 0.7);
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.22);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-lg);
-  padding: var(--space-5);
+  padding: var(--space-3) var(--space-4);
   color: var(--cream);
 
   display: flex;
   flex-direction: column;
-  gap: var(--space-3);
+  gap: var(--space-2);
 
   /* Entrance: JS removes [hidden] then adds .is-open */
   opacity: 0;
-  transform: translate(-50%, calc(-50% + 12px));
+  transform: translateY(10px);
   transition: opacity var(--dur-base) var(--ease-out),
               transform var(--dur-base) var(--ease-out);
 }
@@ -48,7 +44,7 @@
 
 .store-detail.is-open {
   opacity: 1;
-  transform: translate(-50%, -50%);
+  transform: translateY(0);
 }
 
 /* A cheerful gold top stripe to echo the logo */
@@ -121,8 +117,8 @@
 }
 .store-detail__photos img {
   flex: 0 0 auto;
-  width: 120px;
-  height: 90px;
+  width: 96px;
+  height: 70px;
   object-fit: cover;
   border-radius: var(--radius-sm);
   border: 1px solid var(--border);
