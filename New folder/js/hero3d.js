@@ -130,9 +130,27 @@ export function initHero3D() {
       boxOf(keep).getCenter(center);
       bear.position.sub(center); // center at origin -> vertically centered
 
-      // Turn the bears so their faces are toward the viewer, and collect
-      // materials so we can fade them out as they leave.
+      // Turn the bears so their faces are toward the viewer.
       bear.rotation.y = FACE_ROT_Y;
+
+      // Make ONE of the two bears beige (clone its material so the other stays
+      // brown). The bodies are the large meshes; eyes/nose stay dark.
+      const beige = new THREE.Color('#E7D6B4');
+      let recolored = false;
+      keep.forEach((o) => {
+        if (recolored) return;
+        const s = new THREE.Vector3();
+        new THREE.Box3().setFromObject(o).getSize(s);
+        if (Math.max(s.x, s.y, s.z) > 1.2) {
+          const recolor = (m) => { const c = m.clone(); c.color = beige.clone(); return c; };
+          o.material = Array.isArray(o.material)
+            ? o.material.map(recolor)
+            : recolor(o.material);
+          recolored = true;
+        }
+      });
+
+      // Collect materials so we can fade them out as the bears leave.
       keep.forEach((o) => {
         const mats = Array.isArray(o.material) ? o.material : [o.material];
         mats.forEach((m) => {
