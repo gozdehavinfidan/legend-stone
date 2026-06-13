@@ -19,6 +19,9 @@ const RIGHT_X = 3.3;     // world-x of the bears on page 1 (right of the content
 const LEFT_X = 3.3;      // world-x on page 2 (left of the content)
 const TARGET_SPAN = 2.0; // desired world max-dimension (kept clear of the text)
 const FACE_ROT_Y = 0.4;  // angle so faces turn toward the content (left)
+// The model's VISIBLE mass sits above its bounding-box center, so drop it a
+// touch (world units) to land the visible center on the headline.
+const VISUAL_CENTER_Y = -0.78;
 const FADE_START = 1.0;  // scroll-progress (in viewport heights) where fade begins
 const FADE_END = 1.7;    // fully gone by here
 
@@ -66,6 +69,10 @@ export function initHero3D() {
   const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 100);
   camera.position.set(0, 0, 6.4);
   camera.lookAt(0, 0, 0);
+
+  // Vertical world-offset so the bears' center lines up with the red
+  // "What-A-Toy!" headline (computed from its live position; see computeAlignY).
+  let bearAlignY = 0;
 
   // --- Lights (warm, soft, with contrast so the plush reads) ---
   scene.add(new THREE.AmbientLight(0xffffff, 0.6));
@@ -145,6 +152,21 @@ export function initHero3D() {
     for (let i = 0; i < bearMaterials.length; i++) bearMaterials[i].opacity = o;
   }
 
+  // Align the bears' vertical center to the headline's center.
+  function computeAlignY() {
+    const title = document.getElementById('hero-title');
+    const h = window.innerHeight || 1;
+    if (!title) { bearAlignY = 0; return; }
+    const r = title.getBoundingClientRect();
+    // Title center as a viewport Y when the hero is at the top (doc position
+    // == viewport position at scrollY 0; stable regardless of current scroll).
+    const centerY = r.top + window.scrollY + r.height / 2;
+    // Map that screen Y to a world Y on the z=0 plane the bears sit on.
+    const halfWorld =
+      Math.tan((camera.fov * Math.PI) / 180 / 2) * camera.position.z;
+    bearAlignY = halfWorld * (1 - 2 * (centerY / h));
+  }
+
   // --- Sizing: the canvas is viewport-fixed (full screen) ---
   function resize() {
     const w = window.innerWidth;
@@ -153,8 +175,12 @@ export function initHero3D() {
     renderer.setSize(w, h, false);
     camera.aspect = w / h;
     camera.updateProjectionMatrix();
+    computeAlignY();
   }
   resize();
+  // Recompute once fonts/layout settle (Fredoka changes the title height).
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(computeAlignY);
+  window.addEventListener('load', computeAlignY);
 
   let resizeRAF = 0;
   window.addEventListener(
@@ -193,7 +219,7 @@ export function initHero3D() {
 
       // Gentle idle bob + a lift as it leaves.
       const bob = prefersReduced ? 0 : Math.sin(elapsed * 1.4) * 0.06;
-      bearGroup.position.y = bob + fade * 0.9;
+      bearGroup.position.y = bearAlignY + VISUAL_CENTER_Y + bob + fade * 0.9;
       const s = 1 - fade * 0.25;
       bearGroup.scale.setScalar(s);
       if (!prefersReduced) bear.rotation.z = Math.sin(elapsed * 0.8) * 0.015;
