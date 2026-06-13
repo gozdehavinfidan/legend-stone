@@ -18,6 +18,27 @@ function buildCard(product) {
   card.className = 'card product-card reveal';
   card.dataset.productId = product.id;
 
+  // Clickable: open this category's photos in the lightbox.
+  const photos = Array.isArray(product.photos) && product.photos.length
+    ? product.photos
+    : [product.photo];
+  const items = photos.map((p) => ({ src: p, caption: product.title }));
+  const open = () => {
+    if (window.WhatAToy && typeof window.WhatAToy.openLightbox === 'function') {
+      window.WhatAToy.openLightbox(items, 0);
+    }
+  };
+  card.tabIndex = 0;
+  card.setAttribute('role', 'button');
+  card.setAttribute('aria-label', `View ${product.title} photos (${items.length})`);
+  card.addEventListener('click', open);
+  card.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      open();
+    }
+  });
+
   // ---- Media: photo path is a RAW relative path; encodeURI() before use ----
   const media = document.createElement('div');
   media.className = 'card__media';
