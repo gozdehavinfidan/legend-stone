@@ -15,25 +15,25 @@
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet" />
 
   <!-- Styles (linked in order; some files written by other agents) -->
-  <link rel="stylesheet" href="css/reset.css?v=5" />
-  <link rel="stylesheet" href="css/variables.css?v=5" />
-  <link rel="stylesheet" href="css/base.css?v=5" />
-  <link rel="stylesheet" href="css/components/navbar.css?v=5" />
-  <link rel="stylesheet" href="css/components/hero.css?v=5" />
-  <link rel="stylesheet" href="css/components/buttons.css?v=5" />
-  <link rel="stylesheet" href="css/components/cards.css?v=5" />
-  <link rel="stylesheet" href="css/components/product-card.css?v=5" />
-  <link rel="stylesheet" href="css/components/globe.css?v=5" />
-  <link rel="stylesheet" href="css/components/store-detail.css?v=5" />
-  <link rel="stylesheet" href="css/components/gallery.css?v=5" />
-  <link rel="stylesheet" href="css/components/lightbox.css?v=5" />
-  <link rel="stylesheet" href="css/components/footer.css?v=5" />
-  <link rel="stylesheet" href="css/components/section.css?v=5" />
-  <link rel="stylesheet" href="css/components/transition.css?v=5" />
-  <link rel="stylesheet" href="css/components/brand-logo.css?v=5" />
-  <link rel="stylesheet" href="css/animations.css?v=5" />
+  <link rel="stylesheet" href="css/reset.css?v=7" />
+  <link rel="stylesheet" href="css/variables.css?v=7" />
+  <link rel="stylesheet" href="css/base.css?v=7" />
+  <link rel="stylesheet" href="css/components/navbar.css?v=7" />
+  <link rel="stylesheet" href="css/components/hero.css?v=7" />
+  <link rel="stylesheet" href="css/components/buttons.css?v=7" />
+  <link rel="stylesheet" href="css/components/cards.css?v=7" />
+  <link rel="stylesheet" href="css/components/product-card.css?v=7" />
+  <link rel="stylesheet" href="css/components/globe.css?v=7" />
+  <link rel="stylesheet" href="css/components/store-detail.css?v=7" />
+  <link rel="stylesheet" href="css/components/gallery.css?v=7" />
+  <link rel="stylesheet" href="css/components/lightbox.css?v=7" />
+  <link rel="stylesheet" href="css/components/footer.css?v=7" />
+  <link rel="stylesheet" href="css/components/section.css?v=7" />
+  <link rel="stylesheet" href="css/components/transition.css?v=7" />
+  <link rel="stylesheet" href="css/components/brand-logo.css?v=7" />
+  <link rel="stylesheet" href="css/animations.css?v=7" />
   <!-- bg-theme last so its section-transparency + dark-section text overrides win -->
-  <link rel="stylesheet" href="css/components/bg-theme.css?v=5" />
+  <link rel="stylesheet" href="css/components/bg-theme.css?v=7" />
 </head>
 <body>
   <!-- Fixed background stack (behind all content):
@@ -95,11 +95,11 @@
           <a href="#products" data-nav class="btn btn--primary">See Our Toys</a>
           <a href="#locations" data-nav class="btn btn--ghost">Find a Store</a>
         </div>
-        <a href="#intro" data-nav class="hero__scroll-hint" aria-label="Scroll down">
-          <span>Scroll to explore</span>
-          <span class="hero__scroll-arrow" aria-hidden="true">&#8595;</span>
-        </a>
       </div>
+      <a href="#intro" data-nav class="hero__scroll-hint" aria-label="Scroll down">
+        <span>Scroll to explore</span>
+        <span class="hero__scroll-arrow" aria-hidden="true">&#8595;</span>
+      </a>
     </section>
 
     <!-- ===================== INTRO / BRAND PROMISE ===================== -->
@@ -144,21 +144,17 @@
           <p class="section__lead">Spin the globe or pick a store from the list to see photos and grab directions. We'd love to see you in person.</p>
         </div>
 
-        <div class="locations__layout">
+        <!-- Globe centered + bigger; store cards split to its left & right -->
+        <nav class="locations__stage" aria-label="Store locations">
+          <ul id="store-list-left" class="store-list store-list--side reset">
+            <!-- globe-locations.js renders the first stores here -->
+          </ul>
+
           <div class="locations__globe-wrap">
             <div id="globe-canvas" class="locations__globe" role="img" aria-label="Interactive globe showing What-A-Toy! store locations"></div>
-            <p class="locations__hint">Tip: drag to spin the globe, or choose a store below.</p>
-          </div>
+            <p class="locations__hint">Tip: drag to spin the globe, or pick a store.</p>
 
-          <div class="locations__side">
-            <!-- Accessible fallback / always-available list -->
-            <nav aria-label="Store locations">
-              <ul id="store-list" class="store-list reset">
-                <!-- globe-locations.js renders one button per store -->
-              </ul>
-            </nav>
-
-            <!-- Store detail panel (hidden until a store is chosen) -->
+            <!-- Store detail panel (overlays the globe when a store is chosen) -->
             <aside id="store-detail" class="store-detail" aria-labelledby="store-detail-name" hidden>
               <button class="store-detail__close" id="store-detail-close" aria-label="Close store details">&times;</button>
               <h3 id="store-detail-name" class="store-detail__name"></h3>
@@ -168,7 +164,11 @@
               <a id="store-detail-directions" class="btn btn--primary btn--sm" href="#" target="_blank" rel="noopener">Get Directions</a>
             </aside>
           </div>
-        </div>
+
+          <ul id="store-list-right" class="store-list store-list--side reset">
+            <!-- globe-locations.js renders the remaining stores here -->
+          </ul>
+        </nav>
       </div>
     </section>
 
@@ -307,6 +307,6 @@
   }
   </script>
 
-  <script type="module" src="js/main.js?v=11"></script>
+  <script type="module" src="js/main.js?v=13"></script>
 </body>
 </html>

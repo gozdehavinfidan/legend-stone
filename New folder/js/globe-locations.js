@@ -21,10 +21,11 @@ const HOME_POV = { lat: 39, lng: -98, altitude: 1.8 };
 
 export async function initGlobe() {
   const mount = document.getElementById('globe-canvas');
-  const listEl = document.getElementById('store-list');
+  const listLeft = document.getElementById('store-list-left');
+  const listRight = document.getElementById('store-list-right');
 
   // If there is nothing to render into, bail quietly.
-  if (!mount && !listEl) return;
+  if (!mount && !listLeft && !listRight) return;
 
   // ---- 1. Load + cache the locations data ----
   let locations = window.WhatAToy.locations;
@@ -41,7 +42,7 @@ export async function initGlobe() {
   }
 
   // ---- 2. Accessible store list (always available, even if WebGL fails) ----
-  renderStoreList(listEl, locations);
+  renderStoreList(listLeft, listRight, locations);
 
   // ---- 3. The globe itself ----
   if (!mount) return;
@@ -132,11 +133,16 @@ export async function initGlobe() {
 /* -------------------------------------------------------------------------
    Render the accessible store list: one <button> per store.
    ------------------------------------------------------------------------- */
-function renderStoreList(listEl, locations) {
-  if (!listEl) return;
-  listEl.innerHTML = '';
+function renderStoreList(leftEl, rightEl, locations) {
+  if (leftEl) leftEl.innerHTML = '';
+  if (rightEl) rightEl.innerHTML = '';
+  // Split the stores: first half on the left of the globe, rest on the right.
+  const half = Math.ceil(locations.length / 2);
 
-  locations.forEach((loc) => {
+  locations.forEach((loc, i) => {
+    const target = i < half ? leftEl : rightEl;
+    if (!target) return;
+
     const li = document.createElement('li');
 
     const btn = document.createElement('button');
@@ -159,20 +165,14 @@ function renderStoreList(listEl, locations) {
     btn.append(name, place);
 
     btn.addEventListener('click', () => {
-      // Visually mark the active store.
-      listEl
-        .querySelectorAll('.store-list__btn.is-active')
-        .forEach((b) => b.classList.remove('is-active'));
-      btn.classList.add('is-active');
-
       const globe = window.WhatAToy._globe;
       const reduced = window.WhatAToy._globeReducedMotion;
-      // Fly the globe to the store (if globe is ready) and open the panel.
+      // Fly the globe to the store (if ready) and open the panel.
       handleStoreSelect(loc, globe, reduced);
     });
 
     li.appendChild(btn);
-    listEl.appendChild(li);
+    target.appendChild(li);
   });
 }
 
@@ -187,17 +187,15 @@ function handleStoreSelect(loc, globe, prefersReduced) {
     globe.pointOfView({ lat: loc.lat, lng: loc.lng, altitude: 1.5 }, flyMs);
   }
 
-  // Mark the matching list button active (covers globe-pin clicks).
-  const listEl = document.getElementById('store-list');
-  if (listEl) {
-    listEl
-      .querySelectorAll('.store-list__btn.is-active')
-      .forEach((b) => b.classList.remove('is-active'));
-    const match = listEl.querySelector(
-      `.store-list__btn[data-id="${loc.id}"]`
-    );
-    if (match) match.classList.add('is-active');
-  }
+  // Mark the matching list button active (covers globe-pin clicks), across
+  // both the left and right lists.
+  document
+    .querySelectorAll('.store-list__btn.is-active')
+    .forEach((b) => b.classList.remove('is-active'));
+  const match = document.querySelector(
+    `.store-list__btn[data-id="${loc.id}"]`
+  );
+  if (match) match.classList.add('is-active');
 
   if (
     window.WhatAToy &&

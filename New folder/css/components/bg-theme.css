@@ -145,5 +145,23 @@ html {
   line-height: var(--lh-base);
 }
 
+/* =========================================================================
+   Hero / intro content sides
+   The bears travel to the OPPOSITE side each page, so the copy sits:
+   page 1 (hero) on the LEFT (default), page 2 (intro) on the RIGHT.
+   ========================================================================= */
+#intro .intro__inner {
+  margin-left: auto;
+  margin-right: 0;
+  max-width: 48ch;
+  text-align: left;
+}
+@media (max-width: 760px) {
+  #intro .intro__inner {
+    margin-inline: auto;
+    max-width: none;
+  }
+}
+
 /* Reduced motion: no color tween (js sets the color instantly); nothing to do
    here since the transition is JS-driven, but keep the layer cheap. */

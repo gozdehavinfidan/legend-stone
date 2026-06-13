@@ -11,53 +11,54 @@
   background: var(--bg-yellow);
 }
 
-/* ---- Two-column layout: globe on the left, list/detail on the right ---- */
-.locations__layout {
+/* ---- Stage: store cards (left) | centered big globe | store cards (right) ---- */
+.locations__stage {
   display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
-  gap: var(--space-7);
-  align-items: start;
+  grid-template-columns: minmax(0, 0.85fr) auto minmax(0, 0.85fr);
+  gap: var(--space-6);
+  align-items: center;
   margin-top: var(--space-6);
 }
 
-/* Stack on smaller screens */
-@media (max-width: 880px) {
-  .locations__layout {
-    grid-template-columns: 1fr;
-    gap: var(--space-6);
+/* On medium screens: globe on top, cards in two columns beneath */
+@media (max-width: 980px) {
+  .locations__stage {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-5);
+  }
+  .locations__globe-wrap {
+    grid-column: 1 / -1;
+    order: -1;
   }
 }
+@media (max-width: 560px) {
+  .locations__stage { grid-template-columns: 1fr; }
+}
 
-/* ---- Globe wrapper: a rounded cream stage that frames the globe ---- */
+/* ---- Globe wrapper: a translucent halo stage (bigger, centered) ---- */
 .locations__globe-wrap {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: var(--space-3);
   background: radial-gradient(
-    circle at 50% 38%,
-    var(--surface-alt) 0%,
-    var(--cream) 70%,
-    var(--surface-alt) 100%
+    circle at 50% 42%,
+    rgba(255, 255, 255, 0.12) 0%,
+    rgba(255, 255, 255, 0.05) 58%,
+    transparent 80%
   );
-  border: 1px solid var(--border);
+  border: 1px solid rgba(255, 255, 255, 0.16);
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-md);
-  padding: var(--space-5);
+  padding: var(--space-4);
 }
 
-/* ---- The globe canvas mount ----
-   globe.gl injects its own <canvas>; we size this container and the
-   JS reads clientWidth/Height to render at the right resolution. */
+/* ---- The globe canvas mount (bigger to fill the page) ---- */
 #globe-canvas.locations__globe {
-  width: 100%;
-  /* square-ish, with sensible min/max per the brief */
+  width: clamp(380px, 40vw, 600px);
   aspect-ratio: 1 / 1;
-  min-height: 420px;
-  max-width: 560px;
-  max-height: 560px;
+  min-height: 460px;
   margin-inline: auto;
-  /* transparent so the cream stage shows through behind the globe */
   background: transparent;
   border-radius: var(--radius-md);
   overflow: hidden;
@@ -76,76 +77,72 @@
   cursor: grabbing;
 }
 
-/* Hint line under the globe */
+/* Hint line under the globe (light, on the navy page) */
 .locations__hint {
   margin: 0;
   font-size: var(--fs-sm);
-  color: var(--muted);
+  color: rgba(244, 232, 211, 0.75);
   text-align: center;
 }
 
-/* ---- Side column: store list, then detail panel ---- */
-.locations__side {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-5);
-}
-
-/* ---- Accessible store list ---- */
+/* ---- Store cards: small + translucent, flanking the globe ---- */
 .store-list {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: var(--space-3);
 }
 
 .store-list__btn {
-  /* reset native button look, then style as a card row */
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: var(--space-1);
+  gap: 2px;
   text-align: left;
   cursor: pointer;
   font-family: var(--font-body);
-  background: var(--surface-card);
-  color: var(--ink);
-  border: 2px solid var(--border);
+  /* translucent so the navy page shows through */
+  background: rgba(255, 255, 255, 0.10);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  color: var(--cream);
+  border: 1px solid rgba(255, 255, 255, 0.22);
   border-radius: var(--radius-md);
-  padding: var(--space-3) var(--space-4);
-  box-shadow: var(--shadow-sm);
+  padding: var(--space-2) var(--space-3);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.14);
   transition: transform var(--dur-fast) var(--ease-out),
               border-color var(--dur-fast) var(--ease-out),
-              box-shadow var(--dur-fast) var(--ease-out);
+              background var(--dur-fast) var(--ease-out);
 }
 
 .store-list__btn:hover {
   transform: translateY(-2px);
-  border-color: var(--red);
-  box-shadow: var(--shadow-md);
+  border-color: var(--gold);
+  background: rgba(255, 255, 255, 0.17);
 }
 
 .store-list__btn:focus-visible {
-  outline: 3px solid var(--navy);
+  outline: 3px solid var(--gold);
   outline-offset: 2px;
 }
 
-/* Active store gets a red accent edge */
+/* Active store gets a gold accent edge */
 .store-list__btn.is-active {
-  border-color: var(--red);
-  box-shadow: var(--shadow-red);
+  border-color: var(--gold);
+  background: rgba(255, 255, 255, 0.2);
 }
 
 .store-list__name {
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: var(--fs-md);
+  font-size: var(--fs-sm);
   line-height: var(--lh-snug);
-  color: var(--navy);
+  color: var(--cream);
 }
 
 .store-list__place {
-  font-size: var(--fs-sm);
-  color: var(--muted);
+  font-size: var(--fs-xs, 0.78rem);
+  color: rgba(244, 232, 211, 0.72);
 }
 
 /* A small gold marker dot to echo the globe pins */

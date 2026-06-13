@@ -15,9 +15,10 @@
 import * as THREE from 'https://unpkg.com/three@0.160.0/build/three.module.js';
 import { GLTFLoader } from 'https://unpkg.com/three@0.160.0/examples/jsm/loaders/GLTFLoader.js';
 
-const RIGHT_X = 2.6;     // world-x of the bears on the hero (right side)
-const TARGET_SPAN = 2.4; // desired world max-dimension of the bears
-const FACE_ROT_Y = 0.5;  // rotation so the bears' faces turn toward the camera
+const RIGHT_X = 3.3;     // world-x of the bears on page 1 (right of the content)
+const LEFT_X = 3.3;      // world-x on page 2 (left of the content)
+const TARGET_SPAN = 2.0; // desired world max-dimension (kept clear of the text)
+const FACE_ROT_Y = 0.2;  // gentle angle so faces turn toward the content (left)
 const FADE_START = 1.0;  // scroll-progress (in viewport heights) where fade begins
 const FADE_END = 1.7;    // fully gone by here
 
@@ -178,9 +179,10 @@ export function initHero3D() {
       // Scroll progress in viewport heights: 0 = hero top, 1 = page 2, 2 = page 3.
       const p = prefersReduced ? 0 : window.scrollY / vh;
 
-      // Horizontal travel: RIGHT on page 1 -> CENTER by page 2.
+      // Horizontal travel: RIGHT of the content on page 1 -> LEFT of the
+      // content on page 2 (content sits on the opposite side each page).
       const t = Math.min(Math.max(p, 0), 1);
-      const targetX = RIGHT_X * (1 - t); // RIGHT_X -> 0
+      const targetX = RIGHT_X + (-LEFT_X - RIGHT_X) * t; // RIGHT_X -> -LEFT_X
       curX += (targetX - curX) * 0.12;   // smooth follow for buttery motion
       bearGroup.position.x = curX;
 

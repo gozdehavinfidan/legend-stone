@@ -8,10 +8,10 @@
 import { initSmoothScroll } from './smooth-scroll.js?v=1';
 import { initNav } from './nav.js?v=1';
 import { initHeadline } from './text-effect.js?v=1';
-import { initHero3D } from './hero3d.js?v=11';
+import { initHero3D } from './hero3d.js?v=13';
 import { initProducts } from './products.js?v=1';
 import { initStoreDetail } from './store-detail.js?v=1';
-import { initGlobe } from './globe-locations.js?v=1';
+import { initGlobe } from './globe-locations.js?v=2';
 import { initLightbox } from './lightbox.js?v=1';
 import { initGallery } from './gallery.js?v=1';
 import { initReveals } from './reveals.js?v=1';
