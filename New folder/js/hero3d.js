@@ -16,14 +16,13 @@ import * as THREE from 'https://unpkg.com/three@0.160.0/build/three.module.js';
 import { GLTFLoader } from 'https://unpkg.com/three@0.160.0/examples/jsm/loaders/GLTFLoader.js';
 
 const RIGHT_X = 3.3;     // world-x of the bears on page 1 (right of the content)
-const LEFT_X = 3.3;      // world-x on page 2 (left of the content)
 const TARGET_SPAN = 2.0; // desired world max-dimension (kept clear of the text)
 const FACE_ROT_Y = 0.4;  // angle so faces turn toward the content (left)
 // The model's VISIBLE mass sits above its bounding-box center, so drop it a
 // touch (world units) to land the visible center on the headline.
 const VISUAL_CENTER_Y = -0.78;
-const FADE_START = 1.0;  // scroll-progress (in viewport heights) where fade begins
-const FADE_END = 1.7;    // fully gone by here
+const FADE_START = 1.2;  // bears hold centered through page 2, then fade
+const FADE_END = 2.0;    // fully gone by the products page (p≈2)
 
 export function initHero3D() {
   const canvas = document.getElementById('hero-canvas');
@@ -37,12 +36,14 @@ export function initHero3D() {
   //     never tints the red/navy pages. Set up first + on its own scroll
   //     listener so it works even if WebGL is unavailable below. ---
   const heroBg = document.getElementById('hero-bg');
+  const scrollHint = document.querySelector('.hero__scroll-hint');
   function updateHeroBg() {
-    if (!heroBg) return;
     const vh = window.innerHeight || 1;
     const p = window.scrollY / vh; // viewport heights scrolled
-    // full through hero+intro (golden), fade to 0 before the products page
-    heroBg.style.opacity = String(Math.min(Math.max(1 - (p - 0.6), 0), 1));
+    // Hero blobs: full through hero+intro (golden), fade to 0 before products.
+    if (heroBg) heroBg.style.opacity = String(Math.min(Math.max(1 - (p - 0.6), 0), 1));
+    // Scroll hint: fade out as soon as scrolling starts (gone by ~20%).
+    if (scrollHint) scrollHint.style.opacity = String(Math.max(0, 1 - p * 5));
   }
   updateHeroBg();
   window.addEventListener('scroll', updateHeroBg, { passive: true });
@@ -205,10 +206,10 @@ export function initHero3D() {
       // Scroll progress in viewport heights: 0 = hero top, 1 = page 2, 2 = page 3.
       const p = prefersReduced ? 0 : window.scrollY / vh;
 
-      // Horizontal travel: RIGHT of the content on page 1 -> LEFT of the
-      // content on page 2 (content sits on the opposite side each page).
+      // Horizontal travel: RIGHT of the content on page 1 -> CENTER by page 2,
+      // then HOLD (clamped) so it never slides off the window.
       const t = Math.min(Math.max(p, 0), 1);
-      const targetX = RIGHT_X + (-LEFT_X - RIGHT_X) * t; // RIGHT_X -> -LEFT_X
+      const targetX = RIGHT_X * (1 - t); // RIGHT_X (page 1) -> 0 (centered, page 2)
       curX += (targetX - curX) * 0.12;   // smooth follow for buttery motion
       bearGroup.position.x = curX;
 
