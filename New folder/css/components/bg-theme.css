@@ -75,22 +75,26 @@ body { background: transparent; }
   color: rgba(244, 232, 211, 0.78);
 }
 
-/* ---- Buttons that sit DIRECTLY on a red section background -------------
+/* ---- Buttons that sit DIRECTLY on a dark section background -------------
    (Only the contact CTAs — card buttons like store-detail keep their style.) */
-[data-bg="red"] .contact__actions .btn--primary {
+[data-bg="red"] .contact__actions .btn--primary,
+[data-bg="navy"] .contact__actions .btn--primary {
   background: var(--cream);
   color: var(--red);
   border-color: var(--cream);
 }
-[data-bg="red"] .contact__actions .btn--primary:hover {
+[data-bg="red"] .contact__actions .btn--primary:hover,
+[data-bg="navy"] .contact__actions .btn--primary:hover {
   background: #fffdf6;
   border-color: #fffdf6;
 }
-[data-bg="red"] .contact__actions .btn--ghost {
+[data-bg="red"] .contact__actions .btn--ghost,
+[data-bg="navy"] .contact__actions .btn--ghost {
   color: var(--cream);
   border-color: var(--cream);
 }
-[data-bg="red"] .contact__actions .btn--ghost:hover {
+[data-bg="red"] .contact__actions .btn--ghost:hover,
+[data-bg="navy"] .contact__actions .btn--ghost:hover {
   background: rgba(244, 232, 211, 0.14);
 }
 

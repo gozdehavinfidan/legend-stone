@@ -15,6 +15,7 @@ import { initGlobe } from './globe-locations.js?v=5';
 import { initLightbox } from './lightbox.js?v=2';
 import { initGallery } from './gallery.js?v=2';
 import { initReveals } from './reveals.js?v=1';
+import { initContactBalls } from './contact-balls.js?v=1';
 import { initBgScroll } from './bg-scroll.js?v=1';
 import { initTransitions } from './transitions.js?v=1';
 import { initPageNav } from './page-nav.js?v=3';
@@ -68,6 +69,7 @@ async function boot() {
   ]);
 
   safe('initReveals', initReveals);
+  safe('initContactBalls', initContactBalls);
   safe('initBgScroll', initBgScroll);
   safe('initTransitions', () => initTransitions(lenis));
   safe('initPageNav', () => initPageNav(lenis));

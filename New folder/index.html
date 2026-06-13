@@ -15,26 +15,27 @@
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet" />
 
   <!-- Styles (linked in order; some files written by other agents) -->
-  <link rel="stylesheet" href="css/reset.css?v=32" />
-  <link rel="stylesheet" href="css/variables.css?v=32" />
-  <link rel="stylesheet" href="css/base.css?v=32" />
-  <link rel="stylesheet" href="css/components/navbar.css?v=32" />
-  <link rel="stylesheet" href="css/components/hero.css?v=32" />
-  <link rel="stylesheet" href="css/components/buttons.css?v=32" />
-  <link rel="stylesheet" href="css/components/cards.css?v=32" />
-  <link rel="stylesheet" href="css/components/product-card.css?v=32" />
-  <link rel="stylesheet" href="css/components/globe.css?v=32" />
-  <link rel="stylesheet" href="css/components/store-detail.css?v=32" />
-  <link rel="stylesheet" href="css/components/toys.css?v=32" />
-  <link rel="stylesheet" href="css/components/gallery.css?v=32" />
-  <link rel="stylesheet" href="css/components/lightbox.css?v=32" />
-  <link rel="stylesheet" href="css/components/footer.css?v=32" />
-  <link rel="stylesheet" href="css/components/section.css?v=32" />
-  <link rel="stylesheet" href="css/components/transition.css?v=32" />
-  <link rel="stylesheet" href="css/components/brand-logo.css?v=32" />
-  <link rel="stylesheet" href="css/animations.css?v=32" />
+  <link rel="stylesheet" href="css/reset.css?v=33" />
+  <link rel="stylesheet" href="css/variables.css?v=33" />
+  <link rel="stylesheet" href="css/base.css?v=33" />
+  <link rel="stylesheet" href="css/components/navbar.css?v=33" />
+  <link rel="stylesheet" href="css/components/hero.css?v=33" />
+  <link rel="stylesheet" href="css/components/buttons.css?v=33" />
+  <link rel="stylesheet" href="css/components/cards.css?v=33" />
+  <link rel="stylesheet" href="css/components/product-card.css?v=33" />
+  <link rel="stylesheet" href="css/components/globe.css?v=33" />
+  <link rel="stylesheet" href="css/components/store-detail.css?v=33" />
+  <link rel="stylesheet" href="css/components/toys.css?v=33" />
+  <link rel="stylesheet" href="css/components/gallery.css?v=33" />
+  <link rel="stylesheet" href="css/components/lightbox.css?v=33" />
+  <link rel="stylesheet" href="css/components/contact.css?v=33" />
+  <link rel="stylesheet" href="css/components/footer.css?v=33" />
+  <link rel="stylesheet" href="css/components/section.css?v=33" />
+  <link rel="stylesheet" href="css/components/transition.css?v=33" />
+  <link rel="stylesheet" href="css/components/brand-logo.css?v=33" />
+  <link rel="stylesheet" href="css/animations.css?v=33" />
   <!-- bg-theme last so its section-transparency + dark-section text overrides win -->
-  <link rel="stylesheet" href="css/components/bg-theme.css?v=32" />
+  <link rel="stylesheet" href="css/components/bg-theme.css?v=33" />
 </head>
 <body>
   <!-- Fixed background stack (behind all content):
@@ -278,7 +279,20 @@
     </section>
 
     <!-- ===================== CONTACT ===================== -->
-    <section id="contact" class="section contact" data-bg="red">
+    <section id="contact" class="section contact" data-bg="navy">
+      <!-- Colorful balls that fall, bounce a few times, then rest on the floor. -->
+      <div class="contact__balls" aria-hidden="true">
+        <span class="contact__ball" style="--x: 6%;  --s: 30px; --c: var(--red);  --d: 0ms;   --floor: 7%;"></span>
+        <span class="contact__ball" style="--x: 17%; --s: 46px; --c: #36C6B4;     --d: 220ms; --floor: 4%;"></span>
+        <span class="contact__ball" style="--x: 28%; --s: 24px; --c: var(--gold); --d: 90ms;  --floor: 10%;"></span>
+        <span class="contact__ball" style="--x: 39%; --s: 38px; --c: #FF7A59;     --d: 340ms; --floor: 6%;"></span>
+        <span class="contact__ball" style="--x: 50%; --s: 28px; --c: #5AA9E6;     --d: 160ms; --floor: 3%;"></span>
+        <span class="contact__ball" style="--x: 61%; --s: 42px; --c: var(--gold); --d: 410ms; --floor: 8%;"></span>
+        <span class="contact__ball" style="--x: 72%; --s: 26px; --c: #B07CE0;     --d: 60ms;  --floor: 5%;"></span>
+        <span class="contact__ball" style="--x: 83%; --s: 36px; --c: var(--red);  --d: 280ms; --floor: 9%;"></span>
+        <span class="contact__ball" style="--x: 93%; --s: 32px; --c: #8ED44F;     --d: 130ms; --floor: 4%;"></span>
+        <span class="contact__ball" style="--x: 47%; --s: 20px; --c: var(--cream);--d: 480ms; --floor: 12%;"></span>
+      </div>
       <div class="container container--narrow contact__card reveal">
         <p class="section__eyebrow">Come say hello</p>
         <h2 class="section__title">Let's play together</h2>
@@ -376,6 +390,6 @@
   }
   </script>
 
-  <script type="module" src="js/main.js?v=30"></script>
+  <script type="module" src="js/main.js?v=31"></script>
 </body>
 </html>
