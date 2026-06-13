@@ -15,26 +15,26 @@
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet" />
 
   <!-- Styles (linked in order; some files written by other agents) -->
-  <link rel="stylesheet" href="css/reset.css?v=22" />
-  <link rel="stylesheet" href="css/variables.css?v=22" />
-  <link rel="stylesheet" href="css/base.css?v=22" />
-  <link rel="stylesheet" href="css/components/navbar.css?v=22" />
-  <link rel="stylesheet" href="css/components/hero.css?v=22" />
-  <link rel="stylesheet" href="css/components/buttons.css?v=22" />
-  <link rel="stylesheet" href="css/components/cards.css?v=22" />
-  <link rel="stylesheet" href="css/components/product-card.css?v=22" />
-  <link rel="stylesheet" href="css/components/globe.css?v=22" />
-  <link rel="stylesheet" href="css/components/store-detail.css?v=22" />
-  <link rel="stylesheet" href="css/components/toys.css?v=22" />
-  <link rel="stylesheet" href="css/components/gallery.css?v=22" />
-  <link rel="stylesheet" href="css/components/lightbox.css?v=22" />
-  <link rel="stylesheet" href="css/components/footer.css?v=22" />
-  <link rel="stylesheet" href="css/components/section.css?v=22" />
-  <link rel="stylesheet" href="css/components/transition.css?v=22" />
-  <link rel="stylesheet" href="css/components/brand-logo.css?v=22" />
-  <link rel="stylesheet" href="css/animations.css?v=22" />
+  <link rel="stylesheet" href="css/reset.css?v=24" />
+  <link rel="stylesheet" href="css/variables.css?v=24" />
+  <link rel="stylesheet" href="css/base.css?v=24" />
+  <link rel="stylesheet" href="css/components/navbar.css?v=24" />
+  <link rel="stylesheet" href="css/components/hero.css?v=24" />
+  <link rel="stylesheet" href="css/components/buttons.css?v=24" />
+  <link rel="stylesheet" href="css/components/cards.css?v=24" />
+  <link rel="stylesheet" href="css/components/product-card.css?v=24" />
+  <link rel="stylesheet" href="css/components/globe.css?v=24" />
+  <link rel="stylesheet" href="css/components/store-detail.css?v=24" />
+  <link rel="stylesheet" href="css/components/toys.css?v=24" />
+  <link rel="stylesheet" href="css/components/gallery.css?v=24" />
+  <link rel="stylesheet" href="css/components/lightbox.css?v=24" />
+  <link rel="stylesheet" href="css/components/footer.css?v=24" />
+  <link rel="stylesheet" href="css/components/section.css?v=24" />
+  <link rel="stylesheet" href="css/components/transition.css?v=24" />
+  <link rel="stylesheet" href="css/components/brand-logo.css?v=24" />
+  <link rel="stylesheet" href="css/animations.css?v=24" />
   <!-- bg-theme last so its section-transparency + dark-section text overrides win -->
-  <link rel="stylesheet" href="css/components/bg-theme.css?v=22" />
+  <link rel="stylesheet" href="css/components/bg-theme.css?v=24" />
 </head>
 <body>
   <!-- Fixed background stack (behind all content):
@@ -157,9 +157,13 @@
 
             <aside id="store-detail" class="store-detail" aria-label="Store details" hidden>
               <button class="store-detail__close" id="store-detail-close" aria-label="Close store details">&times;</button>
+              <h3 class="store-detail__title">Details</h3>
               <div id="store-detail-photos" class="store-detail__photos"></div>
               <p id="store-detail-hours" class="store-detail__hours"></p>
-              <a id="store-detail-directions" class="btn btn--primary btn--sm" href="#" target="_blank" rel="noopener">Get Directions</a>
+              <div class="store-detail__actions">
+                <a id="store-detail-directions" class="btn btn--primary btn--sm" href="#" target="_blank" rel="noopener">Get Directions</a>
+                <button id="store-detail-more" class="btn btn--ghost btn--sm" type="button">More photos</button>
+              </div>
             </aside>
           </div>
 
@@ -370,6 +374,6 @@
   }
   </script>
 
-  <script type="module" src="js/main.js?v=22"></script>
+  <script type="module" src="js/main.js?v=23"></script>
 </body>
 </html>

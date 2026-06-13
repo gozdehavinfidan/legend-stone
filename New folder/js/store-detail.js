@@ -18,29 +18,53 @@ const HOURS_NOTE = "Hours vary by mall — please check the mall's website.";
 // Element handles (resolved in initStoreDetail).
 let panel,
   closeBtn,
-  nameEl,
-  placeEl,
   photosEl,
   hoursEl,
-  directionsEl;
+  directionsEl,
+  moreBtn;
 
 // Remembers what to return focus to when the panel closes.
 let lastFocused = null;
+// The currently shown location (for the "More photos" button).
+let currentLoc = null;
 
 export function initStoreDetail() {
   panel = document.getElementById('store-detail');
   if (!panel) return;
 
   closeBtn = document.getElementById('store-detail-close');
-  nameEl = document.getElementById('store-detail-name');
-  placeEl = document.getElementById('store-detail-place');
   photosEl = document.getElementById('store-detail-photos');
   hoursEl = document.getElementById('store-detail-hours');
   directionsEl = document.getElementById('store-detail-directions');
+  moreBtn = document.getElementById('store-detail-more');
 
   // ---- Close interactions ----
   if (closeBtn) {
     closeBtn.addEventListener('click', closeStoreDetail);
+  }
+
+  // ---- "More photos" -> open the gallery filtered to this store ----
+  if (moreBtn) {
+    moreBtn.addEventListener('click', () => {
+      if (!currentLoc) return;
+      // Activate the matching gallery filter chip (group id === location id).
+      const chip = document.querySelector(
+        `.gallery__chip[data-filter="${currentLoc.id}"]`
+      );
+      if (chip) chip.click();
+      // Jump to the gallery page.
+      const gallery = document.getElementById('gallery');
+      const lenis = window.WhatAToy && window.WhatAToy.lenis;
+      closeStoreDetail();
+      if (gallery) {
+        const y = gallery.getBoundingClientRect().top + window.scrollY;
+        if (lenis && typeof lenis.scrollTo === 'function') {
+          lenis.scrollTo(y, { duration: 0.9 });
+        } else {
+          gallery.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    });
   }
 
   // Esc closes the panel when it is open.
@@ -91,19 +115,33 @@ async function openStoreDetail(id) {
   // Name + place already show on the card above — don't repeat them here;
   // just keep an accessible label for screen readers.
   panel.setAttribute('aria-label', `${loc.name}, ${loc.city}, ${loc.state} — details`);
+  currentLoc = loc;
 
-  // ---- Mini photo strip ----
+  // ---- Mini photo strip (each photo opens the lightbox) ----
+  const items = (Array.isArray(loc.photos) ? loc.photos : []).map((p) => ({
+    src: p,
+    caption: `${loc.name} — ${loc.city}, ${loc.state}`,
+  }));
   if (photosEl) {
     photosEl.innerHTML = '';
-    const photos = Array.isArray(loc.photos) ? loc.photos : [];
-    photos.forEach((path, i) => {
+    items.forEach((item, i) => {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'store-detail__photo';
+      btn.setAttribute('aria-label', `Open photo ${i + 1} of ${loc.name}`);
       const img = document.createElement('img');
       // Paths are RAW (spaces / parens / Turkish chars) — always encodeURI.
-      img.src = encodeURI(path);
+      img.src = encodeURI(item.src);
       img.alt = `${loc.name} — store photo ${i + 1}`;
       img.loading = 'lazy';
       img.decoding = 'async';
-      photosEl.appendChild(img);
+      btn.appendChild(img);
+      btn.addEventListener('click', () => {
+        if (window.WhatAToy && typeof window.WhatAToy.openLightbox === 'function') {
+          window.WhatAToy.openLightbox(items, i);
+        }
+      });
+      photosEl.appendChild(btn);
     });
   }
 
