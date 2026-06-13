@@ -14,7 +14,7 @@
 // Shared namespace for cross-module calls.
 window.WhatAToy = window.WhatAToy || {};
 
-const LOCATIONS_URL = 'content/locations.json';
+const LOCATIONS_URL = 'content/locations.json?v=2';
 
 // North-America point of view for initial load.
 const HOME_POV = { lat: 39, lng: -98, altitude: 1.8 };
@@ -94,9 +94,9 @@ export async function initGlobe() {
       .ringLat((d) => d.lat)
       .ringLng((d) => d.lng)
       .ringColor(() => (t) => `rgba(216, 57, 43, ${1 - t})`)
-      .ringMaxRadius(3.2)
-      .ringPropagationSpeed(2)
-      .ringRepeatPeriod(1300)
+      .ringMaxRadius(2.4)
+      .ringPropagationSpeed(1.6)
+      .ringRepeatPeriod(1400)
       .onPointClick((p) => handleStoreSelect(p, globe, prefersReduced));
   } catch (err) {
     console.warn('[globe-locations] failed to create globe:', err);

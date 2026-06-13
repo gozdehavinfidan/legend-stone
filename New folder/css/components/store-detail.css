@@ -25,6 +25,7 @@
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.22);
   border-radius: var(--radius-lg);
+  overflow: hidden; /* clip the top stripe to the card's rounded edges */
   box-shadow: var(--shadow-lg);
   padding: var(--space-3) var(--space-4);
   color: var(--cream);
@@ -49,13 +50,12 @@
   transform: translateY(0);
 }
 
-/* A cheerful gold top stripe to echo the logo */
+/* Top stripe (clipped to the card by overflow:hidden, so it matches its width) */
 .store-detail::before {
   content: "";
   position: absolute;
   inset: 0 0 auto 0;
   height: 6px;
-  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
   background: linear-gradient(90deg, var(--red) 0 33%, var(--gold) 33% 66%, var(--navy) 66% 100%);
 }
 

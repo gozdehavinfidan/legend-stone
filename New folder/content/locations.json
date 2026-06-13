@@ -5,8 +5,8 @@
     "mall": "Woodland Hills Mall",
     "city": "Tulsa",
     "state": "OK",
-    "lat": 36.063,
-    "lng": -95.928,
+    "lat": 36.30,
+    "lng": -95.70,
     "mapsQuery": "What-A-Toy Woodland Hills Mall Tulsa OK",
     "photos": [
       "assets/Woodland Hills Mall TULSA/Woodland (1).jpeg",
@@ -23,8 +23,8 @@
     "mall": "Tulsa Premium Outlets",
     "city": "Jenks",
     "state": "OK",
-    "lat": 35.998,
-    "lng": -96.000,
+    "lat": 35.70,
+    "lng": -96.20,
     "mapsQuery": "What-A-Toy Tulsa Premium Outlets Jenks OK",
     "photos": [
       "assets/Premium Outlet Mall TULSA/PremiumOutlet (1).jpeg",
