@@ -17,7 +17,7 @@ import { initGallery } from './gallery.js?v=1';
 import { initReveals } from './reveals.js?v=1';
 import { initBgScroll } from './bg-scroll.js?v=1';
 import { initTransitions } from './transitions.js?v=1';
-import { initPageNav } from './page-nav.js?v=2';
+import { initPageNav } from './page-nav.js?v=3';
 
 // Shared cross-module namespace.
 window.WhatAToy = window.WhatAToy || {};

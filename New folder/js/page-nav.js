@@ -99,6 +99,18 @@ export function initPageNav(lenis) {
       if (e.target && e.target.closest && e.target.closest('#globe-canvas')) return;
       const dir = e.deltaY > 0 ? 1 : -1;
       if (innerScrollCanTake(e.target, dir)) return; // let the inner area scroll
+
+      // If the current section is TALLER than the viewport (e.g. the expanded
+      // gallery), scroll through it naturally and only snap at its top/bottom.
+      const cur = pages[currentIndex()];
+      if (cur && cur.offsetHeight > window.innerHeight + 4) {
+        const top = docTop(cur);
+        const bottom = top + cur.offsetHeight;
+        const atTop = window.scrollY <= top + 6;
+        const atBottom = window.scrollY + window.innerHeight >= bottom - 6;
+        if ((dir > 0 && !atBottom) || (dir < 0 && !atTop)) return;
+      }
+
       e.preventDefault();
       if (Math.abs(e.deltaY) < 4) return;
       go(dir);
