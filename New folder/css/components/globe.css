@@ -11,6 +11,13 @@
   background: var(--bg-yellow);
 }
 
+/* Reserve room at the bottom for the floating store-detail card, so the
+   centered globe sits a little higher and the detail fits beneath it without
+   resizing the globe. (Desktop only — mobile sections are auto-height.) */
+@media (min-width: 821px) {
+  .section#locations { padding-bottom: 16rem; }
+}
+
 /* ---- Stage: store cards (left) | centered big globe | store cards (right) ---- */
 .locations__stage {
   display: grid;
@@ -41,7 +48,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--space-3);
+  gap: var(--space-2);
   background: radial-gradient(
     circle at 50% 42%,
     rgba(255, 255, 255, 0.12) 0%,
@@ -50,26 +57,21 @@
   );
   border: 1px solid rgba(255, 255, 255, 0.16);
   border-radius: var(--radius-lg);
-  padding: var(--space-2); /* smaller card — hugs the globe */
+  padding: var(--space-1); /* smaller card — hugs the globe */
 }
 
-/* ---- The globe canvas mount (large, fills the page) ---- */
+/* ---- The globe canvas mount ----
+   Fixed size that does NOT change when the detail panel opens (the wrapper
+   reserves room for the detail below, so the globe never shrinks/resizes). */
 #globe-canvas.locations__globe {
-  width: clamp(360px, 40vw, 540px);
+  width: clamp(280px, 30vw, 350px);
   aspect-ratio: 1 / 1;
-  min-height: 360px;
+  min-height: 280px;
   margin-inline: auto;
   background: transparent;
   border-radius: var(--radius-md);
   overflow: hidden;
   touch-action: pan-y; /* allow page scroll while still dragging the globe */
-}
-
-/* When the detail panel opens BELOW the globe, shrink the globe to make room
-   (keeps the whole locations page within one viewport). */
-.locations__globe-wrap:has(.store-detail.is-open) #globe-canvas.locations__globe {
-  width: clamp(200px, 20vw, 290px);
-  min-height: 200px;
 }
 
 /* globe.gl canvas should fill the mount */
