@@ -1,0 +1,20 @@
+[
+  {
+    "id": "plush",
+    "title": "Plush Friends",
+    "blurb": "Soft, huggable companions for every age.",
+    "photo": "assets/Towne East Square Mall WICHITA/peluslar/peluslar.jpeg"
+  },
+  {
+    "id": "rideon",
+    "title": "Ride-On Cars & Motors",
+    "blurb": "Battery-powered adventures for little drivers.",
+    "photo": "assets/Towne East Square Mall WICHITA/akulu araba motor/akulu motor.jpeg"
+  },
+  {
+    "id": "keychain",
+    "title": "Keychains & Collectibles",
+    "blurb": "Tiny treasures and pocket-sized fun.",
+    "photo": "assets/Towne East Square Mall WICHITA/anahtarlıklar/TowneEast (8).jpeg"
+  }
+]

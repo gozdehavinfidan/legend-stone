@@ -1,0 +1,228 @@
+/* =========================================================================
+   What-A-Toy! — Hero section
+   Full-viewport hero. #hero-canvas (three.js gradient/blob + bears.glb) sits
+   absolutely behind .hero__content. Big Fredoka headline, tagline, CTA row,
+   and an animated scroll-hint chevron. Fully responsive + reduced-motion safe.
+   Uses only tokens from css/variables.css.
+   ========================================================================= */
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;            /* mobile-safe viewport unit where supported */
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  isolation: isolate;            /* keep canvas behind content stacking-wise */
+  background: var(--bg-yellow);  /* fallback before the shader paints */
+  padding-block: var(--nav-h) var(--space-7);
+}
+
+/* ---- Background canvas (three.js renders here) ---- */
+.hero__canvas {
+  position: fixed;               /* viewport-fixed so the bears can travel pages */
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  display: block;
+  z-index: -1;                   /* above #hero-bg (-2), behind all content */
+  pointer-events: none;          /* never intercept clicks/drag */
+}
+
+/* ---- Dynamic morphing background (hero only) ----
+   Fixed full-viewport layer of soft, drifting, morphing blobs in palette
+   tones. js/hero3d.js fades its opacity to 0 as you leave the hero so it
+   never tints the other pages. Sits above #bg-layer (-3), below the bears. */
+#hero-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  overflow: hidden;
+  pointer-events: none;
+  will-change: opacity;
+}
+
+.hero__blob {
+  position: absolute;
+  width: 46vmax;
+  height: 46vmax;
+  filter: blur(70px);
+  opacity: 0.55;
+  border-radius: 42% 58% 60% 40% / 45% 45% 55% 55%;
+  will-change: transform, border-radius;
+}
+
+.hero__blob--a {
+  left: -10%; top: -14%;
+  background: radial-gradient(circle at 50% 50%, var(--gold), transparent 68%);
+  animation: heroBlobA 16s ease-in-out infinite alternate;
+}
+.hero__blob--b {
+  right: -12%; top: 2%;
+  background: radial-gradient(circle at 50% 50%, #F8D36A, transparent 68%);
+  animation: heroBlobB 21s ease-in-out infinite alternate;
+}
+.hero__blob--c {
+  left: 16%; bottom: -18%;
+  opacity: 0.42;
+  background: radial-gradient(circle at 50% 50%, #EFA24E, transparent 70%);
+  animation: heroBlobC 24s ease-in-out infinite alternate;
+}
+.hero__blob--d {
+  right: 16%; bottom: -12%;
+  opacity: 0.5;
+  background: radial-gradient(circle at 50% 50%, var(--cream), transparent 66%);
+  animation: heroBlobD 19s ease-in-out infinite alternate;
+}
+
+@keyframes heroBlobA {
+  from { transform: translate(0, 0) scale(1); border-radius: 42% 58% 60% 40% / 45% 45% 55% 55%; }
+  to   { transform: translate(14%, 12%) scale(1.2); border-radius: 60% 40% 45% 55% / 55% 55% 45% 45%; }
+}
+@keyframes heroBlobB {
+  from { transform: translate(0, 0) scale(1.05); border-radius: 55% 45% 50% 50% / 50% 60% 40% 50%; }
+  to   { transform: translate(-16%, 10%) scale(0.9); border-radius: 40% 60% 55% 45% / 45% 40% 60% 55%; }
+}
+@keyframes heroBlobC {
+  from { transform: translate(0, 0) scale(0.95); border-radius: 48% 52% 60% 40% / 55% 45% 55% 45%; }
+  to   { transform: translate(18%, -12%) scale(1.18); border-radius: 60% 40% 40% 60% / 45% 55% 45% 55%; }
+}
+@keyframes heroBlobD {
+  from { transform: translate(0, 0) scale(1.1); border-radius: 50% 50% 45% 55% / 60% 40% 55% 45%; }
+  to   { transform: translate(-12%, -14%) scale(0.92); border-radius: 45% 55% 55% 45% / 40% 60% 45% 55%; }
+}
+
+/* Reduced motion: no drift, and hide entirely so it can't tint other pages
+   (the scroll-fade that normally hides it is JS-driven). */
+@media (prefers-reduced-motion: reduce) {
+  #hero-bg { display: none; }
+  .hero__blob { animation: none; }
+}
+
+/* Gentle scrim so text stays legible over the bright animated background.
+   Cream/yellow tones, very soft — keeps the cheerful feel. */
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(95% 70% at 14% 52%,
+      rgba(255, 246, 220, 0.55) 0%,
+      rgba(255, 246, 220, 0.18) 38%,
+      rgba(255, 246, 220, 0) 62%);
+}
+
+/* ---- Content column ---- */
+.hero__content {
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-5);
+  text-align: left;
+}
+
+/* ---- Headline (#hero-title) ---- */
+.hero__title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--fs-3xl);
+  line-height: var(--lh-tight);
+  letter-spacing: -0.01em;
+  color: var(--red);
+  /* Cream "logo-letter" halo + soft navy drop for punch over the canvas */
+  text-shadow:
+    0 2px 0 var(--cream),
+    0 6px 18px rgba(42, 59, 110, 0.18);
+}
+
+/* SplitText wraps each char in a span; keep them inline-block so the
+   per-letter elastic transform (text-effect.js) renders correctly. */
+.hero__title .char {
+  display: inline-block;
+  will-change: transform, opacity;
+}
+
+/* ---- Tagline ---- */
+.hero__tagline {
+  margin: 0;
+  max-width: 56ch;
+  font-family: var(--font-body);
+  font-size: var(--fs-md);
+  line-height: var(--lh-base);
+  color: var(--ink);
+}
+
+/* ---- CTA row ---- */
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  margin-top: var(--space-2);
+}
+
+/* ---- Scroll hint ---- */
+.hero__scroll-hint {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-1);
+  margin-top: var(--space-4);
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--navy);
+  text-decoration: none;
+  transition: color var(--dur-fast) var(--ease-out),
+              transform var(--dur-fast) var(--ease-out);
+}
+
+.hero__scroll-hint:hover,
+.hero__scroll-hint:focus-visible {
+  color: var(--red);
+  transform: translateY(2px);
+}
+
+.hero__scroll-arrow {
+  font-size: 1.4rem;
+  line-height: 1;
+  animation: hero-bob 1.8s var(--ease-in-out) infinite;
+}
+
+@keyframes hero-bob {
+  0%, 100% { transform: translateY(0); opacity: 0.85; }
+  50%      { transform: translateY(6px); opacity: 1; }
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 768px) {
+  .hero {
+    /* center content on small screens for a friendlier mobile layout */
+    align-items: flex-end;
+    padding-block: calc(var(--nav-h) + var(--space-6)) var(--space-7);
+  }
+  .hero__content {
+    align-items: center;
+    text-align: center;
+  }
+  .hero__tagline { font-size: var(--fs-base); }
+  .hero__actions { justify-content: center; }
+}
+
+@media (max-width: 420px) {
+  .hero__actions { width: 100%; flex-direction: column; }
+  .hero__actions .btn { width: 100%; justify-content: center; }
+}
+
+/* ---- Reduced motion: kill the looping chevron bob ---- */
+@media (prefers-reduced-motion: reduce) {
+  .hero__scroll-arrow { animation: none; }
+  .hero__title .char { transform: none !important; }
+}

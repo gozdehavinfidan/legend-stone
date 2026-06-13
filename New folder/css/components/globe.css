@@ -1,0 +1,169 @@
+/* =========================================================================
+   Locations — interactive globe + store list/detail pairing
+   Uses design tokens from css/variables.css only (no hardcoded hex).
+   Matches scaffold ids/classes:
+     .locations__layout / .locations__globe-wrap / #globe-canvas
+     .locations__hint / .locations__side / #store-list (.store-list)
+   ========================================================================= */
+
+/* ---- Section backdrop: soft, cheerful yellow ---- */
+.locations {
+  background: var(--bg-yellow);
+}
+
+/* ---- Two-column layout: globe on the left, list/detail on the right ---- */
+.locations__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: var(--space-7);
+  align-items: start;
+  margin-top: var(--space-6);
+}
+
+/* Stack on smaller screens */
+@media (max-width: 880px) {
+  .locations__layout {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+}
+
+/* ---- Globe wrapper: a rounded cream stage that frames the globe ---- */
+.locations__globe-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  background: radial-gradient(
+    circle at 50% 38%,
+    var(--surface-alt) 0%,
+    var(--cream) 70%,
+    var(--surface-alt) 100%
+  );
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  padding: var(--space-5);
+}
+
+/* ---- The globe canvas mount ----
+   globe.gl injects its own <canvas>; we size this container and the
+   JS reads clientWidth/Height to render at the right resolution. */
+#globe-canvas.locations__globe {
+  width: 100%;
+  /* square-ish, with sensible min/max per the brief */
+  aspect-ratio: 1 / 1;
+  min-height: 420px;
+  max-width: 560px;
+  max-height: 560px;
+  margin-inline: auto;
+  /* transparent so the cream stage shows through behind the globe */
+  background: transparent;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  touch-action: pan-y; /* allow page scroll while still dragging the globe */
+}
+
+/* globe.gl canvas should fill the mount */
+#globe-canvas.locations__globe canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+  border-radius: var(--radius-md);
+  cursor: grab;
+}
+#globe-canvas.locations__globe canvas:active {
+  cursor: grabbing;
+}
+
+/* Hint line under the globe */
+.locations__hint {
+  margin: 0;
+  font-size: var(--fs-sm);
+  color: var(--muted);
+  text-align: center;
+}
+
+/* ---- Side column: store list, then detail panel ---- */
+.locations__side {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+/* ---- Accessible store list ---- */
+.store-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.store-list__btn {
+  /* reset native button look, then style as a card row */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  text-align: left;
+  cursor: pointer;
+  font-family: var(--font-body);
+  background: var(--surface-card);
+  color: var(--ink);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-4);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--dur-fast) var(--ease-out),
+              border-color var(--dur-fast) var(--ease-out),
+              box-shadow var(--dur-fast) var(--ease-out);
+}
+
+.store-list__btn:hover {
+  transform: translateY(-2px);
+  border-color: var(--red);
+  box-shadow: var(--shadow-md);
+}
+
+.store-list__btn:focus-visible {
+  outline: 3px solid var(--navy);
+  outline-offset: 2px;
+}
+
+/* Active store gets a red accent edge */
+.store-list__btn.is-active {
+  border-color: var(--red);
+  box-shadow: var(--shadow-red);
+}
+
+.store-list__name {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--fs-md);
+  line-height: var(--lh-snug);
+  color: var(--navy);
+}
+
+.store-list__place {
+  font-size: var(--fs-sm);
+  color: var(--muted);
+}
+
+/* A small gold marker dot to echo the globe pins */
+.store-list__name::before {
+  content: "";
+  display: inline-block;
+  width: 0.6em;
+  height: 0.6em;
+  margin-right: var(--space-2);
+  border-radius: var(--radius-pill);
+  background: var(--red);
+  box-shadow: 0 0 0 2px var(--gold);
+  vertical-align: baseline;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .store-list__btn,
+  .store-list__btn:hover {
+    transform: none;
+  }
+}

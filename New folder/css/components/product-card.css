@@ -1,0 +1,74 @@
+/* =========================================================================
+   Product cards — extends .card
+   Cream surface, gold top accent, soft "Find it in-store" tag (no buy CTA).
+   Responsive grid: 3 columns -> 1 on small screens.
+   ========================================================================= */
+
+/* ---- Grid layout (rendered into #products-grid by products.js) ---- */
+.products__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-6);
+  margin-top: var(--space-7);
+}
+
+/* Tablet: 2 across */
+@media (max-width: 900px) {
+  .products__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile: single column */
+@media (max-width: 600px) {
+  .products__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+  }
+}
+
+/* ---- The product card itself ---- */
+.product-card {
+  /* gentle warm tint distinct from plain white card */
+  background: var(--surface-card);
+}
+
+/* Gold accent bar across the top of each card */
+.product-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 6px;
+  background: var(--gold);
+  z-index: 1;
+}
+
+.product-card .card__body {
+  /* leave room for the tag at the bottom, push it down */
+  flex: 1 1 auto;
+}
+
+/* ---- Soft "Find it in-store" tag — informational, NOT a buy button ---- */
+.product-card__tag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  align-self: flex-start;
+  margin-top: var(--space-1);
+  padding: 0.4em 0.95em;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: var(--fs-sm);
+  line-height: 1;
+  color: var(--navy);
+  background: var(--cream);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+}
+
+/* Small location pin glyph before the tag text */
+.product-card__tag::before {
+  content: "\1F4CD"; /* round pushpin emoji as a friendly marker */
+  font-size: 0.95em;
+  line-height: 1;
+}

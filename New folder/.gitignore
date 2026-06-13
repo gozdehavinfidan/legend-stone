@@ -1,0 +1,4 @@
+# Local test artifacts (Playwright screenshots + MCP output)
+.playwright-mcp/
+/v[0-9]*.jpeg
+/verify-*.jpeg

@@ -1,0 +1,161 @@
+/* =========================================================================
+   Store Detail panel — revealed when a store is chosen (globe or list)
+   Matches scaffold ids/classes:
+     #store-detail.store-detail (aside, [hidden] by default)
+     .store-detail__close (#store-detail-close)
+     .store-detail__name  (#store-detail-name)
+     .store-detail__place (#store-detail-place)
+     .store-detail__photos (#store-detail-photos)
+     .store-detail__hours (#store-detail-hours)
+     #store-detail-directions (.btn .btn--primary .btn--sm)
+   Uses design tokens only.
+   ========================================================================= */
+
+.store-detail {
+  position: relative;
+  background: var(--surface-card);
+  border: 2px solid var(--border-strong);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  padding: var(--space-5) var(--space-5) var(--space-5);
+
+  /* Entrance state: revealed by JS removing [hidden] and adding .is-open */
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+/* The scaffold ships the panel with the [hidden] attribute.
+   When visible, JS removes [hidden]; we animate via .is-open. */
+.store-detail[hidden] {
+  display: none;
+}
+
+.store-detail {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity var(--dur-base) var(--ease-out),
+              transform var(--dur-base) var(--ease-out);
+}
+.store-detail.is-open {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* A cheerful gold top stripe to echo the logo */
+.store-detail::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 6px;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  background: linear-gradient(90deg, var(--red) 0 33%, var(--gold) 33% 66%, var(--navy) 66% 100%);
+}
+
+/* ---- Close button ---- */
+.store-detail__close {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  width: 2.2rem;
+  height: 2.2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  color: var(--navy);
+  background: var(--surface-alt);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-pill);
+  transition: background-color var(--dur-fast) var(--ease-out),
+              color var(--dur-fast) var(--ease-out),
+              transform var(--dur-fast) var(--ease-out);
+}
+.store-detail__close:hover {
+  background: var(--red);
+  color: var(--on-red);
+  border-color: var(--red);
+  transform: rotate(90deg);
+}
+.store-detail__close:focus-visible {
+  outline: 3px solid var(--navy);
+  outline-offset: 2px;
+}
+
+/* ---- Text ---- */
+.store-detail__name {
+  margin: var(--space-2) 0 0;
+  padding-right: 2.5rem; /* clear the close button */
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--fs-lg);
+  line-height: var(--lh-tight);
+  color: var(--navy);
+}
+
+.store-detail__place {
+  margin: 0;
+  font-size: var(--fs-md);
+  color: var(--muted);
+}
+
+/* ---- Mini photo strip: horizontal scroll on small, wraps gracefully ---- */
+.store-detail__photos {
+  display: flex;
+  gap: var(--space-2);
+  overflow-x: auto;
+  padding-bottom: var(--space-2);
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+.store-detail__photos img {
+  flex: 0 0 auto;
+  width: 120px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  scroll-snap-align: start;
+  background: var(--surface-alt);
+}
+
+/* Thin styled scrollbar for the strip */
+.store-detail__photos::-webkit-scrollbar {
+  height: 8px;
+}
+.store-detail__photos::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: var(--radius-pill);
+}
+.store-detail__photos::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* ---- Hours note ---- */
+.store-detail__hours {
+  margin: 0;
+  font-size: var(--fs-sm);
+  color: var(--muted);
+  font-style: italic;
+}
+
+/* Directions button sits naturally at the bottom; nudge a little space */
+#store-detail-directions {
+  align-self: flex-start;
+  margin-top: var(--space-1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .store-detail,
+  .store-detail.is-open {
+    transition: none;
+    opacity: 1;
+    transform: none;
+  }
+  .store-detail__close:hover {
+    transform: none;
+  }
+}
