@@ -28,7 +28,8 @@
 .lightbox__figure {
   position: relative;
   margin: 0;
-  max-width: min(94vw, 1100px);
+  /* leave side room for the edge-pinned prev/next buttons */
+  max-width: min(82vw, 980px);
   max-height: 90vh;
   display: flex;
   flex-direction: column;
@@ -106,20 +107,21 @@
   outline-offset: 3px;
 }
 
+/* Pinned to the lightbox (viewport) edges so they never overlap the image */
 .lightbox__btn--close {
-  top: calc(-1 * var(--space-6));
-  right: 0;
+  top: var(--space-4);
+  right: var(--space-4);
 }
 
 .lightbox__btn--prev {
   top: 50%;
-  left: calc(-1 * var(--space-7));
+  left: var(--space-4);
   transform: translateY(-50%);
 }
 
 .lightbox__btn--next {
   top: 50%;
-  right: calc(-1 * var(--space-7));
+  right: var(--space-4);
   transform: translateY(-50%);
 }
 
@@ -128,12 +130,13 @@
   transform: translateY(-50%) scale(1.08);
 }
 
-/* ---- Small screens: pull controls inside the viewport ---- */
+/* ---- Small screens: smaller controls, tighter to the edges ---- */
 @media (max-width: 760px) {
   .lightbox__btn { width: 44px; height: 44px; font-size: 1.3rem; }
-  .lightbox__btn--close { top: calc(-1 * var(--space-5)); right: 0; }
+  .lightbox__btn--close { top: var(--space-3); right: var(--space-3); }
   .lightbox__btn--prev { left: var(--space-2); }
   .lightbox__btn--next { right: var(--space-2); }
+  .lightbox__figure { max-width: 92vw; }
 }
 
 /* ---- Reduced motion ---- */

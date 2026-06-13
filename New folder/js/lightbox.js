@@ -25,10 +25,12 @@ export function initLightbox() {
   root.setAttribute('aria-label', 'Photo viewer');
   root.setAttribute('aria-hidden', 'true');
   root.innerHTML = [
+    // Controls live OUTSIDE the figure (which is transformed), pinned to the
+    // lightbox edges so they never sit on top of the image.
+    '<button type="button" class="lightbox__btn lightbox__btn--close" aria-label="Close (Esc)">&times;</button>',
+    '<button type="button" class="lightbox__btn lightbox__btn--prev" aria-label="Previous photo">&#8249;</button>',
+    '<button type="button" class="lightbox__btn lightbox__btn--next" aria-label="Next photo">&#8250;</button>',
     '<figure class="lightbox__figure">',
-    '  <button type="button" class="lightbox__btn lightbox__btn--close" aria-label="Close (Esc)">&times;</button>',
-    '  <button type="button" class="lightbox__btn lightbox__btn--prev" aria-label="Previous photo">&#8249;</button>',
-    '  <button type="button" class="lightbox__btn lightbox__btn--next" aria-label="Next photo">&#8250;</button>',
     '  <img class="lightbox__img" alt="" />',
     '  <figcaption class="lightbox__caption"><span class="lightbox__caption-text"></span><span class="lightbox__counter"></span></figcaption>',
     '</figure>'
@@ -141,9 +143,10 @@ export function initLightbox() {
   prevBtn.addEventListener('click', prev);
   nextBtn.addEventListener('click', next);
 
-  // Backdrop click (outside the figure) closes; clicks inside don't.
+  // Backdrop click (the scrim itself) closes; clicks on the figure or the
+  // control buttons do not.
   root.addEventListener('click', (e) => {
-    if (!figureEl.contains(e.target)) close();
+    if (e.target === root) close();
   });
 
   // ---- Expose on shared namespace ----
