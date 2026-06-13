@@ -27,6 +27,11 @@
   justify-content: center;
 }
 
+/* Spacing between the title and the body copy (match the other sections) */
+.about__text .section__title { margin-bottom: var(--space-5); }
+.about__text .about__lead { margin-top: 0; }
+.about__text .about__lead + .about__lead { margin-top: var(--space-3); }
+
 /* Reserve room at the bottom of the section for the train band */
 .about { padding-bottom: 220px; }
 @media (max-width: 820px) { .about { padding-bottom: 180px; } }
