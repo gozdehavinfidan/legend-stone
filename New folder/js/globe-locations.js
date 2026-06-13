@@ -79,16 +79,24 @@ export async function initGlobe() {
       .showAtmosphere(true)
       .atmosphereColor('#F2B82B')
       .atmosphereAltitude(0.18)
-      // Flat red dots on the surface (no cylinder height, so rotating the
-      // globe never reveals raised pillars).
+      // Flat center dot on the surface (no cylinder height).
       .pointsData(locations)
       .pointLat((d) => d.lat)
       .pointLng((d) => d.lng)
       .pointColor(() => '#D8392B')
       .pointAltitude(0)
-      .pointRadius(0.7)
+      .pointRadius(0.5)
       .pointLabel((d) => `${d.name} — ${d.city}, ${d.state}`)
       .pointsTransitionDuration(0)
+      // Pulsing "ping" rings around each store: expand out + fade (flat on
+      // the surface). Disabled under reduced-motion.
+      .ringsData(prefersReduced ? [] : locations)
+      .ringLat((d) => d.lat)
+      .ringLng((d) => d.lng)
+      .ringColor(() => (t) => `rgba(216, 57, 43, ${1 - t})`)
+      .ringMaxRadius(3.2)
+      .ringPropagationSpeed(2)
+      .ringRepeatPeriod(1300)
       .onPointClick((p) => handleStoreSelect(p, globe, prefersReduced));
   } catch (err) {
     console.warn('[globe-locations] failed to create globe:', err);
