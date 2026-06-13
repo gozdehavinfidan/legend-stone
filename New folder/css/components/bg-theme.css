@@ -137,6 +137,11 @@ html {
   letter-spacing: 0.14em;
 }
 
+/* Tighter header rhythm so dense pages (globe, gallery) fit one viewport */
+.section__head {
+  margin-bottom: var(--space-5);
+}
+
 .section__lead,
 .intro__lead,
 .about__lead,

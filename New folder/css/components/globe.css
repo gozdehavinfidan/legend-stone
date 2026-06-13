@@ -55,9 +55,9 @@
 
 /* ---- The globe canvas mount (bigger to fill the page) ---- */
 #globe-canvas.locations__globe {
-  width: clamp(380px, 40vw, 600px);
+  width: clamp(280px, 30vw, 440px);
   aspect-ratio: 1 / 1;
-  min-height: 460px;
+  min-height: 280px;
   margin-inline: auto;
   background: transparent;
   border-radius: var(--radius-md);

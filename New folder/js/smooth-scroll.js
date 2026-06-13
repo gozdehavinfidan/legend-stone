@@ -37,7 +37,9 @@ export function initSmoothScroll() {
   const lenis = new Lenis({
     duration: 1.1,
     easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-    smoothWheel: true,
+    // page-nav.js drives wheel gestures (full-page snap) and uses lenis.scrollTo
+    // for the smooth animated transitions, so Lenis must not also smooth-wheel.
+    smoothWheel: false,
     smoothTouch: false,
     touchMultiplier: 1.5,
   });

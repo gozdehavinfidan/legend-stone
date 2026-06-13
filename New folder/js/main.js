@@ -5,7 +5,7 @@
    module cannot blank the whole page.
    ========================================================================= */
 
-import { initSmoothScroll } from './smooth-scroll.js?v=1';
+import { initSmoothScroll } from './smooth-scroll.js?v=2';
 import { initNav } from './nav.js?v=1';
 import { initHeadline } from './text-effect.js?v=1';
 import { initHero3D } from './hero3d.js?v=17';
@@ -17,6 +17,7 @@ import { initGallery } from './gallery.js?v=1';
 import { initReveals } from './reveals.js?v=1';
 import { initBgScroll } from './bg-scroll.js?v=1';
 import { initTransitions } from './transitions.js?v=1';
+import { initPageNav } from './page-nav.js?v=1';
 
 // Shared cross-module namespace.
 window.WhatAToy = window.WhatAToy || {};
@@ -69,6 +70,7 @@ async function boot() {
   safe('initReveals', initReveals);
   safe('initBgScroll', initBgScroll);
   safe('initTransitions', () => initTransitions(lenis));
+  safe('initPageNav', () => initPageNav(lenis));
 
   // Footer year (harmless, keeps the copyright current without a separate module).
   const yearEl = document.getElementById('footer-year');
