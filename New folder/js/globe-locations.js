@@ -79,13 +79,14 @@ export async function initGlobe() {
       .showAtmosphere(true)
       .atmosphereColor('#F2B82B')
       .atmosphereAltitude(0.18)
-      // Red point markers, one per store.
+      // Flat red dots on the surface (no cylinder height, so rotating the
+      // globe never reveals raised pillars).
       .pointsData(locations)
       .pointLat((d) => d.lat)
       .pointLng((d) => d.lng)
       .pointColor(() => '#D8392B')
-      .pointAltitude(0.06)
-      .pointRadius(0.55)
+      .pointAltitude(0)
+      .pointRadius(0.7)
       .pointLabel((d) => `${d.name} — ${d.city}, ${d.state}`)
       .pointsTransitionDuration(0)
       .onPointClick((p) => handleStoreSelect(p, globe, prefersReduced));
