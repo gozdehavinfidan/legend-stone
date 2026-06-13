@@ -92,7 +92,9 @@
 .gallery__img {
   display: block;
   width: 100%;
-  aspect-ratio: 4 / 3;
+  /* Tall, portrait-leaning thumbs fill the section's vertical space so the
+     gallery doesn't read as a thin strip on a mostly-empty page. */
+  aspect-ratio: 3 / 4;
   object-fit: cover;
   border-radius: inherit;
   background: var(--surface-alt);
