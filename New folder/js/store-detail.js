@@ -88,9 +88,9 @@ async function openStoreDetail(id) {
   // Remember the trigger so we can restore focus on close.
   lastFocused = document.activeElement;
 
-  // ---- Name + place ----
-  if (nameEl) nameEl.textContent = loc.name;
-  if (placeEl) placeEl.textContent = `${loc.city}, ${loc.state}`;
+  // Name + place already show on the card above — don't repeat them here;
+  // just keep an accessible label for screen readers.
+  panel.setAttribute('aria-label', `${loc.name}, ${loc.city}, ${loc.state} — details`);
 
   // ---- Mini photo strip ----
   if (photosEl) {
