@@ -116,6 +116,12 @@ async function openStoreDetail(id) {
     directionsEl.href = `https://www.google.com/maps/search/?api=1&query=${query}`;
   }
 
+  // ---- Place the panel directly under the chosen store card ----
+  // (uses the side-column space and frees the center for a bigger globe).
+  const card = document.querySelector(`.store-list__btn[data-id="${id}"]`);
+  const li = card && card.closest('li');
+  if (li) li.appendChild(panel);
+
   // ---- Reveal + focus management ----
   panel.removeAttribute('hidden');
   // Next frame so the transition (opacity/transform) actually plays.

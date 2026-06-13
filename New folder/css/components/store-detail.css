@@ -12,12 +12,11 @@
    ========================================================================= */
 
 .store-detail {
-  /* Floats just BELOW the globe (absolute, so it never resizes or moves the
-     globe and stays out of the layout flow). */
-  position: absolute;
-  top: calc(100% + 10px);
-  left: 50%;
-  width: min(92vw, 440px);
+  /* Opens in flow directly UNDER the chosen store card (in its side column),
+     so the center stays free for a bigger globe. */
+  position: relative;
+  width: 100%;
+  margin-top: var(--space-2);
   z-index: 4;
 
   /* Translucent dark card (on the navy page) with cream text */
@@ -36,7 +35,7 @@
 
   /* Entrance: JS removes [hidden] then adds .is-open */
   opacity: 0;
-  transform: translate(-50%, 10px);
+  transform: translateY(8px);
   transition: opacity var(--dur-base) var(--ease-out),
               transform var(--dur-base) var(--ease-out);
 }
@@ -47,7 +46,7 @@
 
 .store-detail.is-open {
   opacity: 1;
-  transform: translate(-50%, 0);
+  transform: translateY(0);
 }
 
 /* A cheerful gold top stripe to echo the logo */

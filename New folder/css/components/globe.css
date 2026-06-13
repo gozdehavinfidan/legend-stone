@@ -11,12 +11,6 @@
   background: var(--bg-yellow);
 }
 
-/* Reserve room at the bottom for the floating store-detail card, so the
-   centered globe sits a little higher and the detail fits beneath it without
-   resizing the globe. (Desktop only — mobile sections are auto-height.) */
-@media (min-width: 821px) {
-  .section#locations { padding-bottom: 16rem; }
-}
 
 /* ---- Stage: store cards (left) | centered big globe | store cards (right) ---- */
 .locations__stage {
@@ -64,9 +58,9 @@
    Fixed size that does NOT change when the detail panel opens (the wrapper
    reserves room for the detail below, so the globe never shrinks/resizes). */
 #globe-canvas.locations__globe {
-  width: clamp(280px, 30vw, 350px);
+  width: clamp(360px, 40vw, 500px);
   aspect-ratio: 1 / 1;
-  min-height: 280px;
+  min-height: 360px;
   margin-inline: auto;
   background: transparent;
   border-radius: var(--radius-md);
