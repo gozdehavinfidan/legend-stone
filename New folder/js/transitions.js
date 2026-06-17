@@ -28,7 +28,7 @@ export function initTransitions(lenis) {
   const gsap = window.gsap;
   const hasWipe = !!(overlay && panels.length && gsap && !prefersReduced);
 
-  const NAV_H = 72; // matches --nav-h; offset so sticky nav doesn't cover target
+  const NAV_H = 80; // matches --nav-h; offset so sticky nav doesn't cover target
 
   /* ---- Scroll helper: prefer Lenis, fall back to native ---------------- */
   function scrollToTarget(target) {

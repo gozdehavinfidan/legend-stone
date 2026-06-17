@@ -4,27 +4,52 @@
    Responsive grid: 3 columns -> 1 on small screens.
    ========================================================================= */
 
-/* ---- Grid layout (rendered into #products-grid by products.js) ---- */
+/* ---- Marquee viewport (rendered into #products-grid by products.js) ----
+   A horizontal track of category cards that auto-slides. The viewport clips
+   the wide track and fades it at both edges. */
 .products__grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-6);
-  margin-top: var(--space-7);
+  margin-top: var(--space-5);
+  overflow: hidden;
+  -webkit-mask: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+          mask: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
 }
 
-/* Tablet: 2 across */
-@media (max-width: 900px) {
-  .products__grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+.products__track {
+  display: flex;
+  width: max-content;
+  /* a little vertical room so card hover-lift + shadow aren't clipped */
+  padding-block: var(--space-3);
 }
 
-/* Mobile: single column */
-@media (max-width: 600px) {
+/* Each card is a fixed-width slide; trailing margin (not flex gap) keeps the
+   duplicated set perfectly even so the -50% loop is seamless. */
+.products__track > .card {
+  flex: 0 0 clamp(240px, 72vw, 320px);
+  margin-right: var(--space-6);
+}
+
+.products__track--marquee {
+  animation: productsMarquee var(--marquee-duration, 40s) linear infinite;
+}
+/* Pause so the row holds still while you read / reach for a card */
+.products__track--marquee:hover,
+.products__track--marquee:focus-within {
+  animation-play-state: paused;
+}
+
+@keyframes productsMarquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* Reduced motion: no auto-slide — let the user scroll the row by hand. */
+@media (prefers-reduced-motion: reduce) {
   .products__grid {
-    grid-template-columns: 1fr;
-    gap: var(--space-5);
+    overflow-x: auto;
+    -webkit-mask: none;
+            mask: none;
   }
+  .products__track { animation: none; }
 }
 
 /* ---- The product card itself (clickable -> opens category photos) ---- */
@@ -67,7 +92,7 @@
   line-height: 1;
   color: var(--navy);
   background: var(--cream);
-  border: 1px solid var(--border);
+  border: 1.5px solid var(--border);
   border-radius: var(--radius-pill);
 }
 

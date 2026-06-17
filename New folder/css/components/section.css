@@ -72,8 +72,12 @@
   text-wrap: balance;
 }
 
-/* Lead paragraph beneath the title */
-.section__lead {
+/* Lead paragraph beneath the title. Covers the per-section lead variants too
+   (about/contact) so every lead shares one size/rhythm; dark-section recolors
+   live in bg-theme.css. */
+.section__lead,
+.about__lead,
+.contact__lead {
   margin: var(--space-4) auto 0;
   max-width: 56ch;
   font-size: var(--fs-md);
@@ -86,8 +90,8 @@
    Echoes the logo's golden-yellow wavy stripes. Add <div class="stripe-divider">
    or it can sit under a section head; purely ornamental, hidden from AT.
    ========================================================================= */
-.section__head .section__eyebrow::after {
-  /* tiny gold underline accent under the eyebrow */
+.section__eyebrow::after {
+  /* tiny gold underline accent under every eyebrow (incl. hero/contact) */
   content: "";
   display: block;
   width: 2.2rem;

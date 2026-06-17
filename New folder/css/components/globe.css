@@ -6,11 +6,8 @@
      .locations__hint / .locations__side / #store-list (.store-list)
    ========================================================================= */
 
-/* ---- Section backdrop: soft, cheerful yellow ---- */
-.locations {
-  background: var(--bg-yellow);
-}
-
+/* The Locations section sits on the navy scroll-journey color (#bg-layer);
+   sections are transparent (bg-theme.css) so no section background here. */
 
 /* ---- Stage: store cards (left) | centered big globe | store cards (right) ---- */
 .locations__stage {
@@ -58,9 +55,11 @@
    Fixed size that does NOT change when the detail panel opens (the wrapper
    reserves room for the detail below, so the globe never shrinks/resizes). */
 #globe-canvas.locations__globe {
-  width: clamp(360px, 40vw, 500px);
+  /* Big on desktop, but the min must stay below small-phone widths or it forces
+     horizontal scroll. */
+  width: clamp(300px, 42vw, 560px);
   aspect-ratio: 1 / 1;
-  min-height: 360px;
+  min-height: 300px;
   margin-inline: auto;
   background: transparent;
   border-radius: var(--radius-md);
@@ -99,8 +98,9 @@
 .store-list__btn {
   width: 100%;
   display: flex;
-  flex-direction: column;
-  gap: 2px;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--space-3);
   text-align: left;
   cursor: pointer;
   font-family: var(--font-body);
@@ -135,6 +135,23 @@
   background: rgba(255, 255, 255, 0.2);
 }
 
+/* Storefront cover thumbnail + text column inside each card */
+.store-list__cover {
+  width: 72px;
+  height: 72px;
+  flex: 0 0 auto;
+  border-radius: var(--radius-md);
+  object-fit: cover;
+  border: 2px solid rgba(var(--cream-rgb), 0.5);
+}
+
+.store-list__text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
 .store-list__name {
   font-family: var(--font-display);
   font-weight: 600;
@@ -146,19 +163,6 @@
 .store-list__place {
   font-size: var(--fs-sm);
   color: rgba(244, 232, 211, 0.78);
-}
-
-/* A small gold marker dot to echo the globe pins */
-.store-list__name::before {
-  content: "";
-  display: inline-block;
-  width: 0.6em;
-  height: 0.6em;
-  margin-right: var(--space-2);
-  border-radius: var(--radius-pill);
-  background: var(--red);
-  box-shadow: 0 0 0 2px var(--gold);
-  vertical-align: baseline;
 }
 
 @media (prefers-reduced-motion: reduce) {

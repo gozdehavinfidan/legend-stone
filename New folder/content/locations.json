@@ -87,5 +87,23 @@
       "assets/Grapevine Mills Mall GRAPEVINE/Grapevine (5).jpeg",
       "assets/Grapevine Mills Mall GRAPEVINE/Grapevine (6).jpeg"
     ]
+  },
+  {
+    "id": "battlefield",
+    "name": "Battlefield Mall",
+    "mall": "Battlefield Mall",
+    "city": "Springfield",
+    "state": "MO",
+    "lat": 37.171,
+    "lng": -93.262,
+    "mapsQuery": "What-A-Toy Battlefield Mall Springfield MO",
+    "photos": [
+      "assets/Battlefield Mall SPRINGFIELD/WhatsApp Image 2026-04-19 at 20.54.11.jpeg",
+      "assets/Battlefield Mall SPRINGFIELD/WhatsApp Image 2026-04-19 at 20.54.12.jpeg",
+      "assets/Battlefield Mall SPRINGFIELD/WhatsApp Image 2026-04-19 at 20.54.11 (1).jpeg",
+      "assets/Battlefield Mall SPRINGFIELD/WhatsApp Image 2026-04-19 at 20.54.12 (1).jpeg",
+      "assets/Battlefield Mall SPRINGFIELD/WhatsApp Image 2026-04-19 at 20.54.11 (2).jpeg",
+      "assets/Battlefield Mall SPRINGFIELD/WhatsApp Image 2026-04-19 at 20.54.12 (2).jpeg"
+    ]
   }
 ]

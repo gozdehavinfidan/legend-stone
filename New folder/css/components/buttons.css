@@ -10,7 +10,8 @@
   font-weight: 600;
   font-size: var(--fs-md);
   line-height: 1;
-  padding: 0.85em 1.6em;
+  min-height: 3rem;            /* M3 comfortable touch target (>=48px) */
+  padding: 0.85em 1.8em;
   border-radius: var(--radius-pill);
   border: 2px solid transparent;
   cursor: pointer;
@@ -57,7 +58,7 @@
   outline-offset: 3px;
 }
 
-.btn--sm { font-size: var(--fs-sm); padding: 0.6em 1.2em; }
+.btn--sm { font-size: var(--fs-sm); min-height: 2.75rem; padding: 0.65em 1.3em; }
 .btn--block { width: 100%; }
 
 @media (prefers-reduced-motion: reduce) {

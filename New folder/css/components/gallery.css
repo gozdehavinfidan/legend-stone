@@ -29,7 +29,7 @@
   line-height: 1;
   color: var(--navy);
   background: var(--surface-card);
-  border: 2px solid var(--border-strong);
+  border: 1.5px solid var(--border);
   border-radius: var(--radius-pill);
   padding: var(--space-2) var(--space-4);
   cursor: pointer;
@@ -57,11 +57,11 @@
   box-shadow: var(--shadow-red);
 }
 
-/* ---- Preview grid: a tidy row of uniform thumbnails ---- */
+/* ---- Preview grid: a tidy row of large uniform thumbnails ---- */
 .gallery__grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--space-4);
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-5);
 }
 
 @media (max-width: 880px) {
@@ -72,25 +72,27 @@
   .gallery__grid { grid-template-columns: 1fr; }
 }
 
-/* ---- Individual photo tile ---- */
+/* ---- Individual photo tile ----
+   Cream "sticker frame" matching the hero collage: a thick cream border + soft
+   shadow so every photo on the site shares one framed look. */
 .gallery__item {
   display: block;
   width: 100%;
   margin: 0;
   padding: 0;
-  border: 0;
+  border: 5px solid var(--surface-card);
   background: var(--surface-card);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
   overflow: hidden;
   cursor: zoom-in;
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-md);
   transition: transform var(--dur-base) var(--ease-out),
     box-shadow var(--dur-base) var(--ease-out);
 }
 
 .gallery__item:hover {
   transform: translateY(-4px) scale(1.01);
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-lg);
 }
 
 .gallery__item:focus-visible {
@@ -101,9 +103,9 @@
 .gallery__img {
   display: block;
   width: 100%;
-  /* Tall, portrait-leaning thumbs fill the section's vertical space so the
-     gallery doesn't read as a thin strip on a mostly-empty page. */
-  aspect-ratio: 3 / 4;
+  /* Big, bold square thumbs — large and legible while keeping the preview to
+     one clean row that still fits a viewport. */
+  aspect-ratio: 1 / 1;
   object-fit: cover;
   border-radius: inherit;
   background: var(--surface-alt);

@@ -7,18 +7,18 @@
 
 import { initSmoothScroll } from './smooth-scroll.js?v=2';
 import { initNav } from './nav.js?v=1';
-import { initHeadline } from './text-effect.js?v=1';
-import { initHero3D } from './hero3d.js?v=18';
-import { initProducts } from './products.js?v=2';
+import { initHeadline } from './text-effect.js?v=2';
+import { initHeroMotion } from './hero-motion.js?v=1';
+import { initProducts } from './products.js?v=3';
 import { initStoreDetail } from './store-detail.js?v=4';
-import { initGlobe } from './globe-locations.js?v=5';
+import { initGlobe } from './globe-locations.js?v=7';
 import { initLightbox } from './lightbox.js?v=2';
-import { initGallery } from './gallery.js?v=2';
+import { initGallery } from './gallery.js?v=5';
 import { initReveals } from './reveals.js?v=1';
 import { initContactBalls } from './contact-balls.js?v=1';
 import { initBgScroll } from './bg-scroll.js?v=1';
-import { initTransitions } from './transitions.js?v=1';
-import { initPageNav } from './page-nav.js?v=3';
+import { initTransitions } from './transitions.js?v=2';
+import { initPageNav } from './page-nav.js?v=6';
 
 // Shared cross-module namespace.
 window.WhatAToy = window.WhatAToy || {};
@@ -55,7 +55,7 @@ async function boot() {
 
   safe('initNav', initNav);
   safe('initHeadline', initHeadline);
-  safe('initHero3D', initHero3D);
+  safe('initHeroMotion', initHeroMotion);
   safe('initStoreDetail', initStoreDetail);
   safe('initLightbox', initLightbox);
 

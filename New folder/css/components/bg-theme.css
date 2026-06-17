@@ -85,8 +85,8 @@ body { background: transparent; }
 }
 [data-bg="red"] .contact__actions .btn--primary:hover,
 [data-bg="navy"] .contact__actions .btn--primary:hover {
-  background: #fffdf6;
-  border-color: #fffdf6;
+  background: var(--surface-card);
+  border-color: var(--surface-card);
 }
 [data-bg="red"] .contact__actions .btn--ghost,
 [data-bg="navy"] .contact__actions .btn--ghost {

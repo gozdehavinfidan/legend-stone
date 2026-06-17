@@ -10,6 +10,10 @@ export function initHeadline() {
   const title = document.getElementById('hero-title');
   if (!title) return;
 
+  // Split only the fixed part of the headline; the rotating word
+  // (.hero__rotator) animates separately in hero-motion.js.
+  const target = title.querySelector('.hero__title-fixed') || title;
+
   const gsap = window.gsap;
   const SplitText = window.SplitText;
 
@@ -26,7 +30,7 @@ export function initHeadline() {
   // Split the headline into characters (and words, so spaces don't collapse).
   let split;
   try {
-    split = new SplitText(title, {
+    split = new SplitText(target, {
       type: 'chars,words',
       charsClass: 'char',
       wordsClass: 'word',

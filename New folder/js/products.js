@@ -92,12 +92,37 @@ export async function initProducts() {
 
   if (!Array.isArray(products) || products.length === 0) return;
 
-  // Render via a fragment to avoid layout thrash
-  const frag = document.createDocumentFragment();
-  for (const product of products) {
-    frag.appendChild(buildCard(product));
+  const prefersReduced =
+    window.matchMedia &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Cards live in a horizontal track that auto-slides (marquee). For a seamless
+  // loop we render the set TWICE and translate the track by -50%; the duplicate
+  // set is hidden from assistive tech. Under reduced-motion we render one set
+  // and let it scroll manually instead of animating.
+  const track = document.createElement('div');
+  track.className = 'products__track';
+
+  const addSet = (isClone) => {
+    for (const product of products) {
+      const card = buildCard(product);
+      if (isClone) {
+        card.setAttribute('aria-hidden', 'true');
+        card.tabIndex = -1;
+        card.classList.add('is-clone');
+      }
+      track.appendChild(card);
+    }
+  };
+
+  addSet(false);
+  if (!prefersReduced) {
+    track.classList.add('products__track--marquee');
+    // Slower with more cards so the pace stays gentle (~5s per card).
+    track.style.setProperty('--marquee-duration', products.length * 5 + 's');
+    addSet(true);
   }
 
   grid.innerHTML = '';
-  grid.appendChild(frag);
+  grid.appendChild(track);
 }

@@ -5,10 +5,10 @@
    ES module: exports initGallery(); does NOT auto-run on import.
    ========================================================================= */
 
-const GALLERY_URL = 'content/gallery.json';
+const GALLERY_URL = 'content/gallery.json?v=3';
 
-// How many preview photos to show in the gallery section.
-const PREVIEW_COUNT = 4;
+// How many preview photos to show in the gallery section (one big row of 3).
+const PREVIEW_COUNT = 3;
 
 /**
  * Build a lightbox-friendly item from a raw photo path + group label.

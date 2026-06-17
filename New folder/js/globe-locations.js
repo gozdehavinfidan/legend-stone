@@ -14,7 +14,7 @@
 // Shared namespace for cross-module calls.
 window.WhatAToy = window.WhatAToy || {};
 
-const LOCATIONS_URL = 'content/locations.json?v=2';
+const LOCATIONS_URL = 'content/locations.json?v=3';
 
 // North-America point of view for initial load.
 const HOME_POV = { lat: 39, lng: -98, altitude: 1.8 };
@@ -171,7 +171,24 @@ function renderStoreList(leftEl, rightEl, locations) {
     place.className = 'store-list__place';
     place.textContent = `${loc.city}, ${loc.state}`;
 
-    btn.append(name, place);
+    const text = document.createElement('div');
+    text.className = 'store-list__text';
+    text.append(name, place);
+
+    // Storefront cover thumbnail (first photo). Paths hold spaces/parens →
+    // encodeURI before assigning to src (same convention as gallery.js).
+    const cover = Array.isArray(loc.photos) && loc.photos.length ? loc.photos[0] : null;
+    if (cover) {
+      const img = document.createElement('img');
+      img.className = 'store-list__cover';
+      img.src = encodeURI(cover);
+      img.alt = `${loc.name} storefront`;
+      img.loading = 'lazy';
+      img.decoding = 'async';
+      btn.append(img, text);
+    } else {
+      btn.append(text);
+    }
 
     btn.addEventListener('click', () => {
       const globe = window.WhatAToy._globe;
