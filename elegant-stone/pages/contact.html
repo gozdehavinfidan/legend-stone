@@ -18,10 +18,9 @@
   <link rel="stylesheet" href="../css/components/hero.css">
   <link rel="stylesheet" href="../css/components/buttons.css">
   <link rel="stylesheet" href="../css/components/section-header.css">
-  <link rel="stylesheet" href="../css/components/forms.css">
   <link rel="stylesheet" href="../css/components/footer.css">
   <link rel="stylesheet" href="../css/components/atmosphere.css">
-  <link rel="stylesheet" href="../css/pages/contact.css">
+  <link rel="stylesheet" href="../css/pages/contact.css?v=2">
 </head>
 <body>
 
@@ -79,46 +78,7 @@
     <!-- Contact Section -->
     <section class="es-section es-contact-section">
       <div class="es-container">
-        <div class="es-split">
-
-          <!-- Contact Form -->
-          <div class="es-reveal">
-            <div class="es-section-header es-section-header--left">
-              <p class="es-section-header__eyebrow">Message Us</p>
-              <h2 class="es-section-header__title">Send a Message</h2>
-              <span class="es-section-header__line"></span>
-            </div>
-
-            <form class="es-form" action="#" method="post" data-contact-form>
-              <div class="es-input-group">
-                <label class="es-input-group__label" for="contact-name">Full Name</label>
-                <input class="es-input-group__field" type="text" id="contact-name" name="name" placeholder="Your name" required autocomplete="name">
-              </div>
-              <div class="es-input-group">
-                <label class="es-input-group__label" for="contact-email">Email Address</label>
-                <input class="es-input-group__field" type="email" id="contact-email" name="email" placeholder="you@example.com" required autocomplete="email">
-              </div>
-              <div class="es-input-group">
-                <label class="es-input-group__label" for="contact-subject">Subject</label>
-                <select class="es-input-group__field" id="contact-subject" name="subject" required>
-                  <option value="" disabled selected>Select a topic</option>
-                  <option value="general">General Inquiry</option>
-                  <option value="wholesale">Wholesale Information</option>
-                  <option value="collections">Collections &amp; Products</option>
-                  <option value="visit">Store Visit &amp; Locations</option>
-                  <option value="other">Other</option>
-                </select>
-              </div>
-              <div class="es-input-group">
-                <label class="es-input-group__label" for="contact-message">Message</label>
-                <textarea class="es-input-group__field" id="contact-message" name="message" placeholder="Tell us how we can help..." rows="6" required></textarea>
-              </div>
-              <button type="submit" class="es-btn es-btn--primary es-btn--arrow">
-                Send Message
-              </button>
-            </form>
-          </div>
-
+        <div class="es-contact-layout">
           <!-- Contact Info -->
           <div class="es-contact-info es-reveal es-reveal--delay-2">
             <div class="es-contact-info__block">

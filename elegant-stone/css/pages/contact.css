@@ -6,6 +6,12 @@
   background: var(--color-bg-primary);
 }
 
+.es-contact-layout {
+  width: 100%;
+  max-width: 720px;
+  margin-inline: auto;
+}
+
 .es-contact-info {
   display: flex;
   flex-direction: column;
