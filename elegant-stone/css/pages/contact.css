@@ -16,6 +16,14 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-8);
+  text-align: center;
+}
+
+.es-contact-info__social {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-3);
+  margin-top: var(--space-3);
 }
 
 .es-contact-info__block h3 {
