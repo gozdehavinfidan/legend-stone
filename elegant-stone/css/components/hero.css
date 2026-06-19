@@ -11,6 +11,8 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  /* Dark base shows before the video's first frame paints — no image flash */
+  background-color: #0a0a08;
 }
 
 .es-hero__media {
