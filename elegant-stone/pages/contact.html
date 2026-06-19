@@ -14,14 +14,13 @@
   <link rel="stylesheet" href="../css/variables.css">
   <link rel="stylesheet" href="../css/base.css">
   <link rel="stylesheet" href="../css/layout.css">
-  <link rel="stylesheet" href="../css/components/navbar.css">
+  <link rel="stylesheet" href="../css/components/navbar.css?v=2">
   <link rel="stylesheet" href="../css/components/hero.css">
   <link rel="stylesheet" href="../css/components/buttons.css">
   <link rel="stylesheet" href="../css/components/section-header.css">
-  <link rel="stylesheet" href="../css/components/forms.css">
   <link rel="stylesheet" href="../css/components/footer.css">
   <link rel="stylesheet" href="../css/components/atmosphere.css">
-  <link rel="stylesheet" href="../css/pages/contact.css">
+  <link rel="stylesheet" href="../css/pages/contact.css?v=3">
 </head>
 <body>
 
@@ -31,7 +30,6 @@
   <nav class="es-nav" data-nav-style="solid" role="navigation" aria-label="Main navigation">
     <div class="es-nav__inner">
       <a href="../index.html" class="es-nav__logo" aria-label="Elegant Stone — Home">
-        <span class="es-nav__logo-icon"><svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M20 2L35 12V28L20 38L5 28V12L20 2Z" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M20 8L30 14V26L20 32L10 26V14L20 8Z" fill="currentColor" opacity="0.3"/><circle cx="20" cy="20" r="4" fill="currentColor"/></svg></span>
         <span class="es-nav__logo-text">Elegant <span>Stone</span></span>
       </a>
       <div class="es-nav__links">
@@ -79,46 +77,7 @@
     <!-- Contact Section -->
     <section class="es-section es-contact-section">
       <div class="es-container">
-        <div class="es-split">
-
-          <!-- Contact Form -->
-          <div class="es-reveal">
-            <div class="es-section-header es-section-header--left">
-              <p class="es-section-header__eyebrow">Message Us</p>
-              <h2 class="es-section-header__title">Send a Message</h2>
-              <span class="es-section-header__line"></span>
-            </div>
-
-            <form class="es-form" action="#" method="post" data-contact-form>
-              <div class="es-input-group">
-                <label class="es-input-group__label" for="contact-name">Full Name</label>
-                <input class="es-input-group__field" type="text" id="contact-name" name="name" placeholder="Your name" required autocomplete="name">
-              </div>
-              <div class="es-input-group">
-                <label class="es-input-group__label" for="contact-email">Email Address</label>
-                <input class="es-input-group__field" type="email" id="contact-email" name="email" placeholder="you@example.com" required autocomplete="email">
-              </div>
-              <div class="es-input-group">
-                <label class="es-input-group__label" for="contact-subject">Subject</label>
-                <select class="es-input-group__field" id="contact-subject" name="subject" required>
-                  <option value="" disabled selected>Select a topic</option>
-                  <option value="general">General Inquiry</option>
-                  <option value="wholesale">Wholesale Information</option>
-                  <option value="collections">Collections &amp; Products</option>
-                  <option value="visit">Store Visit &amp; Locations</option>
-                  <option value="other">Other</option>
-                </select>
-              </div>
-              <div class="es-input-group">
-                <label class="es-input-group__label" for="contact-message">Message</label>
-                <textarea class="es-input-group__field" id="contact-message" name="message" placeholder="Tell us how we can help..." rows="6" required></textarea>
-              </div>
-              <button type="submit" class="es-btn es-btn--primary es-btn--arrow">
-                Send Message
-              </button>
-            </form>
-          </div>
-
+        <div class="es-contact-layout">
           <!-- Contact Info -->
           <div class="es-contact-info es-reveal es-reveal--delay-2">
             <div class="es-contact-info__block">
@@ -130,15 +89,10 @@
               <p><a href="mailto:info@elegantstone.com">info@elegantstone.com</a></p>
             </div>
             <div class="es-contact-info__block">
-              <h3>Store Hours</h3>
-              <p>Monday – Saturday: 10:00 AM – 9:00 PM<br>Sunday: 11:00 AM – 7:00 PM</p>
-            </div>
-            <div class="es-contact-info__block">
               <h3>Follow Us</h3>
               <p>Stay connected for new arrivals, behind-the-scenes stories, and exclusive in-store events.</p>
-              <div style="display: flex; gap: var(--space-3); margin-top: var(--space-3);">
-                                <a href="#" class="es-footer__social-link" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
-                <a href="#" class="es-footer__social-link" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg></a>
+              <div class="es-contact-info__social">
+                <a href="https://www.instagram.com/elegantstonebms?igsh=MXhuZ3Nzd2p4cHQybA==" class="es-footer__social-link" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
               </div>
             </div>
           </div>
@@ -156,8 +110,7 @@
         <div class="es-footer__logo"><span class="es-footer__logo-text">Elegant <span>Stone</span></span></div>
         <p class="es-footer__tagline">Curators of energy, light, and culture — bringing the world's most elegant wonders to you.</p>
         <div class="es-footer__social">
-                    <a href="#" class="es-footer__social-link" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
-          <a href="#" class="es-footer__social-link" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg></a>
+          <a href="https://www.instagram.com/elegantstonebms?igsh=MXhuZ3Nzd2p4cHQybA==" class="es-footer__social-link" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
         </div>
       </div>
       <div><h4 class="es-footer__column-title">Explore</h4><div class="es-footer__links"><a href="about.html" class="es-footer__link">About Us</a><a href="categories.html" class="es-footer__link">Collections</a><a href="gallery.html" class="es-footer__link">Gallery</a><a href="visit-us.html" class="es-footer__link">The Experience</a></div></div>

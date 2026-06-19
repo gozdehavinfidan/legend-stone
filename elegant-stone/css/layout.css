@@ -81,12 +81,6 @@
   }
 
   .es-grid--4 {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media (min-width: 1440px) {
-  .es-grid--4 {
     grid-template-columns: repeat(4, 1fr);
   }
 }
