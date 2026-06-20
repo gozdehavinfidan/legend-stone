@@ -38,11 +38,55 @@ function initThemeToggle() {
   });
 }
 
+/* ── Hero Video Autoplay (mobile-safe) ────── */
+
+function initHeroVideo() {
+  const video = document.querySelector('.es-hero__video');
+  if (!video) return;
+
+  // Force muted as a property — some mobile browsers only grant autoplay
+  // when this is true at the property level, not just the HTML attribute.
+  video.muted = true;
+  video.setAttribute('muted', '');
+
+  // Only ever (re)play when actually paused — never fight a play in progress.
+  const tryPlay = () => {
+    if (!video.paused) return;
+    const p = video.play();
+    if (p && typeof p.catch === 'function') p.catch(() => {});
+  };
+
+  // Recover on the first user gesture (the gesture itself satisfies autoplay
+  // policy) — fires once, then cleans itself up.
+  const recoverOnGesture = () => {
+    tryPlay();
+    ['touchstart', 'pointerdown', 'click', 'scroll'].forEach((evt) => {
+      window.removeEventListener(evt, recoverOnGesture);
+    });
+  };
+  ['touchstart', 'pointerdown', 'click', 'scroll'].forEach((evt) => {
+    window.addEventListener(evt, recoverOnGesture, { passive: true });
+  });
+
+  // Re-play whenever the tab/app regains focus (common pause trigger on mobile).
+  document.addEventListener('visibilitychange', () => {
+    if (!document.hidden) tryPlay();
+  });
+
+  // Initial attempt — wait for data if the element isn't ready yet.
+  if (video.readyState >= 2) {
+    tryPlay();
+  } else {
+    video.addEventListener('canplay', tryPlay, { once: true });
+  }
+}
+
 /* ── Initialize ───────────────────────────── */
 
 document.addEventListener('DOMContentLoaded', async () => {
   initThemeToggle();
   initNavigation();
+  initHeroVideo();
 
   // Detect if we're in /pages/ subfolder
   const isSubPage = window.location.pathname.includes('/pages/');
