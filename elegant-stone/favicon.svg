@@ -4,7 +4,7 @@
   <!-- Subtle gold hairline frame -->
   <rect x="1.25" y="1.25" width="61.5" height="61.5" rx="12.75"
         fill="none" stroke="#C9A84C" stroke-opacity="0.45" stroke-width="1.5"/>
-  <!-- ES monogram: E near-white, S gold (navbar two-tone) -->
+  <!-- ES monogram: E = near-white, S = gold (navbar two-tone) -->
   <text x="32" y="33" text-anchor="middle" dominant-baseline="central"
         font-family="'Cormorant Garamond', 'Cormorant', Georgia, 'Times New Roman', serif"
         font-size="40" font-weight="600" letter-spacing="1">
