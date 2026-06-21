@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!--
+    Social card source — screenshot this at exactly 1200x630 to produce og-image.png.
+    Mirrors favicon.svg (ES monogram) + navbar two-tone wordmark. Not linked by the
+    live site; kept in the repo so the card can be regenerated.
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Outfit:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold: #C9A84C;
+      --gold-light: #E2C97A;
+      --ink: #0e0e0c;
+      --cream: #F4F1E9;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html, body { width: 1200px; height: 630px; }
+
+    body {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: var(--ink);
+      overflow: hidden;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+    }
+
+    /* Warm gold ambient glow behind the mark */
+    .glow {
+      position: absolute;
+      top: 38%;
+      left: 50%;
+      width: 900px;
+      height: 900px;
+      transform: translate(-50%, -50%);
+      background: radial-gradient(circle, rgba(201,168,76,0.16) 0%, rgba(201,168,76,0.05) 38%, transparent 66%);
+      pointer-events: none;
+    }
+
+    /* Thin gold hairline frame (echoes the favicon border) */
+    .frame {
+      position: absolute;
+      inset: 28px;
+      border: 1.5px solid rgba(201,168,76,0.45);
+      border-radius: 10px;
+      pointer-events: none;
+    }
+
+    /* ES monogram tile — same two-tone as favicon.svg */
+    .monogram {
+      width: 132px;
+      height: 132px;
+      border-radius: 26px;
+      background: #131210;
+      border: 2px solid rgba(201,168,76,0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 18px 50px rgba(0,0,0,0.55), inset 0 1px 0 rgba(255,255,255,0.04);
+      margin-bottom: 40px;
+    }
+    .monogram span {
+      font-weight: 600;
+      font-size: 78px;
+      line-height: 1;
+      letter-spacing: 1px;
+    }
+    .monogram .e { color: var(--cream); }
+    .monogram .s { color: var(--gold); }
+
+    /* Wordmark — "Elegant" cream, "Stone" gold (matches navbar) */
+    .wordmark {
+      font-weight: 500;
+      font-size: 96px;
+      line-height: 1;
+      letter-spacing: 1px;
+      color: var(--cream);
+    }
+    .wordmark .stone { color: var(--gold); }
+
+    /* Gold divider rule */
+    .rule {
+      width: 120px;
+      height: 1.5px;
+      margin: 34px 0 26px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+
+    /* Tagline */
+    .tagline {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 300;
+      font-size: 27px;
+      letter-spacing: 7px;
+      text-transform: uppercase;
+      color: rgba(226,201,122,0.85);
+    }
+  </style>
+</head>
+<body>
+  <div class="glow"></div>
+  <div class="frame"></div>
+
+  <div class="monogram"><span><span class="e">E</span><span class="s">S</span></span></div>
+
+  <div class="wordmark">Elegant <span class="stone">Stone</span></div>
+
+  <div class="rule"></div>
+
+  <div class="tagline">Where Nature Meets Artistry</div>
+</body>
+</html>
